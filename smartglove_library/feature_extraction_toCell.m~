@@ -5,7 +5,7 @@ for n = 1:file_count
     if n == 1
         %hand_data = ones(1, 12);
         %wrist_data = ones(1, 6);
-         
+        
          hand_read = dlmread(sprintf('Hand_IMU_%d_%d.txt', age, n)); %Read hand data
          wrist_read = dlmread(sprintf('Wrist_IMU_%d_%d.txt', age, n)); %Read wrist
          hand_data = {hand_read};

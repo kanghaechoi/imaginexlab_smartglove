@@ -21,15 +21,6 @@ options = trainingOptions('adam', 'ExecutionEnvironment', 'auto', ...,
     'MaxEpochs', max_epochs, 'MiniBatchSize', mini_batch_size, ...
     'GradientThreshold', 1, 'Verbose', false, 'Plots', 'training-progress');
 
-
-figure
-plot(x{1}')
-xlabel("Time Step")
-title("Training Observation 1")
-numFeatures = size(x{1},1);
-legend("Feature " + string(1:numFeatures),'Location','northeastoutside')
-
-
 net = trainNetwork(x, y_categories, layers, options);
 
 end
