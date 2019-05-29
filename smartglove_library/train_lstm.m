@@ -7,6 +7,22 @@ y = labels;
 %x_cell = mat2cell(x, 1);
 y_categories = categorical(y);
 
+
+% Sort the data by length
+numObservations = numel(x);
+
+for i=1:numObservations
+    sequence = x{i,1};
+    [m, n] = size(sequence);
+    sequenceLengths(i) = m;
+end
+
+[sequenceLengths,idx] = sort(sequenceLengths);
+x = x(idx);
+y_categories = y_categories(idx);
+
+
+
 input_size = 11;
 hidden_layer_size = 100;
 output_size = 2;
@@ -22,12 +38,6 @@ options = trainingOptions('adam', 'ExecutionEnvironment', 'auto', ...,
     'GradientThreshold', 1, 'Verbose', false, 'Plots', 'training-progress');
 
 
-figure
-plot(x{1}')
-xlabel("Time Step")
-title("Training Observation 1")
-numFeatures = size(x{1},1);
-legend("Feature " + string(1:numFeatures),'Location','northeastoutside')
 
 
 net = trainNetwork(x, y_categories, layers, options);

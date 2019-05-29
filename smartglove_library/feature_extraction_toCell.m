@@ -2,6 +2,7 @@ function [features, labels] = feature_extraction(b1, a1, age, file_count)
 %% Feature extraction
 
 for n = 1:file_count
+
     if n == 1
         %hand_data = ones(1, 12);
         %wrist_data = ones(1, 6);
