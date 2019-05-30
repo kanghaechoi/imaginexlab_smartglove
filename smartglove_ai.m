@@ -3,7 +3,7 @@
 addpath('smartglove_library');
 
 %% Initialization
-code_initialize;
+code_i nitialize;
 LSTM = true;
 BOTH =false;
 %% 5 Hz low-pass filter
