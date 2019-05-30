@@ -29,7 +29,7 @@ if(not(LSTM)||BOTH)
 
     %% Signal analyzing
 
-    signalAnalyzer;
+    %signalAnalyzer;
 
     %% Convolution neural network training
 

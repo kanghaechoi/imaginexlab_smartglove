@@ -21,23 +21,52 @@ end
 x = x(idx);
 y_categories = y_categories(idx);
 
+for iC = 1:numel(x)
+  x{iC} = rot90(x{iC});
+end
 
 
-input_size = 11;
-hidden_layer_size = 100;
-output_size = 2;
+figure
+plot(x{1}')
+xlabel("Time Step")
+title("Training Observation 1")
+numFeatures = size(x{1},1);
+legend("Feature " + string(1:numFeatures),'Location','northeastoutside')
 
-layers = [sequenceInputLayer(input_size), lstmLayer(hidden_layer_size, 'OutputMode', 'last'), ...
-    fullyConnectedLayer(output_size), softmaxLayer, classificationLayer];
+figure
+bar(sequenceLengths)
+ylim([0 6000])
+xlabel("Sequence")
+ylabel("Length")
+title("Sorted Data")
 
-max_epochs = 100;
-mini_batch_size = 100;
+maxEpochs = 100;
+miniBatchSize = 2;
 
-options = trainingOptions('adam', 'ExecutionEnvironment', 'auto', ...,
-    'MaxEpochs', max_epochs, 'MiniBatchSize', mini_batch_size, ...
-    'GradientThreshold', 1, 'Verbose', false, 'Plots', 'training-progress');
+options = trainingOptions('adam', ...
+    'ExecutionEnvironment','auto', ...
+    'GradientThreshold',1, ...
+    'MaxEpochs',maxEpochs, ...
+    'MiniBatchSize',miniBatchSize, ...
+    'SequenceLength','longest', ...
+    'Shuffle','every-epoch', ...
+    'Verbose',1, ...
+    'Plots','training-progress');
 
 
+numFeatures = 11;
+numHiddenUnits1 = 125;
+numHiddenUnits2 = 100;
+numClasses = 2;
+layers = [ ...
+    sequenceInputLayer(numFeatures)
+    lstmLayer(numHiddenUnits1,'OutputMode','sequence')
+    dropoutLayer(0.2)
+    lstmLayer(numHiddenUnits2,'OutputMode','last')
+    dropoutLayer(0.2)
+    fullyConnectedLayer(numClasses)
+    softmaxLayer
+    classificationLayer];
 
 
 net = trainNetwork(x, y_categories, layers, options);
