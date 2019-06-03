@@ -3,65 +3,64 @@
 addpath('smartglove_library');
 
 %% Initialization
-code_initialize;
+codeInitialize;
 
 LSTM = true;
-BOTH =false;
+BOTH = false;
 
 %% 5 Hz low-pass filter
-fs = 100; %Sample frequency 100Hz
-[b1, a1] = butterworth_5hz(fs); % =[b1,a1] =butterworth_5hz(fs): 5Hz low-pass filter
+FS = 100; %Sample frequency 100Hz
+[B1, A1] = butterworth5hz(FS); % [B1,A1] =butterworth5hz(FS): 5Hz low-pass filter
 
-[file_count_20, age_20] = input_count(20); %[file_count, age] = input_count(age)
-[file_count_60, age_60] = input_count(60); %[file_count, age] = input_count(age)
+[fileCount20, age20] = inputCount(20); %[fileCount, AGE] = inputCount(AGE)
+[fileCount60, age60] = inputCount(60); %[fileCount, AGE] = inputCount(AGE)
 
-if(not(LSTM)||BOTH)
-    %% Smart glove data read & feature extraction
+if(not(LSTM)|| BOTH)
+%% Smart glove data read & feature extraction
 
     %Subjects in 20s
-    [features_20, labels_20] = feature_extraction(b1, a1, age_20, file_count_20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+    [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
     %Subjects in 60s
    
-    [features_60, labels_60] = feature_extraction(b1, a1, age_60, file_count_60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+    [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
 
     %Subjects in total
-    features_total = [features_20; features_60]; %Features from 20s + Features from 60s
-    labels_total = [labels_20; labels_60]; %
+    featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
+    labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
 
 
-    %% Signal analyzing
+%% Signal analyzing
 
     %signalAnalyzer;
 
-    %% Convolution neural network training
+%% Convolution neural network training
 
-    %[net, tr] = train_cnn(features_total, labels_total); %Pattern network
+    %[net, tr] = trainCnn(featuresTotal, labelsTotal); %Pattern network
 
-    %% Long short-term memory network training
+%% Long short-term memory network training
 
-    %[net] = train_lstm(features_total, labels_total); %LSTM network
+    %[net] = trainLstm(featuresTotal, labelsTotal); %LSTM network
 
 end
 
-if(LSTM|| BOTH)
-    %% Smart glove data read & feature extraction
+if(LSTM || BOTH)
+%% Smart glove data read & feature extraction
 
     %Subjects in 20s
-    [features_20_cell, labels_20_cell] = feature_extraction_toCell(b1, a1, age_20, file_count_20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+    [features20Cell, labels20Cell] = featureExtractionToCell(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
 
     %Subjects in 60s
-    [features_60_cell, labels_60_cell] = feature_extraction_toCell(b1, a1, age_60, file_count_60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-
+    [features60Cell, labels60Cell] = featureExtractionToCell(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
     %Subjects in total
-    features_total_cell = [features_20_cell; features_60_cell]; %Features from 20s + Features from 60s
-    labels_total_cell = [labels_20_cell; labels_60_cell]; %
+    featuresTotalCell = [features20Cell; features60Cell]; %Features from 20s + Features from 60s
+    labelsTotalCell = [labels20Cell; labels60Cell]; %
 
-    %% Signal analyzing
+%% Signal analyzing
 
     %signalAnalyzer;
     
-    %% Long short-term memory network training
+%% Long short-term memory network training
 
-    [net] = train_lstm(features_total_cell, labels_total_cell); %LSTM network
+    %[net] = trainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
     
 end
