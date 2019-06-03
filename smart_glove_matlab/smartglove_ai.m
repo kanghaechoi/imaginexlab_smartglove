@@ -3,9 +3,11 @@
 addpath('smartglove_library');
 
 %% Initialization
-code_i nitialize;
+code_initialize;
+
 LSTM = true;
 BOTH =false;
+
 %% 5 Hz low-pass filter
 fs = 100; %Sample frequency 100Hz
 [b1, a1] = butterworth_5hz(fs); % =[b1,a1] =butterworth_5hz(fs): 5Hz low-pass filter
@@ -42,7 +44,6 @@ if(not(LSTM)||BOTH)
 end
 
 if(LSTM|| BOTH)
-    
     %% Smart glove data read & feature extraction
 
     %Subjects in 20s
@@ -55,11 +56,12 @@ if(LSTM|| BOTH)
     features_total_cell = [features_20_cell; features_60_cell]; %Features from 20s + Features from 60s
     labels_total_cell = [labels_20_cell; labels_60_cell]; %
 
-
     %% Signal analyzing
 
     %signalAnalyzer;
+    
     %% Long short-term memory network training
 
     [net] = train_lstm(features_total_cell, labels_total_cell); %LSTM network
+    
 end
