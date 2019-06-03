@@ -3,8 +3,8 @@ function [net] = trainLstm(features, labels)
 
 x = features;
 y = labels;
-%y_vector = ind2vec(y);
-%x_cell = mat2cell(x, 1);
+%yVector = ind2vec(y);
+%xCell = mat2cell(x, 1);
 yCategories = categorical(y);
 
 % Sort the data by length
