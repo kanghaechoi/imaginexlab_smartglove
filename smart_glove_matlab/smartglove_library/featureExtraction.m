@@ -43,22 +43,49 @@ wristAngleX = wristData(:,1); %Wrist x-axis Euler angle
 wristAngleY = wristData(:,2); %Wrist y-axis Euler angle
 wristAngleZ = wristData(:,3); %Wrist z-axis Euler angle
 
+%% Feature scaling
+%Acceleration
+scaledThumbAccMag = normalize(thumbAccMag, 'norm');
+scaledIndexAccMag = normalize(indexAccMag, 'norm');
+scaledWristAccMag = normalize(wristAccMag, 'norm');
+
+%Euler angle
+%Degree to Radian
+scaledThumbAngleX = deg2rad(thumbAngleX);
+scaledIndexAngleX = deg2rad(indexAngleX);
+scaledHandAngleX = deg2rad(handAngleX);
+scaledHandAngleY = deg2rad(handAngleY);
+scaledHandAngleZ = deg2rad(handAngleZ);
+scaledWristAngleX = deg2rad(wristAngleX);
+scaledWristAngleY = deg2rad(wristAngleY);
+scaledWristAngleZ = deg2rad(wristAngleZ);
+
+%Degree to Radian + Normalization
+% scaledThumbAngleX = normalize(deg2rad(thumbAngleX), 'norm');
+% scaledIndexAngleX = normalize(deg2rad(indexAngleX), 'norm');
+% scaledHandAngleX = normalize(deg2rad(handAngleX), 'norm');
+% scaledHandAngleY = normalize(deg2rad(handAngleY), 'norm');
+% scaledHandAngleZ = normalize(deg2rad(handAngleZ), 'norm');
+% scaledWristAngleX = normalize(deg2rad(wristAngleX), 'norm');
+% scaledWristAngleY = normalize(deg2rad(wristAngleY), 'norm');
+% scaledWristAngleZ = normalize(deg2rad(wristAngleZ), 'norm');
+
 %% Data filtering
 
 %Acceleration
-zplThumbAccMag = (filtfilt(B1,A1,thumbAccMag'))'; %Zero-phase filtering + Matrix transpose
-zplIndexAccMag = (filtfilt(B1,A1,indexAccMag'))'; %Zero-phase filtering + Matrix transpose
-zplWristAccMag = (filtfilt(B1,A1,wristAccMag'))'; %Zero-phase filtering + Matrix transpose
+zplThumbAccMag = (filtfilt(B1,A1,scaledThumbAccMag'))'; %Zero-phase filtering + Matrix transpose
+zplIndexAccMag = (filtfilt(B1,A1,scaledIndexAccMag'))'; %Zero-phase filtering + Matrix transpose
+zplWristAccMag = (filtfilt(B1,A1,scaledWristAccMag'))'; %Zero-phase filtering + Matrix transpose
 
 %Euler angle
-zplThumbAngleX = (filtfilt(B1,A1,thumbAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplIndexAngleX = (filtfilt(B1,A1,indexAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleX = (filtfilt(B1,A1,handAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleY = (filtfilt(B1,A1,handAngleY'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleZ = (filtfilt(B1,A1,handAngleZ'))';%Zero-phase filtering + Matrix transpose
-zplWristAngleX = (filtfilt(B1,A1,wristAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplWristAngleY = (filtfilt(B1,A1,wristAngleY'))'; %Zero-phase filtering + Matrix transpose
-zplWristAngleZ = (filtfilt(B1,A1,wristAngleZ'))'; %Zero-phase filtering + Matrix transpose
+zplThumbAngleX = (filtfilt(B1,A1,scaledThumbAngleX'))'; %Zero-phase filtering + Matrix transpose
+zplIndexAngleX = (filtfilt(B1,A1,scaledIndexAngleX'))'; %Zero-phase filtering + Matrix transpose
+zplHandAngleX = (filtfilt(B1,A1,scaledHandAngleX'))'; %Zero-phase filtering + Matrix transpose
+zplHandAngleY = (filtfilt(B1,A1,scaledHandAngleY'))'; %Zero-phase filtering + Matrix transpose
+zplHandAngleZ = (filtfilt(B1,A1,scaledHandAngleZ'))';%Zero-phase filtering + Matrix transpose
+zplWristAngleX = (filtfilt(B1,A1,scaledWristAngleX'))'; %Zero-phase filtering + Matrix transpose
+zplWristAngleY = (filtfilt(B1,A1,scaledWristAngleY'))'; %Zero-phase filtering + Matrix transpose
+zplWristAngleZ = (filtfilt(B1,A1,scaledWristAngleZ'))'; %Zero-phase filtering + Matrix transpose
 
 %% Data resizing
 
@@ -77,22 +104,6 @@ resizedWristAngleX = zplWristAngleX(1:featureLength,1);
 resizedWristAngleY = zplWristAngleY(1:featureLength,1);
 resizedWristAngleZ = zplWristAngleZ(1:featureLength,1);
 
-%% Feature scaling
-%Acceleration
-scaledThumbAccMag = normalize(resizedThumbAccMag, 'norm');
-scaledIndexAccMag = normalize(resizedIndexAccMag, 'norm');
-scaledWristAccMag = normalize(resizedWristAccMag, 'norm');
-
-%Euler angle
-scaledThumbAngleX = normalize(resizedThumbAngleX, 'norm');
-scaledIndexAngleX = normalize(resizedIndexAngleX, 'norm');
-scaledHandAngleX = normalize(resizedHandAngleX, 'norm');
-scaledHandAngleY = normalize(resizedHandAngleY, 'norm');
-scaledHandAngleZ = normalize(resizedHandAngleZ, 'norm');
-scaledWristAngleX = normalize(resizedWristAngleX, 'norm');
-scaledWristAngleY = normalize(resizedWristAngleY, 'norm');
-scaledWristAngleZ = normalize(resizedWristAngleZ, 'norm');
-
 %% Create a label column (feature_length x 1) 
 
 labels = ones(featureLength, 1);
@@ -100,7 +111,7 @@ labels = (AGE * labels) / 10;
 
 %% Create feature columns (feature_length x 11)
 
-features = [scaledThumbAccMag, scaledIndexAccMag, scaledWristAccMag, scaledThumbAngleX, scaledIndexAngleX, ...
-    scaledHandAngleX, scaledHandAngleY, scaledHandAngleZ, scaledWristAngleX, scaledWristAngleY, scaledWristAngleZ];
+features = [resizedThumbAccMag, resizedIndexAccMag, resizedWristAccMag, resizedThumbAngleX, resizedIndexAngleX, ...
+    resizedHandAngleX, resizedHandAngleY, resizedHandAngleZ, resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
 
 end

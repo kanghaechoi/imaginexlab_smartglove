@@ -8,18 +8,18 @@ y = labels;
 yCategories = categorical(y);
 
 % Sort the data by length
-% numObservations = numel(x);
-% 
-% for i=1:numObservations
-%     sequence = x{i,1};
-%     [m, n] = size(sequence);
-%     sequenceLengths(i) = m;
-% end
-% 
-% [sequenceLengths,idx] = sort(sequenceLengths);
-% x = x(idx);
-% y_categories = y_categories(idx);
-% 
+numObservations = numel(x);
+
+for i = 1:numObservations
+    CELL_SEQUENCE = x{i,1};
+    m = size(CELL_SEQUENCE, 2);
+    sequenceLengths(i) = m;
+end
+
+[sequenceLengths,idx] = sort(sequenceLengths);
+x = x(idx);
+yCategories = yCategories(idx);
+
 % for iC = 1:numel(x)
 %   x{iC} = rot90(x{iC});
 % end
@@ -30,14 +30,15 @@ plot(x{1}')
 xlabel("Time Step")
 title("Training Observation 1")
 numFeatures = size(x{1},1);
-legend("Feature " + string(1:numFeatures),'Location','northeastoutside')
+legend("Feature " + string(1:numFeatures), 'Location', 'northeastoutside')
+hold on;
 
-% figure
-% bar(sequenceLengths)
-% ylim([0 6000])
-% xlabel("Sequence")
-% ylabel("Length")
-% title("Sorted Data")
+figure
+bar(sequenceLengths)
+ylim([0 6000])
+xlabel("Sequence")
+ylabel("Length")
+title("Sorted Data")
 
 maxEpochs = 50;
 miniBatchSize = 3;

@@ -62,14 +62,25 @@ scaledIndexAccMag = normalize(indexAccMag, 'norm');
 scaledWristAccMag = normalize(wristAccMag, 'norm');
 
 %Euler angle
-scaledThumbAngleX = normalize(deg2rad(thumbAngleX), 'norm');
-scaledIndexAngleX = normalize(deg2rad(indexAngleX), 'norm');
-scaledHandAngleX = normalize(deg2rad(handAngleX), 'norm');
-scaledHandAngleY = normalize(deg2rad(handAngleY), 'norm');
-scaledHandAngleZ = normalize(deg2rad(handAngleZ), 'norm');
-scaledWristAngleX = normalize(deg2rad(wristAngleX), 'norm');
-scaledWristAngleY = normalize(deg2rad(wristAngleY), 'norm');
-scaledWristAngleZ = normalize(deg2rad(wristAngleZ), 'norm');
+%Degree to Radian
+scaledThumbAngleX = deg2rad(thumbAngleX);
+scaledIndexAngleX = deg2rad(indexAngleX);
+scaledHandAngleX = deg2rad(handAngleX);
+scaledHandAngleY = deg2rad(handAngleY);
+scaledHandAngleZ = deg2rad(handAngleZ);
+scaledWristAngleX = deg2rad(wristAngleX);
+scaledWristAngleY = deg2rad(wristAngleY);
+scaledWristAngleZ = deg2rad(wristAngleZ);
+
+%Degree to Radian + Normalization
+% scaledThumbAngleX = normalize(deg2rad(thumbAngleX), 'norm');
+% scaledIndexAngleX = normalize(deg2rad(indexAngleX), 'norm');
+% scaledHandAngleX = normalize(deg2rad(handAngleX), 'norm');
+% scaledHandAngleY = normalize(deg2rad(handAngleY), 'norm');
+% scaledHandAngleZ = normalize(deg2rad(handAngleZ), 'norm');
+% scaledWristAngleX = normalize(deg2rad(wristAngleX), 'norm');
+% scaledWristAngleY = normalize(deg2rad(wristAngleY), 'norm');
+% scaledWristAngleZ = normalize(deg2rad(wristAngleZ), 'norm');
 
 %% Data filtering
 

@@ -29,7 +29,6 @@ if(CNN)
     featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
     labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
 
-
 %% Signal analyzing
 
     %signalAnalyzer;
@@ -62,6 +61,6 @@ if(LSTM)
     
 %% Long short-term memory network training
 
-    %[net] = trainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
+    [net] = trainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
     
 end
