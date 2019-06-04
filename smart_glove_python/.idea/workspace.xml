@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature_extraction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../smart_glove_matlab/smartglove_ai.m" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_glove_matlab/smartglove_ai.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_glove_matlab/smartglove_library/train_lstm.m" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_glove_matlab/smartglove_library/train_lstm.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartglove_ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartglove_ai.py" afterDir="false" />
     </list>
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="345">
+              <caret line="23" column="8" selection-start-line="23" selection-end-line="23" selection-end-column="8" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -33,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="-313">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -45,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="61" column="43" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="43" />
+            <state relative-caret-position="622">
+              <caret line="72" column="55" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="55" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -75,8 +73,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/feature_extraction.py" />
-        <option value="$PROJECT_DIR$/file_read.py" />
         <option value="$PROJECT_DIR$/smartglove_ai.py" />
+        <option value="$PROJECT_DIR$/file_read.py" />
         <option value="$PROJECT_DIR$/Users.py" />
       </list>
     </option>
@@ -91,6 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,11 +97,15 @@
               <item name="smart_glove_python" type="b2602c69:ProjectViewProjectNode" />
               <item name="smart_glove_python" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="smart_glove_python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smart_glove_python" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,22 +224,24 @@
       <workItem from="1559203234419" duration="1037000" />
       <workItem from="1559265899578" duration="2794000" />
       <workItem from="1559276824796" duration="16335000" />
+      <workItem from="1559610579605" duration="10155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28999000" />
+    <option name="totallyTimeSpent" value="39154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13701351" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13780779" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.48759124" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4021898" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4021898" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -259,18 +264,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Users.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Users.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -281,7 +274,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/smart_glove_python$smartglove_ai.coverage" NAME="smartglove_ai Coverage Results" MODIFIED="1559547775146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/smart_glove_python$smartglove_ai.coverage" NAME="smartglove_ai Coverage Results" MODIFIED="1559630482943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
@@ -305,9 +298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_1.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/feature_extraction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -315,10 +305,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/file_read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="43" />
+        <state relative-caret-position="622">
+          <caret line="72" column="55" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="55" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -327,8 +320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="345">
+          <caret line="23" column="8" selection-start-line="23" selection-end-line="23" selection-end-column="8" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -337,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="-313">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>

@@ -60,7 +60,6 @@ def read_files_numpy(array_age, number_files):
 
 
 def read_files_User(array_age, number_files):
-    start = time.time()
     size_array = len(array_age)
     size_nb_files = len(number_files)
 
@@ -70,9 +69,8 @@ def read_files_User(array_age, number_files):
         for j in range(1, number_files[i]+1):
             hand_read = genfromtxt(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file, delimiter=' ')
             wrist_read = genfromtxt(path + wrist_path + str(array_age[i]) + '_' + str(j) + format_file, delimiter=' ')
-            usr = User(hand_read, wrist_read)
+            # print(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file)
+            usr = User(hand_read, wrist_read, array_age[i])
             UserList.append(usr)
-    elapsed = time.time() - start
-    print(elapsed)
-    return [UserList]
+    return UserList
 

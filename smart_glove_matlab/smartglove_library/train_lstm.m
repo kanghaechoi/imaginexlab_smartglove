@@ -1,29 +1,28 @@
-function [net] = train_lstm(features, labels)
+function [net] = trainLstm(features, labels)
 %% Long short-term memory network training sequence
 
 x = features;
 y = labels;
-%y_vector = ind2vec(y);
-%x_cell = mat2cell(x, 1);
-y_categories = categorical(y);
-
+%yVector = ind2vec(y);
+%xCell = mat2cell(x, 1);
+yCategories = categorical(y);
 
 % Sort the data by length
 numObservations = numel(x);
 
-for i=1:numObservations
-    sequence = x{i,1};
-    [m, n] = size(sequence);
+for i = 1:numObservations
+    CELL_SEQUENCE = x{i,1};
+    m = size(CELL_SEQUENCE, 2);
     sequenceLengths(i) = m;
 end
 
 [sequenceLengths,idx] = sort(sequenceLengths);
 x = x(idx);
-y_categories = y_categories(idx);
+yCategories = yCategories(idx);
 
-for iC = 1:numel(x)
-  x{iC} = rot90(x{iC});
-end
+% for iC = 1:numel(x)
+%   x{iC} = rot90(x{iC});
+% end
 
 
 figure
@@ -31,7 +30,8 @@ plot(x{1}')
 xlabel("Time Step")
 title("Training Observation 1")
 numFeatures = size(x{1},1);
-legend("Feature " + string(1:numFeatures),'Location','northeastoutside')
+legend("Feature " + string(1:numFeatures), 'Location', 'northeastoutside')
+hold on;
 
 figure
 bar(sequenceLengths)
@@ -40,8 +40,8 @@ xlabel("Sequence")
 ylabel("Length")
 title("Sorted Data")
 
-maxEpochs = 100;
-miniBatchSize = 2;
+maxEpochs = 50;
+miniBatchSize = 3;
 
 options = trainingOptions('adam', ...
     'ExecutionEnvironment','auto', ...
@@ -68,8 +68,6 @@ layers = [ ...
     softmaxLayer
     classificationLayer];
 
-
-net = trainNetwork(x, y_categories, layers, options);
+net = trainNetwork(x, yCategories, layers, options);
 
 end
-

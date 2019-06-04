@@ -3,7 +3,7 @@
 addpath('smartglove_library');
 
 %% Initialization
-code_i nitialize;
+code_initialize;
 LSTM = true;
 BOTH =false;
 %% 5 Hz low-pass filter
@@ -29,7 +29,7 @@ if(not(LSTM)||BOTH)
 
     %% Signal analyzing
 
-    %signalAnalyzer;
+    signalAnalyzer;
 
     %% Convolution neural network training
 
@@ -61,5 +61,5 @@ if(LSTM|| BOTH)
     %signalAnalyzer;
     %% Long short-term memory network training
 
-    [net] = train_lstm(features_total_cell, labels_total_cell); %LSTM network
+    %[net] = train_lstm(features_total_cell, labels_total_cell); %LSTM network
 end
