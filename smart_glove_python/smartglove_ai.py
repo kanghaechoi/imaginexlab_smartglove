@@ -11,7 +11,7 @@ import time
 # read the file
 
 ages = [20, 60]
-number_files = [15, 3]
+number_files = [24, 3]
 ##====== Classic read =======
 #[hand_data, wrist_data] = read_files(ages, number_files)
 #feature_extraction(hand_data, wrist_data)
