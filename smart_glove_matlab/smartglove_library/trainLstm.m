@@ -70,9 +70,4 @@ layers = [ ...
 
 net = trainNetwork(x, yCategories, layers, options);
 
-<<<<<<< HEAD:smart_glove_matlab/smartglove_library/train_lstm.m
 end
-=======
-end
-
->>>>>>> b15626cfc4a6632bcbd85d0184d96287d7a4cad8:smart_glove_matlab/smartglove_library/trainLstm.m

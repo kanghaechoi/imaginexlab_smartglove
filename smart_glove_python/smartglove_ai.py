@@ -5,11 +5,8 @@ import time
 # read the file
 
 ages = [20, 60]
+
 number_files = [15, 3]
-
-
-
-
 
 ##====== Object read =======
 start = time.time()
