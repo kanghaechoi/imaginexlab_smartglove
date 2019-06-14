@@ -3,6 +3,7 @@ from numpy import genfromtxt
 import numpy as np
 import time
 from Users import User
+import glob
 
 
 
@@ -34,7 +35,7 @@ def read_files(array_age, number_files):
 
     # print(len(hand_data));
     # print(len(wrist_data));
-    return [hand_data, wrist_data]
+    return hand_data, wrist_data
 
 
 def read_files_numpy(array_age, number_files):
@@ -59,16 +60,20 @@ def read_files_numpy(array_age, number_files):
 
 
 
-def read_files_User(array_age, number_files):
+def read_files_User(array_age):
     size_array = len(array_age)
-    size_nb_files = len(number_files)
-
-    if size_array != size_nb_files:
-        raise Exception('There is a problem with the size of one of the data')
+    list_file_hand = []
+    list_file_wrist = []
     for i in range(size_array):
-        for j in range(1, number_files[i]+1):
-            hand_read = genfromtxt(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file, delimiter=' ')
-            wrist_read = genfromtxt(path + wrist_path + str(array_age[i]) + '_' + str(j) + format_file, delimiter=' ')
+        list_file_hand = glob.glob(path + hand_path+str(array_age[i])+"*"+format_file)
+        list_file_wrist = glob.glob(path + wrist_path + str(array_age[i]) + "*" + format_file)
+        list_file_hand.sort()
+        list_file_wrist.sort()
+        for j in range(0,len(list_file_hand)):
+            print(list_file_hand[j])
+            print(list_file_wrist[j])
+            hand_read = genfromtxt(list_file_hand[j], delimiter=' ')
+            wrist_read = genfromtxt(list_file_wrist[j], delimiter=' ')
             # print(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file)
             usr = User(hand_read, wrist_read, array_age[i])
             UserList.append(usr)
