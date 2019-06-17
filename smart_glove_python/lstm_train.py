@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 from keras.datasets import imdb
 from keras.models import Sequential
 from keras.layers import Dense
@@ -10,7 +10,7 @@ from keras.preprocessing import sequence
 def lstm_train(X_train, y_train, X_test, y_test):
 
     # fix random seed for reproducibility
-    numpy.random.seed(7)
+    np.random.seed(7)
     # load the dataset but only keep the top n words, zero the rest
     # truncate and pad input sequences
     max_review_length = 500

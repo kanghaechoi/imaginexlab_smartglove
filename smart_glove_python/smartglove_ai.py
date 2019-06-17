@@ -10,13 +10,13 @@ ages = [20, 60]
 
 number_files = [24, 3]
 number_test_by_people = 3
-frequency  = 100
+frequency = 100
 
 
 ##====== Object read for graph =======
 Test_subject = []
 hand_data, wrist_data = read_files(ages, number_files)
-for i in range(0,len(hand_data), 3):
+for i in range(0, len(hand_data), 3):
     print("============")
     time = len(hand_data[i])/frequency
     time2 = len(hand_data[i+1])/frequency
