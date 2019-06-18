@@ -3,9 +3,9 @@ from numpy import genfromtxt
 import numpy as np
 import time
 from Users import User
+from Users import UserDataframe
 import glob
-
-
+import pandas as pd
 
 
 path = 'data/'
@@ -76,6 +76,34 @@ def read_files_User(array_age):
             wrist_read = genfromtxt(list_file_wrist[j], delimiter=' ')
             # print(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file)
             usr = User(hand_read, wrist_read, array_age[i])
+            UserList.append(usr)
+    return UserList
+
+
+def read_files_dataframe(array_age):
+    size_array = len(array_age)
+    with open(path + "DataFrameFileInfoHand" + format_file, "r") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=';')
+        columnsHands = list(csv_reader)
+    with open(path + "DataFrameFileInfoWrist" + format_file, "r") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=';')
+        columnsWrist = list(csv_reader)
+    for i in range(size_array):
+        list_file_hand = glob.glob(path + hand_path+str(array_age[i])+"*"+format_file)
+        list_file_wrist = glob.glob(path + wrist_path + str(array_age[i]) + "*" + format_file)
+        list_file_hand.sort()
+        list_file_wrist.sort()
+
+        for j in range(0,len(list_file_hand)):
+            hand_read = pd.read_csv(list_file_hand[j], sep=' ', header=None)
+            hand_read = hand_read.dropna(axis='columns')
+            hand_read.columns = columnsHands[0]
+            wrist_read = pd.read_csv(list_file_wrist[j],sep=' ', header=None)
+            wrist_read = wrist_read.dropna(axis='columns')
+            wrist_read.columns = columnsWrist[0]
+            # print(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file)
+            usr = UserDataframe(hand_read, wrist_read, array_age[i])
+
             UserList.append(usr)
     return UserList
 
