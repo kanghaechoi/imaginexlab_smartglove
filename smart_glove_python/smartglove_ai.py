@@ -8,9 +8,7 @@ ages = [20, 60] # Differents class of ages, used for the supervised learning pro
 number_files = [51, 3]  # Number of files according the the ages variable
 number_test_by_people = 3 # Actual number of tests by people
 frequency = 100  # Number of line per seconds in the txt file
-
 # plotting(ages,number_files,number_test_by_people,frequency) # plotting
-
 
 '''
 ##====== Object read =======

@@ -30,9 +30,9 @@ def feature_extraction(hand_data, wrist_data):
     index_acc = hand_data[:, (9, 10, 11)]
     wrist_acc = wrist_data[:, (3, 4, 5)]
 
-    thumb_acc_mag = np.sum(np.multiply(thumb_acc, thumb_acc), 1) / 1e+6;
-    index_acc_mag = np.sum(np.multiply(index_acc, index_acc), 1) / 1e+6;
-    wrist_acc_mag = np.sum(np.multiply(wrist_acc, wrist_acc), 1) / 1e+6;
+    thumb_acc_mag = np.sum(np.multiply(thumb_acc, thumb_acc), 1);
+    index_acc_mag = np.sum(np.multiply(index_acc, index_acc), 1);
+    wrist_acc_mag = np.sum(np.multiply(wrist_acc, wrist_acc), 1);
     # Finger Euler angle
     thumb_x_angle = hand_data[:, 3]
     index_x_angle = hand_data[:, 4]
@@ -51,7 +51,7 @@ def feature_extraction(hand_data, wrist_data):
     index_acc_mag = np.reshape(index_acc_mag, (1, -1))
     wrist_acc_mag = np.reshape(wrist_acc_mag, (1, -1))
 
-    scaled_thumb_acc_mag = preprocessing.normalize(thumb_acc_mag, norm='l1');
+    scaled_thumb_acc_mag = preprocessing.normalize(thumb_acc_mag, norm='l2');
     scaled_index_acc_mag = preprocessing.normalize(index_acc_mag, norm='l2');
     scaled_wrist_acc_mag = preprocessing.normalize(wrist_acc_mag, norm='l2');
 
