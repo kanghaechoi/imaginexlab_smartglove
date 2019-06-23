@@ -44,31 +44,31 @@ wristAngleY = wristData(:,2); %Wrist y-axis Euler angle
 wristAngleZ = wristData(:,3); %Wrist z-axis Euler angle
 
 %% Feature scaling
+
 %Acceleration
-scaledThumbAccMag = normalize(thumbAccMag, 'norm');
-scaledIndexAccMag = normalize(indexAccMag, 'norm');
-scaledWristAccMag = normalize(wristAccMag, 'norm');
+scaledThumbAccMag = featureScale(thumbAccMag);
+scaledIndexAccMag = featureScale(indexAccMag);
+scaledWristAccMag = featureScale(wristAccMag);
 
 %Euler angle
 %Degree to Radian
-scaledThumbAngleX = deg2rad(thumbAngleX);
-scaledIndexAngleX = deg2rad(indexAngleX);
-scaledHandAngleX = deg2rad(handAngleX);
-scaledHandAngleY = deg2rad(handAngleY);
-scaledHandAngleZ = deg2rad(handAngleZ);
-scaledWristAngleX = deg2rad(wristAngleX);
-scaledWristAngleY = deg2rad(wristAngleY);
-scaledWristAngleZ = deg2rad(wristAngleZ);
+% scaledThumbAngleX = deg2rad(thumbAngleX);
+% scaledIndexAngleX = deg2rad(indexAngleX);
+% scaledHandAngleX = deg2rad(handAngleX);
+% scaledHandAngleY = deg2rad(handAngleY);
+% scaledHandAngleZ = deg2rad(handAngleZ);
+% scaledWristAngleX = deg2rad(wristAngleX);
+% scaledWristAngleY = deg2rad(wristAngleY);
+% scaledWristAngleZ = deg2rad(wristAngleZ);
 
-%Degree to Radian + Normalization
-% scaledThumbAngleX = normalize(deg2rad(thumbAngleX), 'norm');
-% scaledIndexAngleX = normalize(deg2rad(indexAngleX), 'norm');
-% scaledHandAngleX = normalize(deg2rad(handAngleX), 'norm');
-% scaledHandAngleY = normalize(deg2rad(handAngleY), 'norm');
-% scaledHandAngleZ = normalize(deg2rad(handAngleZ), 'norm');
-% scaledWristAngleX = normalize(deg2rad(wristAngleX), 'norm');
-% scaledWristAngleY = normalize(deg2rad(wristAngleY), 'norm');
-% scaledWristAngleZ = normalize(deg2rad(wristAngleZ), 'norm');
+scaledThumbAngleX = featureScale(deg2rad(thumbAngleX));
+scaledIndexAngleX = featureScale(deg2rad(indexAngleX));
+scaledHandAngleX = featureScale(deg2rad(handAngleX));
+scaledHandAngleY = featureScale(deg2rad(handAngleY));
+scaledHandAngleZ = featureScale(deg2rad(handAngleZ));
+scaledWristAngleX = featureScale(deg2rad(wristAngleX));
+scaledWristAngleY = featureScale(deg2rad(wristAngleY));
+scaledWristAngleZ = featureScale(deg2rad(wristAngleZ));
 
 %% Data filtering
 
