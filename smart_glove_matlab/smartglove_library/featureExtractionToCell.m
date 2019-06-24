@@ -58,10 +58,6 @@ wristAngleZ = wristData{k}(:,3); %Wrist z-axis Euler angle
 %% Feature scaling
 
 %Acceleration
-% scaledThumbAccMag = normalize(thumbAccMag, 'scale');
-% scaledIndexAccMag = normalize(indexAccMag, 'scale');
-% scaledWristAccMag = normalize(wristAccMag, 'scale');
-
 scaledThumbAccMag = featureScale(thumbAccMag);
 scaledIndexAccMag = featureScale(indexAccMag);
 scaledWristAccMag = featureScale(wristAccMag);
@@ -76,16 +72,6 @@ scaledWristAccMag = featureScale(wristAccMag);
 % scaledWristAngleX = deg2rad(wristAngleX);
 % scaledWristAngleY = deg2rad(wristAngleY);
 % scaledWristAngleZ = deg2rad(wristAngleZ);
-
-%Degree to Radian + Normalization
-% scaledThumbAngleX = normalize(deg2rad(thumbAngleX), 'scale');
-% scaledIndexAngleX = normalize(deg2rad(indexAngleX), 'scale');
-% scaledHandAngleX = normalize(deg2rad(handAngleX), 'scale');
-% scaledHandAngleY = normalize(deg2rad(handAngleY), 'scale');
-% scaledHandAngleZ = normalize(deg2rad(handAngleZ), 'scale');
-% scaledWristAngleX = normalize(deg2rad(wristAngleX), 'scale');
-% scaledWristAngleY = normalize(deg2rad(wristAngleY), 'scale');
-% scaledWristAngleZ = normalize(deg2rad(wristAngleZ), 'scale');
 
 scaledThumbAngleX = featureScale(deg2rad(thumbAngleX));
 scaledIndexAngleX = featureScale(deg2rad(indexAngleX));

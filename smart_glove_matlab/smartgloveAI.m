@@ -5,9 +5,8 @@ addpath('smartglove_library');
 %% Initialization
 codeInitialize;
 
-% Network selection logics
-LSTM = true;
-CNN = false;
+% Network selection logics (0:CNN, 1:LSTM)
+netSelect = 1;
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = 100; %Sample frequency 100Hz
@@ -16,7 +15,7 @@ SAMPLE_FREQ = 100; %Sample frequency 100Hz
 [fileCount20, age20] = inputCount(20); %[fileCount, AGE] = inputCount(AGE)
 [fileCount60, age60] = inputCount(60); %[fileCount, AGE] = inputCount(AGE)
 
-if(CNN)
+if(netSelect == 0)
 %% Smart glove data read & feature extraction
 
     %Subjects in 20s
@@ -33,17 +32,13 @@ if(CNN)
 
     %signalAnalyzer;
 
-%% Convolution neural network training
+%% Convolutional neural network training
 
     %[net, tr] = trainCnn(featuresTotal, labelsTotal); %Pattern network
 
-%% Long short-term memory network training
-
-    %[net] = trainLstm(featuresTotal, labelsTotal); %LSTM network
-
 end
 
-if(LSTM)
+if(netSelect == 1)
 %% Smart glove data read & feature extraction
 
     %Subjects in 20s

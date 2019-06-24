@@ -24,24 +24,29 @@ yCategories = yCategories(idx);
 %   x{iC} = rot90(x{iC});
 % end
 
+%% Signal plotting
 
-figure
-plot(x{1}')
-xlabel("Time Step")
-title("Training Observation 1")
-numFeatures = size(x{1},1);
-legend("Feature " + string(1:numFeatures), 'Location', 'northeastoutside')
-hold on;
+% figure
+% plot(x{1}')
+% xlabel("Time Step")
+% title("Training Observation 1")
+% numFeatures = size(x{1},1);
+% legend("Feature " + string(1:numFeatures), 'Location', 'northeastoutside')
+% hold on;
 
-figure
-bar(sequenceLengths)
-ylim([0 6000])
-xlabel("Sequence")
-ylabel("Length")
-title("Sorted Data")
+%% Sequence length plotting
+
+% figure
+% bar(sequenceLengths)
+% ylim([0 6000])
+% xlabel("Sequence")
+% ylabel("Length")
+% title("Sorted Data")
+
+%% LSTM network options
 
 maxEpochs = 50;
-miniBatchSize = 3;
+miniBatchSize = 18; % Total iteration count = maxEpochs * miniBatchSize
 
 options = trainingOptions('adam', ...
     'ExecutionEnvironment','auto', ...
@@ -51,13 +56,13 @@ options = trainingOptions('adam', ...
     'SequenceLength','longest', ...
     'Shuffle','every-epoch', ...
     'Verbose',1, ...
-    'Plots','training-progress');
+    'Plots','training-progress'); % LSTM network training options
 
 
-numFeatures = 11;
-numHiddenUnits1 = 125;
-numHiddenUnits2 = 100;
-numClasses = 2;
+numFeatures = 11; % The number of input nodes
+numHiddenUnits1 = 125; % The number of layer 1 nodes
+numHiddenUnits2 = 100; % The number of layer 2 nodes
+numClasses = 2; % The number of output nodes
 layers = [ ...
     sequenceInputLayer(numFeatures)
     lstmLayer(numHiddenUnits1,'OutputMode','sequence')
@@ -66,7 +71,7 @@ layers = [ ...
     dropoutLayer(0.2)
     fullyConnectedLayer(numClasses)
     softmaxLayer
-    classificationLayer];
+    classificationLayer]; % Layer configuration
 
 net = trainNetwork(x, yCategories, layers, options);
 
