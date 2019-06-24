@@ -95,6 +95,7 @@ def read_files_dataframe(array_age):
         list_file_wrist.sort()
 
         for j in range(0,len(list_file_hand)):
+            print(list_file_hand[j])
             hand_read = pd.read_csv(list_file_hand[j], sep=' ', header=None)
             hand_read = hand_read.dropna(axis='columns')
             hand_read.columns = columnsHands[0]
@@ -103,7 +104,6 @@ def read_files_dataframe(array_age):
             wrist_read.columns = columnsWrist[0]
             # print(path + hand_path + str(array_age[i]) + '_' + str(j) + format_file)
             usr = UserDataframe(hand_read, wrist_read, array_age[i])
-
             UserList.append(usr)
     return UserList
 

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/DataFrameFeaturesInfo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/DataFrameFileInfoHand.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/DataFrameFileInfoWrist.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plotting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_glove_matlab/smartgloveAI.m" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_glove_matlab/smartgloveAI.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_generation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lstm_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartglove_ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartglove_ai.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,32 +17,41 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5108878">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lstm_train.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Users.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1141">
+                  <caret line="165" selection-start-line="165" selection-end-line="165" />
+                  <folding>
+                    <element signature="e#0#33#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfoWrist.txt">
+            <entry file="file://$PROJECT_DIR$/dataset_generation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="41" selection-start-column="28" selection-end-column="41" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfoHand.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="38" selection-start-column="26" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_1.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5850">
-                  <caret line="390" selection-start-line="390" selection-end-line="390" />
+                <state relative-caret-position="525">
+                  <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -52,50 +59,14 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lstm_train.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-                  <folding>
-                    <element signature="e#0#12#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/file_read.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+        <leaf>
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+                <state relative-caret-position="285">
+                  <caret line="19" selection-start-line="19" selection-end-line="19" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Users.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="195" column="27" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#33#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -127,22 +98,23 @@
         <option value="$PROJECT_DIR$/data/test_lstm.py" />
         <option value="$PROJECT_DIR$/test_lstm.py" />
         <option value="/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/numpy/lib/format.py" />
-        <option value="$PROJECT_DIR$/dataset_generation.py" />
-        <option value="$PROJECT_DIR$/lstm_train.py" />
-        <option value="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" />
         <option value="$PROJECT_DIR$/plotting.py" />
-        <option value="$PROJECT_DIR$/smartglove_ai.py" />
         <option value="$PROJECT_DIR$/data/DataFrameFileInfo.txt" />
         <option value="$PROJECT_DIR$/data/DataFrameFileInfoHand.txt" />
         <option value="$PROJECT_DIR$/data/DataFrameFileInfoWrist.txt" />
+        <option value="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" />
         <option value="$PROJECT_DIR$/file_read.py" />
         <option value="$PROJECT_DIR$/Users.py" />
+        <option value="$PROJECT_DIR$/smartglove_ai.py" />
+        <option value="$PROJECT_DIR$/lstm_train.py" />
+        <option value="$PROJECT_DIR$/dataset_generation.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="height" value="1373" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -317,15 +289,15 @@
       <workItem from="1559632462016" duration="687000" />
       <workItem from="1559872289244" duration="14210000" />
       <workItem from="1560388438053" duration="13472000" />
-      <workItem from="1560734431189" duration="16973000" />
+      <workItem from="1560734431189" duration="36044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84687000" />
+    <option name="totallyTimeSpent" value="103758000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1373" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1373" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09253376" />
@@ -334,7 +306,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.28103045" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2138954" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6338798" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -374,9 +346,14 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Users.py</url>
-          <line>199</line>
-          <option name="timeStamp" value="74" />
+          <url>file://$PROJECT_DIR$/lstm_train.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dataset_generation.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -395,7 +372,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/smart_glove_python$test_lstm.coverage" NAME="test_lstm Coverage Results" MODIFIED="1560312278841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/smart_glove_python$smartglove_ai.coverage" NAME="smartglove_ai Coverage Results" MODIFIED="1560835991361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/smart_glove_python$smartglove_ai.coverage" NAME="smartglove_ai Coverage Results" MODIFIED="1561015216323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
@@ -447,21 +424,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_42.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41087" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_40.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-59674" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_41.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plotting.py">
@@ -480,30 +445,10 @@
     <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfo.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
           <caret line="51" column="133" lean-forward="true" selection-start-line="51" selection-start-column="133" selection-end-line="51" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset_generation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -514,30 +459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_read.py">
+    <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfoWrist.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5850">
-          <caret line="390" selection-start-line="390" selection-end-line="390" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="41" selection-start-column="28" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -548,19 +473,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfoWrist.txt">
+    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_46.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Wrist_IMU_20_41.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_42.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_41.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="41" selection-start-column="28" selection-end-column="41" />
+          <caret column="135" selection-start-column="135" selection-end-column="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-160">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Wrist_IMU_20_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63158" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58268">
+          <caret line="390" selection-start-line="390" selection-end-line="390" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="195" column="27" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
+        <state relative-caret-position="1141">
+          <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lstm_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset_generation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -61,6 +61,6 @@ if(LSTM)
     
 %% Long short-term memory network training
 
-    %[net] = trainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
+    [net] = trainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
     
 end
