@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../smart_glove_matlab/smartgloveAI.m" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_glove_matlab/smartgloveAI.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_generation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lstm_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartglove_ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartglove_ai.py" afterDir="false" />
-    </list>
+    <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +15,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lstm_train.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
+                <state relative-caret-position="210">
                   <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
@@ -35,7 +27,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Users.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1141">
+                <state relative-caret-position="2415">
                   <caret line="165" selection-start-line="165" selection-end-line="165" />
                   <folding>
                     <element signature="e#0#33#0" expanded="true" />
@@ -59,7 +51,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -290,17 +282,18 @@
       <workItem from="1559872289244" duration="14210000" />
       <workItem from="1560388438053" duration="13472000" />
       <workItem from="1560734431189" duration="36044000" />
+      <workItem from="1561339124540" duration="1141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103758000" />
+    <option name="totallyTimeSpent" value="104899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1373" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09253376" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0929309" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,9 +435,7 @@
     <entry file="file://$PROJECT_DIR$/data/Smart Glove Data Column Info.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfo.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/DataFrameFileInfo.txt" />
     <entry file="file://$PROJECT_DIR$/data/Hand_IMU_20_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -508,32 +499,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
+    <entry file="file://$PROJECT_DIR$/lstm_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="210">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1141">
+        <state relative-caret-position="2415">
           <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -544,6 +525,16 @@
           <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smartglove_ai.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

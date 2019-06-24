@@ -65,10 +65,10 @@ numHiddenUnits2 = 100; % The number of layer 2 nodes
 numClasses = 2; % The number of output nodes
 layers = [ ...
     sequenceInputLayer(numFeatures)
-    lstmLayer(numHiddenUnits1,'OutputMode','sequence')
-    dropoutLayer(0.2)
-    lstmLayer(numHiddenUnits2,'OutputMode','last')
-    dropoutLayer(0.2)
+    %lstmLayer(numHiddenUnits1,'OutputMode','sequence')
+    %dropoutLayer(0.2)
+    bilstmLayer(numHiddenUnits2,'OutputMode','last')
+    %dropoutLayer(0.2)
     fullyConnectedLayer(numClasses)
     softmaxLayer
     classificationLayer]; % Layer configuration
