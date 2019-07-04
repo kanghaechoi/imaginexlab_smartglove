@@ -73,36 +73,36 @@ scaledWristAngleZ = featureScale(deg2rad(wristAngleZ));
 %% Data filtering
 
 %Acceleration
-zplThumbAccMag = (filtfilt(B1,A1,scaledThumbAccMag'))'; %Zero-phase filtering + Matrix transpose
-zplIndexAccMag = (filtfilt(B1,A1,scaledIndexAccMag'))'; %Zero-phase filtering + Matrix transpose
-zplWristAccMag = (filtfilt(B1,A1,scaledWristAccMag'))'; %Zero-phase filtering + Matrix transpose
+filtThumbAccMag = (filtfilt(B1,A1,scaledThumbAccMag'))'; %Zero-phase filtering + Matrix transpose
+filtIndexAccMag = (filtfilt(B1,A1,scaledIndexAccMag'))'; %Zero-phase filtering + Matrix transpose
+filtWristAccMag = (filtfilt(B1,A1,scaledWristAccMag'))'; %Zero-phase filtering + Matrix transpose
 
 %Euler angle
-zplThumbAngleX = (filtfilt(B1,A1,scaledThumbAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplIndexAngleX = (filtfilt(B1,A1,scaledIndexAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleX = (filtfilt(B1,A1,scaledHandAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleY = (filtfilt(B1,A1,scaledHandAngleY'))'; %Zero-phase filtering + Matrix transpose
-zplHandAngleZ = (filtfilt(B1,A1,scaledHandAngleZ'))';%Zero-phase filtering + Matrix transpose
-zplWristAngleX = (filtfilt(B1,A1,scaledWristAngleX'))'; %Zero-phase filtering + Matrix transpose
-zplWristAngleY = (filtfilt(B1,A1,scaledWristAngleY'))'; %Zero-phase filtering + Matrix transpose
-zplWristAngleZ = (filtfilt(B1,A1,scaledWristAngleZ'))'; %Zero-phase filtering + Matrix transpose
+filtThumbAngleX = (filtfilt(B1,A1,scaledThumbAngleX'))'; %Zero-phase filtering + Matrix transpose
+filtIndexAngleX = (filtfilt(B1,A1,scaledIndexAngleX'))'; %Zero-phase filtering + Matrix transpose
+filtHandAngleX = (filtfilt(B1,A1,scaledHandAngleX'))'; %Zero-phase filtering + Matrix transpose
+filtHandAngleY = (filtfilt(B1,A1,scaledHandAngleY'))'; %Zero-phase filtering + Matrix transpose
+filtHandAngleZ = (filtfilt(B1,A1,scaledHandAngleZ'))';%Zero-phase filtering + Matrix transpose
+filtWristAngleX = (filtfilt(B1,A1,scaledWristAngleX'))'; %Zero-phase filtering + Matrix transpose
+filtWristAngleY = (filtfilt(B1,A1,scaledWristAngleY'))'; %Zero-phase filtering + Matrix transpose
+filtWristAngleZ = (filtfilt(B1,A1,scaledWristAngleZ'))'; %Zero-phase filtering + Matrix transpose
 
 %% Data resizing
 
 %Acceleration
-resizedThumbAccMag = zplThumbAccMag(1:featureLength,1);
-resizedIndexAccMag = zplIndexAccMag(1:featureLength,1);
-resizedWristAccMag = zplWristAccMag(1:featureLength,1);
+resizedThumbAccMag = filtThumbAccMag(1:featureLength,1);
+resizedIndexAccMag = filtIndexAccMag(1:featureLength,1);
+resizedWristAccMag = filtWristAccMag(1:featureLength,1);
 
 %Euler angle
-resizedThumbAngleX = zplThumbAngleX(1:featureLength,1);
-resizedIndexAngleX = zplIndexAngleX(1:featureLength,1);
-resizedHandAngleX = zplHandAngleX(1:featureLength,1);
-resizedHandAngleY = zplHandAngleY(1:featureLength,1);
-resizedHandAngleZ = zplHandAngleZ(1:featureLength,1);
-resizedWristAngleX = zplWristAngleX(1:featureLength,1);
-resizedWristAngleY = zplWristAngleY(1:featureLength,1);
-resizedWristAngleZ = zplWristAngleZ(1:featureLength,1);
+resizedThumbAngleX = filtThumbAngleX(1:featureLength,1);
+resizedIndexAngleX = filtIndexAngleX(1:featureLength,1);
+resizedHandAngleX = filtHandAngleX(1:featureLength,1);
+resizedHandAngleY = filtHandAngleY(1:featureLength,1);
+resizedHandAngleZ = filtHandAngleZ(1:featureLength,1);
+resizedWristAngleX = filtWristAngleX(1:featureLength,1);
+resizedWristAngleY = filtWristAngleY(1:featureLength,1);
+resizedWristAngleZ = filtWristAngleZ(1:featureLength,1);
 
 %% Create a label column (feature_length x 1) 
 

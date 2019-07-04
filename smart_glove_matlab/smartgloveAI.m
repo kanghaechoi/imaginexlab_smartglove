@@ -18,15 +18,22 @@ SAMPLE_FREQ = 100; %Sample frequency 100Hz
 if(netSelect == 0)
 %% Smart glove data read & feature extraction
 
-    %Subjects in 20s
-    [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-    %Subjects in 60s
-   
-    [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+%     %Subjects in 20s
+%     [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+%     %Subjects in 60s
+%    
+%     [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+% 
+%     %Subjects in total
+%     featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
+%     labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
 
-    %Subjects in total
-    featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
-    labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
+%% Smart glove data read & feature extraction in 3D array
+    %Subjects in 20s
+    [features20, labels20] = featureExtraction3D(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        
+    %Subjects in 60s
+    [features60, labels60] = featureExtraction3D(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
 
 %% Signal analyzing
 

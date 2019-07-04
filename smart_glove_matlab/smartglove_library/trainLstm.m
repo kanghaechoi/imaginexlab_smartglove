@@ -20,6 +20,10 @@ end
 x = x(idx);
 yCategories = yCategories(idx);
 
+ii = randperm(size(x,1), 20);
+xValidation = x(ii);
+yValidation = yCategories(ii);
+
 % for iC = 1:numel(x)
 %   x{iC} = rot90(x{iC});
 % end
@@ -45,8 +49,8 @@ yCategories = yCategories(idx);
 
 %% LSTM network options
 
-maxEpochs = 50;
-miniBatchSize = 18; % Total iteration count = maxEpochs * miniBatchSize
+maxEpochs = 100;
+miniBatchSize = 17; % Total iteration count = maxEpochs * miniBatchSize
 
 options = trainingOptions('adam', ...
     'ExecutionEnvironment','auto', ...
@@ -56,11 +60,14 @@ options = trainingOptions('adam', ...
     'SequenceLength','longest', ...
     'Shuffle','every-epoch', ...
     'Verbose',1, ...
+    'ValidationData',{xValidation, yValidation}, ...
+    'ValidationFrequency', 30, ...
+    'LearnRateSchedule', 'piecewise', ...
     'Plots','training-progress'); % LSTM network training options
 
 
 numFeatures = 11; % The number of input nodes
-numHiddenUnits1 = 125; % The number of layer 1 nodes
+%numHiddenUnits1 = 125; % The number of layer 1 nodes
 numHiddenUnits2 = 100; % The number of layer 2 nodes
 numClasses = 2; % The number of output nodes
 layers = [ ...
