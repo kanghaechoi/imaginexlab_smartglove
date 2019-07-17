@@ -1,4 +1,4 @@
-function [net,tr] = trainCnn(features, labels)
+function [net,tr, ranks, weights] = trainCnn(features, labels)
 %% Convolution neural network training sequence
 
 x = features';
@@ -14,6 +14,8 @@ net.divideParam.testRatio = 15/100;
 net.performFcn = 'crossentropy';
 
 yVector = ind2vec(y);
+
+[ranks, weights] = relieff(x', y', 1);
 
 [net, tr] = train(net, x, yVector);
 

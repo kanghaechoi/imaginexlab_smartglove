@@ -1,4 +1,4 @@
-function [net] = trainLstm(features, labels)
+function [net, ranks, weights] = trainLstm(features, labels)
 %% Long short-term memory network training sequence
 
 x = features;
@@ -83,4 +83,3 @@ layers = [ ...
 net = trainNetwork(x, yCategories, layers, options);
 
 end
-∂
