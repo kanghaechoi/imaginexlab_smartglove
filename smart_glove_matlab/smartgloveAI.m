@@ -5,7 +5,7 @@ addpath('smartglove_library');
 %% Initialization
 codeInitialize;
 
-% Network selection logics (0:CNN, 1:LSTM)
+% Network selection logics (0: PCA, 1:CNN, 2:LSTM)
 NETSELECT = uint8(0);
 
 %% 5 Hz low-pass filter
@@ -26,8 +26,23 @@ if(NETSELECT == 0)
     %Subjects in total
     featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
     labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
+    
+%% Principle Component Analysis
+    [reducedFeatures, numOfK] = featureReduction(featuresTotal);
 
-    [ranks, weights] = relieff(featuresTotal, labelsTotal, 2);
+end
+    
+if(NETSELECT == 1)
+%% Smart glove data read & feature extraction
+    %Subjects in 20s
+    [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+    %Subjects in 60s
+   
+    [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+
+    %Subjects in total
+    featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
+    labelsTotal = [labels20; labels60]; %Labels from 20s + Labels from 60s
     
 %% Smart glove data read & feature extraction in 3D array
 %     Subjects in 20s
@@ -46,7 +61,7 @@ if(NETSELECT == 0)
 
 end
 
-if(NETSELECT == 1)
+if(NETSELECT == 2)
 %% Smart glove data read & feature extraction
 
     %Subjects in 20s
