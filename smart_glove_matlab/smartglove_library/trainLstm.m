@@ -1,28 +1,29 @@
-function [net, ranks, weights] = trainLstm(features, labels)
+function [net] = trainLstm(features, reducedFeatures, labels, numOfK)
 %% Long short-term memory network training sequence
 
-x = features;
-y = labels;
+reducedFeatureMat = reducedFeatures;
+labelMat = labels;
+featureMat = features;
 %yVector = ind2vec(y);
 %xCell = mat2cell(x, 1);
-yCategories = categorical(y);
+labelCategories = categorical(labelMat);
 
 % Sort the data by length
-numObservations = numel(x);
+numObservations = numel(reducedFeatureMat);
 
 for i = 1:numObservations
-    CELL_SEQUENCE = x{i,1};
+    CELL_SEQUENCE = reducedFeatureMat{i,1};
     m = size(CELL_SEQUENCE, 2);
     sequenceLengths(i) = m;
 end
 
 [sequenceLengths,idx] = sort(sequenceLengths);
-x = x(idx);
-yCategories = yCategories(idx);
+reducedFeatureMat = reducedFeatureMat(idx);
+labelCategories = labelCategories(idx);
 
-ii = randperm(size(x,1), 20);
-xValidation = x(ii);
-yValidation = yCategories(ii);
+ii = randperm(size(reducedFeatureMat,1), 20);
+xValidation = reducedFeatureMat(ii);
+yValidation = labelCategories(ii);
 
 % for iC = 1:numel(x)
 %   x{iC} = rot90(x{iC});
@@ -66,7 +67,7 @@ options = trainingOptions('adam', ...
     'Plots','training-progress'); % LSTM network training options
 
 
-numFeatures = 11; % The number of input nodes
+numFeatures = numOfK; % The number of input nodes
 %numHiddenUnits1 = 125; % The number of layer 1 nodes
 numHiddenUnits2 = 100; % The number of layer 2 nodes
 numClasses = 2; % The number of output nodes
@@ -80,6 +81,6 @@ layers = [ ...
     softmaxLayer
     classificationLayer]; % Layer configuration
 
-net = trainNetwork(x, yCategories, layers, options);
+net = trainNetwork(reducedFeatureMat, labelCategories, layers, options);
 
 end

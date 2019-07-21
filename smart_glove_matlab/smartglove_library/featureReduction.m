@@ -1,4 +1,4 @@
-function [reducedInput, idx] = featureReduction(inputMat)
+function [reducedU, idx, varRetain] = featureReduction(inputMat)
 %% Principle Component Analysis (PCA)
 [numOfSample, numOfFeat] = size(inputMat);
 varRetain = zeros(numOfFeat, 1);
@@ -12,8 +12,8 @@ end
 
 idx = find(varRetain > 0.99, 1); %Find variance error below 1%
 
-reducedU = U(:,1:idx);
-reducedInput = reducedU' * inputMat'; %Reduced input matrix by PCA
+reducedU = U(:,1:idx); % Feature reducing matrix
+%reducedInput = reducedU' * inputMat'; %Reduced input matrix by PCA
 
 end
 
