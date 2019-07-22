@@ -3,7 +3,7 @@ function [reducedU, idx, varRetain] = featureReduction(inputMat)
 [numOfSample, numOfFeat] = size(inputMat);
 varRetain = zeros(numOfFeat, 1);
 
-sigma = (1 / numOfSample) * (inputMat' * inputMat); %Covariance
+sigma = cov(inputMat, 'omitrows'); %Covariance
 [U, S, V] = svd(sigma); %Singular Value Decomposition
 
 for k = 1 : numOfFeat

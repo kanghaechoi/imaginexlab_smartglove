@@ -1,4 +1,4 @@
-function [features, reducedFeatures, labels] = featureExtractionToCell(B1, A1, AGE, fileCount, pcaMat)
+function [features, labels] = featureExtractionToCell(B1, A1, AGE, fileCount)
 %% Feature extraction
 
 %Read .txt file
@@ -144,7 +144,7 @@ angles = [resizedThumbAngleX resizedIndexAngleX ...
 %% Create feature columns (feature_length x 11)
 
 features = [accelerations velocities angles]';
-reducedFeatures = pcaMat' * features;
+%reducedFeatures = pcaMat' * features;
 
 %features= [features; {featuresData}];
 
@@ -152,7 +152,13 @@ reducedFeatures = pcaMat' * features;
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
-labels = ones(featureLength, 1);
-labels = (AGE * labels) / 10;
+labels = ones(1, 1);
+if AGE == 20
+    labels = labels * 0;
+elseif AGE == 40
+    labels = labels * 0.5;
+elseif AGE == 60
+    labels = labels * 1;
+end
 
 end

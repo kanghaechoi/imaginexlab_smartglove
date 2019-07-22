@@ -8,7 +8,7 @@ addpath('smartglove_library');
 codeInitialize;
 
 % Network selection logics (0: PCA, 1:CNN, 2:LSTM)
-NETSELECT = uint8(0);
+NETSELECT = uint8(2);
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = single(100); %Sample frequency 100Hz
@@ -26,7 +26,7 @@ if(NETSELECT == 0)
     %Subjects in 20s
     for n20 = 1 : fileCount20
         if n20 == 1
-            [features20Data] = featureExtractionPca(age20, n20); ...
+            [features20Data] = featureExtractionPca2dfd(age20, n20); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20 = features20Data;
             continue;
@@ -41,7 +41,7 @@ if(NETSELECT == 0)
     %Subjects in 40s
     for n40 = 1 : fileCount40
         if n40 == 1
-            [features40Data] = featureExtractionPca(age40, n40); ...
+            [features40Data] = featureExtractionPca2(age40, n40); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40 = features40Data;
             continue;
@@ -56,7 +56,7 @@ if(NETSELECT == 0)
     %Subjects in 60s
     for n60 = 1 : fileCount60
         if n60 == 1
-            [features60Data] = featureExtractionPca(age60, n60); ...
+            [features60Data] = featureExtractionPca2(age60, n60); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features60 = features60Data;
             continue;
@@ -69,7 +69,8 @@ if(NETSELECT == 0)
     end
     
     %Subjects in total
-    featuresTotal = [features20; features60]; %Features from 20s + Features from 60s
+    featuresTotal = [features20; features40; features60]; %Features from 20s + Features from 60s
+    scaledFeaturesTotal = featureScale(featuresTotal);
     
 %% Principle Component Analysis
     [pcaMat, numOfK, varRetain] = featureReduction(featuresTotal);
@@ -90,10 +91,14 @@ if(NETSELECT == 0)
             prompt2 = "Will you continue to train neural network?\n" + ...
                "If so, choose '1'(CNN) or '2'(LSTM): ";
             NETSELECT = input(prompt2);
+            if NETSELECT ~= 1 && NETSELECT ~= 2
+                fprintf("You inserted a wrong number\n");
+            end
+            fprintf("\n");
         elseif continueAns == 'N'
             fprintf("See ya!\n");
         else
-            fprintf("You inserted a wrong letter");
+            fprintf("You inserted a wrong letter\n");
         end
     end
 
@@ -131,7 +136,7 @@ end
 if(NETSELECT == 2)
 %% Load PCA matrix
   
-    load('pcaResult.mat');
+    %load('pcaResult.mat');
 
 %% Smart glove data read & feature extraction
 
@@ -145,19 +150,19 @@ if(NETSELECT == 2)
     %Subjects in 20s
     for n20 = 1 : fileCount20
         if n20 == 1
-            [features20Data, reducedFeatures20Data, labels20Data] = ...
-                featureExtractionToCell(B1, A1, age20, n20, pcaMat); ...
+            [features20Data, labels20Data] = ...
+                featureExtractionToCell(B1, A1, age20, n20); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20Cell = {features20Data};
-            reducedFeatures20Cell = {reducedFeatures20Data};
+            %reducedFeatures20Cell = {reducedFeatures20Data};
             labels20Cell = labels20Data;
             continue;
         else
-            [features20Data, reducedFeatures20Data, labels20Data] = ...
-                featureExtractionToCell(B1, A1, age20, n20, pcaMat); ...
+            [features20Data, labels20Data] = ...
+                featureExtractionToCell(B1, A1, age20, n20); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20Cell = [features20Cell; {features20Data}];
-            reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
+            %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
             labels20Cell = [labels20Cell; labels20Data];
         end
     end
@@ -165,19 +170,19 @@ if(NETSELECT == 2)
     %Subjects in 40s
     for n40 = 1 : fileCount40
         if n40 == 1
-            [features40Data, reducedFeatures40Data, labels40Data] = ...
-                featureExtractionToCell(B1, A1, age40, n40, pcaMat); ...
+            [features40Data, labels40Data] = ...
+                featureExtractionToCell(B1, A1, age40, n40); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40Cell = {features40Data};
-            reducedFeatures40Cell = {reducedFeatures40Data};
+            %reducedFeatures40Cell = {reducedFeatures40Data};
             labels40Cell = labels40Data;
             continue;
         else
-            [features40Data, reducedFeatures40Data, labels40Data] = ...
-                featureExtractionToCell(B1, A1, age40, n40, pcaMat); ...
+            [features40Data, labels40Data] = ...
+                featureExtractionToCell(B1, A1, age40, n40); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40Cell = [features40Cell; {features40Data}];
-            reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
+            %reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
             labels40Cell = [labels40Cell; labels40Data];
         end
     end
@@ -185,29 +190,33 @@ if(NETSELECT == 2)
     %Subjects in 60s
     for n60 = 1 : fileCount60
         if n60 == 1
-            [features60Data, reducedFeatures60Data, labels60Data] = ...
-                featureExtractionToCell(B1, A1, age60, n60, pcaMat); ...
+            [features60Data, labels60Data] = ...
+                featureExtractionToCell(B1, A1, age60, n60); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features60Cell = {features60Data};
-            reducedFeatures60Cell = {reducedFeatures60Data};
+            %reducedFeatures60Cell = {reducedFeatures60Data};
             labels60Cell = labels60Data;
             continue;
         else
-            [features60Data, reducedFeatures60Data, labels60Data] = ...
-                featureExtractionToCell(B1, A1, age60, n60, pcaMat); ...
+            [features60Data, labels60Data] = ...
+                featureExtractionToCell(B1, A1, age60, n60); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features60Cell = [features60Cell; {features60Data}];
-            reducedFeatures60Cell = [reducedFeatures60Cell; {reducedFeatures60Data}];
+            %reducedFeatures60Cell = [reducedFeatures60Cell; {reducedFeatures60Data}];
             labels60Cell = [labels60Cell; labels60Data];
         end
     end
     
     %Subjects in total
-    featuresTotalCell = [features20Cell; features40Cell; ...
+    featuresTotalCell = [features20Cell; ...
+        features40Cell; ...
         features60Cell]; %Features from 20s + Features from 60s
-    reducedFeaturesTotalCell = [reducedFeatures20Cell; reducedFeatures40Cell; ...
-        reducedFeatures60Cell];
-    labelsTotalCell = [labels20Cell; labels40Cell; labels60Cell]; %
+    %reducedFeaturesTotalCell = [reducedFeatures20Cell; ...
+    %    reducedFeatures40Cell; ...
+    %    reducedFeatures60Cell];
+    labelsTotalCell = [labels20Cell; ... 
+        labels40Cell; ...
+        labels60Cell];
 
 %% Signal analyzing
 
@@ -215,7 +224,7 @@ if(NETSELECT == 2)
     
 %% Long short-term memory network training
 
-    %[net] = trainLstm(featuresTotalCell, reducedFeaturesTotalCell, ...
-        %labelsTotalCell, numOfK); %LSTM network
+    [net] = trainLstm(featuresTotalCell, ...
+        labelsTotalCell); %LSTM network
     
 end
