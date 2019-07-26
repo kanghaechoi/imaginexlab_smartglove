@@ -1,4 +1,4 @@
-function [features, labels] = featureExtractionToCell(B1, A1, AGE, fileCount)
+function [features, labels, lengths] = featureExtractionToCell(B1, A1, AGE, fileCount)
 %% Feature extraction
 
 %Read .txt file
@@ -145,6 +145,7 @@ angles = [resizedThumbAngleX resizedIndexAngleX ...
 
 features = [accelerations velocities angles]';
 %reducedFeatures = pcaMat' * features;
+lengths = length(features);
 
 %features= [features; {featuresData}];
 
