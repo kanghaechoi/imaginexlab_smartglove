@@ -7,8 +7,8 @@ addpath('smartglove_library');
 %% Initialization
 codeInitialize;
 
-% Network selection logics (0: PCA, 1:CNN, 2:LSTM)
-NETSELECT = uint8(2);
+% Network selection logics (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM)
+NETSELECT = uint8(1);
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = single(100); %Sample frequency 100Hz
@@ -103,26 +103,120 @@ if(NETSELECT == 0)
     end
 
 end
-    
-if(NETSELECT == 1)
-%% Smart glove data read & feature extraction
-    %Subjects in 20s
-    [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-    %Subjects in 40s
-    [features40, labels40] = featureExtraction(B1, A1, age40, fileCount40); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-    %Subjects in 60s
-    [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
 
-    %Subjects in total
-    featuresTotal = [features20; features40; features60]; %Features from 20s + Features from 60s
-    labelsTotal = [labels20; labels40; labels60]; %Labels from 20s + Labels from 60s
+if(NETSELECT == 1)
+%% Smart glove data read & feature extraction & rms
+
+    %Subjects in 20s
+    features20 = [];
+    labels20 = [];
+    rms20 = [];
     
+    for n20 = 1 : fileCount20
+        [features20Data, labels20Data, rms20Data] ... 
+            = featureExtraction(B1, A1, age20, fileCount20); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features20 = [features20; features20Data];
+        labels20 = [labels20; labels20Data];
+        rms20 = [rms20; rms20Data];
+    end
+    
+    %Subjects in 40s
+    features40 = [];
+    labels40 = [];
+    rms40 = [];    
+
+    for n40 = 1 : fileCount40
+        [features40Data, labels40Data, rms40Data] ...
+            = featureExtraction(B1, A1, age40, fileCount40); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features40 = [features40; features40Data];
+        labels40 = [labels40; labels40Data];
+        rms40 = [rms40; rms40Data];
+    end
+    
+    %Subjects in 60s
+    features60 = [];
+    labels60 = [];
+    rms60 = [];    
+    
+    for n60 = 1 : fileCount60
+        [features60Data, labels60Data, rms60Data] ...
+            = featureExtraction(B1, A1, age60, fileCount60); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features60 = [features60; features60Data];
+        labels60 = [labels60; labels60Data];
+        rms60 = [rms60; rms60Data];
+    end
+
+    rmsTotal = [rms20; rms40; rms60];
+    labelsTotal = [labels20; labels40; labels60];
+    
+    [ranks, weights] = relieff(rmsTotal, labelsTotal, 4, ...
+        'method', 'classification');
+    
+    bar(weights(ranks))
+    xlabel('Predictor rank');
+    ylabel('Predictor important weight');
+    
+end
+
+if(NETSELECT == 2)
+%% Smart glove data read & feature extraction
+%     %Subjects in 20s
+%     [features20, labels20] = featureExtraction(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+%     %Subjects in 40s
+%     [features40, labels40] = featureExtraction(B1, A1, age40, fileCount40); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+%     %Subjects in 60s
+%     [features60, labels60] = featureExtraction(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+% 
+%     %Subjects in total
+%     featuresTotal = [features20; features40; features60]; %Features from 20s + Features from 60s
+%     labelsTotal = [labels20; labels40; labels60]; %Labels from 20s + Labels from 60s
+%     
 %% Smart glove data read & feature extraction in 3D array
-%     Subjects in 20s
-%     [features20, labels20] = featureExtraction3D(B1, A1, age20, fileCount20); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-%         
-%     Subjects in 60s
-%     [features60, labels60] = featureExtraction3D(B1, A1, age60, fileCount60); %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+
+    %Subjects in 20s
+    features20 = [];
+    labels20 = [];
+    rms20 = [];
+    
+    for n20 = 1 : fileCount20
+        [features20Data, labels20Data, rms20Data] ... 
+            = featureExtraction(B1, A1, age20, fileCount20); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features20 = [features20; features20Data];
+        labels20 = [labels20; labels20Data];
+        rms20 = [rms20; rms20Data];
+    end
+    
+    %Subjects in 40s
+    features40 = [];
+    labels40 = [];
+    rms40 = [];    
+
+    for n40 = 1 : fileCount40
+        [features40Data, labels40Data, rms40Data] ...
+            = featureExtraction(B1, A1, age40, fileCount40); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features40 = [features40; features40Data];
+        labels40 = [labels40; labels40Data];
+        rms40 = [rms40; rms40Data];
+    end
+    
+    %Subjects in 60s
+    features60 = [];
+    labels60 = [];
+    rms60 = [];    
+    
+    for n60 = 1 : fileCount60
+        [features60Data, labels60Data, rms60Data] ...
+            = featureExtraction(B1, A1, age60, fileCount60); ...
+            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+        features60 = [features60; features60Data];
+        labels60 = [labels60; labels60Data];
+        rms60 = [rms60; rms60Data];
+    end
 
 %% Signal analyzing
 
@@ -130,11 +224,11 @@ if(NETSELECT == 1)
 
 %% Convolutional neural network training
 
-    %[net, tr, ranks, weights] = trainCnn(featuresTotal, labelsTotal); %Pattern network
+    %[net, tr] = trainCnn(featuresTotal, labelsTotal); %Pattern network
 
 end
 
-if(NETSELECT == 2)
+if(NETSELECT == 3)
 %% Load PCA matrix
   
     %load('pcaResult.mat');

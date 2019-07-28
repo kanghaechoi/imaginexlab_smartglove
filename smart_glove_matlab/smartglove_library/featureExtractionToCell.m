@@ -2,7 +2,6 @@ function [features, labels, lengths] = featureExtractionToCell(B1, A1, AGE, file
 %% Feature extraction
 
 %Read .txt file
-
 handData = dlmread(sprintf('Hand_IMU_%d_%d.txt', AGE, fileCount)); %Read hand data
 wristData = dlmread(sprintf('Wrist_IMU_%d_%d.txt', AGE, fileCount)); %Read wrist
     
@@ -154,12 +153,6 @@ lengths = length(features);
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
 labels = ones(1, 1);
-if AGE == 20
-    labels = labels * 0;
-elseif AGE == 40
-    labels = labels * 0.5;
-elseif AGE == 60
-    labels = labels * 1;
-end
+labels = (AGE * labels) / 10;
 
 end

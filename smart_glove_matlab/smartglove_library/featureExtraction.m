@@ -1,19 +1,9 @@
-function [features, labels] = featureExtraction(B1, A1, AGE, fileCount)
+function [features, labels, rmsValue] = featureExtraction(B1, A1, AGE, fileCount)
 %% Feature extraction
 
-for n = 1:fileCount
-    if n == 1
-        handData = ones(1, 12);
-        wristData = ones(1, 6);
-        %continue;
-    end
-        
-    handRead = dlmread(sprintf('Hand_IMU_%d_%d.txt', AGE, n)); %Read hand data
-    wristRead = dlmread(sprintf('Wrist_IMU_%d_%d.txt', AGE, n)); %Read wrist
-    
-    handData = [handData; handRead];
-    wristData = [wristData; wristRead];
-end 
+%Read .txt file
+handData = dlmread(sprintf('Hand_IMU_%d_%d.txt', AGE, fileCount)); %Read hand data
+wristData = dlmread(sprintf('Wrist_IMU_%d_%d.txt', AGE, fileCount)); %Read wrist
 
 %Feature matrix length definition
 if length(handData) >= length(wristData), featureLength = length(wristData);
@@ -118,10 +108,6 @@ resizedWristAccX = scaledWristAccX(1:featureLength,1);
 resizedWristAccY = scaledWristAccY(1:featureLength,1);
 resizedWristAccZ = scaledWristAccZ(1:featureLength,1);
 
-accelerations = [resizedThumbAccX resizedThumbAccY resizedThumbAccZ resizedIndexAccX ...
-    resizedIndexAccY resizedIndexAccZ resizedWristAccX resizedWristAccY ...
-    resizedWristAccZ];
-
 %Velocity
 resizedThumbVelX = scaledThumbVelX(1:featureLength,1);
 resizedThumbVelY = scaledThumbVelY(1:featureLength,1);
@@ -133,10 +119,6 @@ resizedWristVelX = scaledWristVelX(1:featureLength,1);
 resizedWristVelY = scaledWristVelY(1:featureLength,1);
 resizedWristVelZ = scaledWristVelZ(1:featureLength,1);
 
-velocities = [resizedThumbVelX resizedThumbVelY resizedThumbVelZ resizedIndexVelX ...
-    resizedIndexVelY resizedIndexVelZ resizedWristVelX resizedWristVelY ...
-    resizedWristVelZ];
-
 %Euler angle
 resizedThumbAngleX = scaledThumbAngleX(1:featureLength,1);
 resizedIndexAngleX = scaledIndexAngleX(1:featureLength,1);
@@ -147,17 +129,69 @@ resizedWristAngleX = scaledWristAngleX(1:featureLength,1);
 resizedWristAngleY = scaledWristAngleY(1:featureLength,1);
 resizedWristAngleZ = scaledWristAngleZ(1:featureLength,1);
 
-angles = [resizedThumbAngleX resizedIndexAngleX ...
-    resizedHandAngleX resizedHandAngleY resizedHandAngleZ ...
-    resizedWristAngleX resizedWristAngleY resizedWristAngleZ];
+thumbFin = [resizedThumbAccX, resizedThumbAccY, resizedThumbAccZ, ...
+    resizedThumbVelX, resizedThumbVelY, resizedThumbVelZ, resizedThumbAngleX];
+indexFin = [resizedIndexAccX, resizedIndexAccY, resizedIndexAccZ, ...
+    resizedIndexVelX, resizedIndexVelY, resizedIndexVelZ, resizedIndexAngleX];
+hand = [resizedHandAngleX, resizedHandAngleY, resizedHandAngleZ];
+wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
+    resizedWristVelX, resizedWristVelY, resizedWristVelZ, ...
+    resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
 
 %% Create a label column (feature_length x 1) 
 
-labels = ones(featureLength, 1);
+labels = ones(1, 1);
 labels = (AGE * labels) / 10;
 
 %% Create feature columns (feature_length x 11)
 
-features = [accelerations velocities angles];
+features = [thumbFin indexFin hand wrist];
+
+%% reliefF features
+
+%Acceleration
+rffThumbAccX = thumbAcc(1:featureLength,1);
+rffThumbAccY = thumbAcc(1:featureLength,2);
+rffThumbAccZ = thumbAcc(1:featureLength,3);
+rffIndexAccX = indexAcc(1:featureLength,1);
+rffIndexAccY = indexAcc(1:featureLength,2);
+rffIndexAccZ = indexAcc(1:featureLength,3);
+rffWristAccX = wristAcc(1:featureLength,1);
+rffWristAccY = wristAcc(1:featureLength,2);
+rffWristAccZ = wristAcc(1:featureLength,3);
+
+%Velocity
+rffThumbVelX = thumbVel(1:featureLength,1);
+rffThumbVelY = thumbVel(1:featureLength,2);
+rffThumbVelZ = thumbVel(1:featureLength,3);
+rffIndexVelX = indexVel(1:featureLength,1);
+rffIndexVelY = indexVel(1:featureLength,2);
+rffIndexVelZ = indexVel(1:featureLength,3);
+rffWristVelX = wristVel(1:featureLength,1);
+rffWristVelY = wristVel(1:featureLength,2);
+rffWristVelZ = wristVel(1:featureLength,3);
+
+%Angle
+rffThumbAngleX = deg2rad(thumbAngleX(1:featureLength,1));
+rffIndexAngleX = deg2rad(indexAngleX(1:featureLength,1));
+rffHandAngleX = deg2rad(handAngleX(1:featureLength,1));
+rffHandAngleY = deg2rad(handAngleY(1:featureLength,1));
+rffHandAngleZ = deg2rad(handAngleZ(1:featureLength,1));
+rffWristAngleX = deg2rad(wristAngleX(1:featureLength,1));
+rffWristAngleY = deg2rad(wristAngleY(1:featureLength,1));
+rffWristAngleZ = deg2rad(wristAngleZ(1:featureLength,1));
+
+rffThumbFin = [rffThumbAccX, rffThumbAccY, rffThumbAccZ, ...
+    rffThumbVelX, rffThumbVelY, rffThumbVelZ, rffThumbAngleX];
+rffIndexFin = [rffIndexAccX, rffIndexAccY, rffIndexAccZ, ...
+    rffIndexVelX, rffIndexVelY, rffIndexVelZ, rffIndexAngleX];
+rffHand = [rffHandAngleX, rffHandAngleY, rffHandAngleZ];
+rffWrist = [rffWristAccX, rffWristAccY, rffWristAccZ, ...
+    rffWristVelX, rffWristVelY, rffWristVelZ, ...
+    rffWristAngleX, rffWristAngleY, rffWristAngleZ];
+
+rffFeatures = [rffThumbFin rffIndexFin rffHand rffWrist];
+
+rmsValue = rms(rffFeatures);
 
 end
