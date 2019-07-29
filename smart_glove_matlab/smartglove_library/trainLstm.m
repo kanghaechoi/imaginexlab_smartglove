@@ -89,7 +89,7 @@ if codeContinue == true
     numFeatures = 26; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes
 %    numHiddenUnits2 = 75; % The number of layer 2 nodes
-    numHiddenUnits3 = 100; % The number of layer 2 nodes
+    numHiddenUnits3 = 500; % The number of layer 2 nodes
     numClasses = 3; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
@@ -97,8 +97,9 @@ if codeContinue == true
         %dropoutLayer(0.2)
         %lstmLayer(numHiddenUnits2,'OutputMode','sequence')
         bilstmLayer(numHiddenUnits3,'OutputMode','last')
-        %dropoutLayer(0.2)
+        dropoutLayer(0.2)
         fullyConnectedLayer(numClasses)
+        dropoutLayer(0.2)
         softmaxLayer
         classificationLayer]; % Layer configuration
 
