@@ -8,7 +8,7 @@ addpath('smartglove_library');
 codeInitialize;
 
 % Network selection logics (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM)
-NETSELECT = uint8(1);
+NETSELECT = uint8(0);
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = single(100); %Sample frequency 100Hz
@@ -21,12 +21,28 @@ SAMPLE_FREQ = single(100); %Sample frequency 100Hz
 
 %% Network selection
 
+promptNetSelect = 'Which process do you want to continue? (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM): ';
+netSelectAns = input(promptNetSelect);
+
+switch netSelectAns
+    case 0
+        NETSELECT = NETSELECT + 0;
+    case 1
+        NETSELECT = NETSELECT + 1;
+    case 2
+        NETSELECT = NETSELECT + 2;
+    case 3
+        NETSELECT = NETSELECT + 3;
+    otherwise
+        fprintf('You inserted a wrong number.\n');
+end
+
 if(NETSELECT == 0)
 %% Smart glove data read & feature extraction
     %Subjects in 20s
     for n20 = 1 : fileCount20
         if n20 == 1
-            [features20Data] = featureExtractionPca2dfd(age20, n20); ...
+            [features20Data] = featureExtractionPca(age20, n20); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20 = features20Data;
             continue;
@@ -92,13 +108,13 @@ if(NETSELECT == 0)
                "If so, choose '1'(CNN) or '2'(LSTM): ";
             NETSELECT = input(prompt2);
             if NETSELECT ~= 1 && NETSELECT ~= 2
-                fprintf("You inserted a wrong number\n");
+                fprintf("You inserted a wrong number.\n");
             end
             fprintf("\n");
         elseif continueAns == 'N'
             fprintf("See ya!\n");
         else
-            fprintf("You inserted a wrong letter\n");
+            fprintf("You inserted a wrong letter.\n");
         end
     end
 
