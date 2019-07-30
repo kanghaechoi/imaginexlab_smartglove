@@ -22,7 +22,7 @@ end
 % featureMat = featureMat(idx);
 % labelCategories = labelCategories(idx);
 
-ii = randperm(size(featureMat,1), 21);
+ii = randperm(size(featureMat,1), 11);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -53,13 +53,13 @@ labelCategories(ii) =[];
 
 %% Check if to continue training neural network 
 
-trainingPrompt = 'Will you continue to train network? (Y/N): ';
+trainingPrompt = 'Will you continue to train network? (y/n): ';
 Ans = input(trainingPrompt, 's');
 if ~isempty(Ans)
-    if Ans == 'Y'
+    if Ans == 'y'
         codeContinue = true;
         fprintf("\n");
-    elseif Ans == 'N'
+    elseif Ans == 'n'
         fprintf("See ya!\n\n");
     else
         fprintf("You inserted a wrong letter\n\n");
@@ -80,26 +80,26 @@ if codeContinue == true
         'Shuffle','every-epoch', ...
         'Verbose',1, ...
         'ValidationData',{xValidation, yValidation}, ...
-        'ValidationFrequency', 30, ...
+        'ValidationFrequency', 60, ...
         'InitialLearnRate', 1e-3, ...
         'LearnRateSchedule', 'piecewise', ...
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 26; % The number of input nodes
-    numHiddenUnits1 = 125; % The number of layer 1 nodes
-%    numHiddenUnits2 = 75; % The number of layer 2 nodes
-    numHiddenUnits3 = 500; % The number of layer 2 nodes
+    numFeatures = 10; % The number of input nodes
+    numHiddenUnits1 = 125; % The number of layer 1 nodes 
+    %numHiddenUnits2 = 75; % The number of layer 2 nodes
+    %numHiddenUnits3 = 500; % The number of layer 2 nodes
     numClasses = 3; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
-        lstmLayer(numHiddenUnits1,'OutputMode','sequence')
-        %dropoutLayer(0.2)
+        bilstmLayer(numHiddenUnits1,'OutputMode','last')
+        dropoutLayer(0.5)
         %lstmLayer(numHiddenUnits2,'OutputMode','sequence')
-        bilstmLayer(numHiddenUnits3,'OutputMode','last')
-        dropoutLayer(0.2)
+        %bilstmLayer(numHiddenUnits3,'OutputMode','last')
+        %dropoutLayer(0.2)
         fullyConnectedLayer(numClasses)
-        dropoutLayer(0.2)
+        %dropoutLayer(0.2)
         softmaxLayer
         classificationLayer]; % Layer configuration
 
