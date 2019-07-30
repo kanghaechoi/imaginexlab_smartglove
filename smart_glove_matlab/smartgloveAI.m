@@ -1,5 +1,4 @@
 %% Code for Imagine x Lab artificial intelligence system for smart glove: MANOVIVO
-% Last update: July 20th, 2019
 
 %% Include smartglove function library
 addpath('smartglove_library');
@@ -8,7 +7,7 @@ addpath('smartglove_library');
 codeInitialize;
 
 % Network selection logics (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM)
-NETSELECT = uint8(3);
+NETSELECT = uint8(0);
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = single(100); %Sample frequency 100Hz
@@ -20,6 +19,22 @@ SAMPLE_FREQ = single(100); %Sample frequency 100Hz
 [fileCount60, age60] = inputCount(60); %[fileCount, AGE] = inputCount(AGE)
 
 %% Network selection
+
+promptNetSelect = 'Which process do you want to continue? (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM): ';
+netSelectAns = input(promptNetSelect);
+
+switch netSelectAns
+    case 0
+        NETSELECT = NETSELECT + 0;
+    case 1
+        NETSELECT = NETSELECT + 1;
+    case 2
+        NETSELECT = NETSELECT + 2;
+    case 3
+        NETSELECT = NETSELECT + 3;
+    otherwise
+        fprintf('You inserted a wrong number.\n');
+end
 
 if(NETSELECT == 0)
 %% Smart glove data read & feature extraction
@@ -92,13 +107,13 @@ if(NETSELECT == 0)
                "If so, choose '1'(CNN) or '2'(LSTM): ";
             NETSELECT = input(prompt2);
             if NETSELECT ~= 1 && NETSELECT ~= 2
-                fprintf("You inserted a wrong number\n");
+                fprintf("You inserted a wrong number.\n");
             end
             fprintf("\n");
         elseif continueAns == 'N'
             fprintf("See ya!\n");
         else
-            fprintf("You inserted a wrong letter\n");
+            fprintf("You inserted a wrong letter.\n");
         end
     end
 
@@ -245,21 +260,19 @@ if(NETSELECT == 3)
     %Subjects in 20s
     for n20 = 1 : fileCount20
         if n20 == 1
-            [features20Data, labels20Data, lengths20] = ...
+            [features20Data, labels20Data] = ...
                 featureExtractionToCell(B1, A1, age20, n20); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20Cell = {features20Data};
             %reducedFeatures20Cell = {reducedFeatures20Data};
-            lengthss20 = lengths20;
             labels20Cell = labels20Data;
             continue;
         else
-            [features20Data, labels20Data, lengths20] = ...
+            [features20Data, labels20Data] = ...
                 featureExtractionToCell(B1, A1, age20, n20); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20Cell = [features20Cell; {features20Data}];
             %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
-            lengthss20 = [lengthss20; lengths20];
             labels20Cell = [labels20Cell; labels20Data];
         end
     end
@@ -267,21 +280,19 @@ if(NETSELECT == 3)
     %Subjects in 40s
     for n40 = 1 : fileCount40
         if n40 == 1
-            [features40Data, labels40Data, lengths40] = ...
+            [features40Data, labels40Data] = ...
                 featureExtractionToCell(B1, A1, age40, n40); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40Cell = {features40Data};
             %reducedFeatures40Cell = {reducedFeatures40Data};
-            lengthss40 = lengths40;
             labels40Cell = labels40Data;
             continue;
         else
-            [features40Data, labels40Data, lengths40] = ...
-                    featureExtractionToCell(B1, A1, age40, n40); ...
-                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+            [features40Data, labels40Data] = ...
+                featureExtractionToCell(B1, A1, age40, n40); ...
+                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40Cell = [features40Cell; {features40Data}];
             %reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
-            lengthss40 = [lengthss40; lengths40];
             labels40Cell = [labels40Cell; labels40Data];
         end
     end
@@ -289,21 +300,19 @@ if(NETSELECT == 3)
     %Subjects in 60s
     for n60 = 1 : fileCount60
         if n60 == 1
-            [features60Data, labels60Data, lengths60] = ...
+            [features60Data, labels60Data] = ...
                 featureExtractionToCell(B1, A1, age60, n60); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features60Cell = {features60Data};
             %reducedFeatures60Cell = {reducedFeatures60Data};
-            lengthss60 = lengths60;
             labels60Cell = labels60Data;
             continue;
         else
-            [features60Data, labels60Data, lengths60] = ...
+            [features60Data, labels60Data] = ...
                 featureExtractionToCell(B1, A1, age60, n60); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features60Cell = [features60Cell; {features60Data}];
             %reducedFeatures60Cell = [reducedFeatures60Cell; {reducedFeatures60Data}];
-            lengthss60 = [lengthss60; lengths60];
             labels60Cell = [labels60Cell; labels60Data];
         end
     end

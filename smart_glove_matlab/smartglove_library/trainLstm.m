@@ -87,7 +87,7 @@ if codeContinue == true
 
 
     numFeatures = 10; % The number of input nodes
-    numHiddenUnits1 = 125; % The number of layer 1 nodes
+    numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
     numClasses = 3; % The number of output nodes

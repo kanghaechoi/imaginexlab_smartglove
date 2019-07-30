@@ -1,4 +1,4 @@
-function [features, labels, lengths] = featureExtractionToCell(B1, A1, AGE, fileCount)
+function [features, labels] = featureExtractionToCell(B1, A1, AGE, fileCount)
 %% Feature extraction
 
 %Read .txt file
@@ -138,28 +138,24 @@ resizedWristAngleZ = scaledWristAngleZ(1:featureLength,1);
 %     resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
 
 %% Create feature columns (feature_length x 11)
-features2 = [resizedIndexAccZ resizedWristVelY]';
-features3 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX]';
-features5 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX]';
-features = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
-            resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY]';
+features2 = [resizedIndexAccZ resizedWristVelY];
+features3 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX];
+features5 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX];
+features10 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
+            resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY];
         
 features15 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
             resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY ...
-            resizedWristVelZ resizedThumbVelZ resizedWristVelX resizedWristAccY resizedWristAngleY]';
+            resizedWristVelZ resizedThumbVelZ resizedWristVelX resizedWristAccY resizedWristAngleY];
         
-featuresfull = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
+featuresFull = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
             resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY ...
             resizedWristVelZ resizedThumbVelZ resizedWristVelX resizedWristAccY resizedWristAngleY ...
             resizedThumbAccY resizedThumbVelY resizedIndexAccY resizedThumbAngleX resizedIndexVelZ ...
             resizedHandAngleX resizedThumbAccX resizedHandAngleY  resizedWristAccX resizedWristAngleZ ...
-            resizedHandAngleZ ]';
-%reducedFeatures = pcaMat' * features;
-lengths = length(features);
+            resizedHandAngleZ];
 
-%features= [features; {featuresData}];
-
-%features(1:length(features));
+features = features10';
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
