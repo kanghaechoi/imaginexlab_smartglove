@@ -8,7 +8,7 @@ addpath('smartglove_library');
 codeInitialize;
 
 % Network selection logics (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM)
-NETSELECT = uint8(1);
+NETSELECT = uint8(3);
 
 %% 5 Hz low-pass filter
 SAMPLE_FREQ = single(100); %Sample frequency 100Hz
@@ -26,7 +26,7 @@ if(NETSELECT == 0)
     %Subjects in 20s
     for n20 = 1 : fileCount20
         if n20 == 1
-            [features20Data] = featureExtractionPca2dfd(age20, n20); ...
+            [features20Data] = featureExtractionPca(age20, n20); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features20 = features20Data;
             continue;
@@ -277,8 +277,8 @@ if(NETSELECT == 3)
             continue;
         else
             [features40Data, labels40Data, lengths40] = ...
-                featureExtractionToCell(B1, A1, age40, n40); ...
-                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
+                    featureExtractionToCell(B1, A1, age40, n40); ...
+                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             features40Cell = [features40Cell; {features40Data}];
             %reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
             lengthss40 = [lengthss40; lengths40];
@@ -325,7 +325,7 @@ if(NETSELECT == 3)
     
 %% Long short-term memory network training
 
-%    [net] = trainLstm(featuresTotalCell, ...
-%        labelsTotalCell); %LSTM network
+    [net] = trainLstm(featuresTotalCell, ...
+        labelsTotalCell); %LSTM network
     
 end

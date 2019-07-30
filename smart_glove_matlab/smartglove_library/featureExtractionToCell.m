@@ -107,10 +107,6 @@ resizedWristAccX = scaledWristAccX(1:featureLength,1);
 resizedWristAccY = scaledWristAccY(1:featureLength,1);
 resizedWristAccZ = scaledWristAccZ(1:featureLength,1);
 
-accelerations = [resizedThumbAccX resizedThumbAccY resizedThumbAccZ resizedIndexAccX ...
-    resizedIndexAccY resizedIndexAccZ resizedWristAccX resizedWristAccY ...
-    resizedWristAccZ];
-
 %Velocity
 resizedThumbVelX = scaledThumbVelX(1:featureLength,1);
 resizedThumbVelY = scaledThumbVelY(1:featureLength,1);
@@ -122,10 +118,6 @@ resizedWristVelX = scaledWristVelX(1:featureLength,1);
 resizedWristVelY = scaledWristVelY(1:featureLength,1);
 resizedWristVelZ = scaledWristVelZ(1:featureLength,1);
 
-velocities = [resizedThumbVelX resizedThumbVelY resizedThumbVelZ resizedIndexVelX ...
-    resizedIndexVelY resizedIndexVelZ resizedWristVelX resizedWristVelY ...
-    resizedWristVelZ];
-
 %Euler angle
 resizedThumbAngleX = scaledThumbAngleX(1:featureLength,1);
 resizedIndexAngleX = scaledIndexAngleX(1:featureLength,1);
@@ -136,13 +128,32 @@ resizedWristAngleX = scaledWristAngleX(1:featureLength,1);
 resizedWristAngleY = scaledWristAngleY(1:featureLength,1);
 resizedWristAngleZ = scaledWristAngleZ(1:featureLength,1);
 
-angles = [resizedThumbAngleX resizedIndexAngleX ...
-    resizedHandAngleX resizedHandAngleY resizedHandAngleZ ...
-    resizedWristAngleX resizedWristAngleY resizedWristAngleZ];
+% thumbFin = [resizedThumbAccX, resizedThumbAccY, resizedThumbAccZ, ...
+%     resizedThumbVelX, resizedThumbVelY, resizedThumbVelZ, resizedThumbAngleX];
+% indexFin = [resizedIndexAccX, resizedIndexAccY, resizedIndexAccZ, ...
+%     resizedIndexVelX, resizedIndexVelY, resizedIndexVelZ, resizedIndexAngleX];
+% hand = [resizedHandAngleX, resizedHandAngleY, resizedHandAngleZ];
+% wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
+%     resizedWristVelX, resizedWristVelY, resizedWristVelZ, ...
+%     resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
 
 %% Create feature columns (feature_length x 11)
-
-features = [accelerations velocities angles]';
+features2 = [resizedIndexAccZ resizedWristVelY]';
+features3 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX]';
+features5 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX]';
+features = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
+            resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY]';
+        
+features15 = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
+            resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY ...
+            resizedWristVelZ resizedThumbVelZ resizedWristVelX resizedWristAccY resizedWristAngleY]';
+        
+featuresfull = [resizedIndexAccZ resizedWristVelY resizedIndexAngleX resizedThumbAccZ resizedWristAngleX...
+            resizedWristAccZ resizedThumbVelX resizedIndexAccX resizedIndexVelX resizedIndexVelY ...
+            resizedWristVelZ resizedThumbVelZ resizedWristVelX resizedWristAccY resizedWristAngleY ...
+            resizedThumbAccY resizedThumbVelY resizedIndexAccY resizedThumbAngleX resizedIndexVelZ ...
+            resizedHandAngleX resizedThumbAccX resizedHandAngleY  resizedWristAccX resizedWristAngleZ ...
+            resizedHandAngleZ ]';
 %reducedFeatures = pcaMat' * features;
 lengths = length(features);
 
