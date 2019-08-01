@@ -1,4 +1,4 @@
-function [net] = trainLstm(features, labels)
+    function [net] = trainLstm(features, labels)
 %% Long short-term memory network training sequence
 
 %reducedFeatureMat = reducedFeatures;

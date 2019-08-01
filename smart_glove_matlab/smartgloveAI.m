@@ -22,8 +22,8 @@ SAMPLE_FREQ = single(100); %Sample frequency 100Hz
 
 promptNetSelect = 'Which process do you want to continue? (0: PCA, 1:reliefF, 2:Pattern Net, 3:LSTM): ';
 netSelectAns = input(promptNetSelect);
-
-switch netSelectAns
+    
+switch netSelectAns 
     case 0
         NETSELECT = NETSELECT + 0;
     case 1
