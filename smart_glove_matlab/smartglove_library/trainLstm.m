@@ -22,7 +22,7 @@ end
 % featureMat = featureMat(idx);
 % labelCategories = labelCategories(idx);
 
-ii = randperm(size(featureMat,1), 11);
+ii = randperm(size(featureMat,1), 24);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -86,11 +86,11 @@ if codeContinue == true
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 10; % The number of input nodes
+    numFeatures = 15; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
-    numClasses = 3; % The number of output nodes
+    numClasses = 6; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
         bilstmLayer(numHiddenUnits1,'OutputMode','last')

@@ -1,9 +1,9 @@
-function [features, labels, rmsValue] = featureExtraction(B1, A1, AGE, fileCount)
+function [features, labels, rmsValue] = featureExtraction(B1, A1, AGE, fileCount, GENDER)
 %% Feature extraction
 
 %Read .txt file
-handData = dlmread(sprintf('Hand_IMU_%d_%d.txt', AGE, fileCount)); %Read hand data
-wristData = dlmread(sprintf('Wrist_IMU_%d_%d.txt', AGE, fileCount)); %Read wrist
+handData = dlmread(sprintf('Hand_IMU_%d_%d_%d.txt', AGE, GENDER, fileCount)); %Read hand data
+wristData = dlmread(sprintf('Wrist_IMU_%d_%d_%d.txt', AGE, GENDER, fileCount)); %Read wrist
 
 %Feature matrix length definition
 if length(handData) >= length(wristData), featureLength = length(wristData);
@@ -140,8 +140,17 @@ wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
 
 %% Create a label column (feature_length x 1) 
 
+%Labels for age classification
+% labels = ones(1, 1);
+% labels = (AGE * labels) / 10;
+
+%Labels for gender classification
+% labels = ones(1, 1);
+% labels = (GENDER * labels);
+
+%Labels for age & gender classification
 labels = ones(1, 1);
-labels = (AGE * labels) / 10;
+labels = (((GENDER*10) + (AGE/10)) * labels);
 
 %% Create feature columns (feature_length x 11)
 
