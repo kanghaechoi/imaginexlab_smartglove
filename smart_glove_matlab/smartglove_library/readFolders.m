@@ -1,8 +1,15 @@
-function [outputArg1,outputArg2] = readFolders(inputArg1,inputArg2)
-
-%READFOLDERS Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function readFolders()
+    folderPath = "/Sorted_Data/";
+    subFolderPath = ["20s/","40s/","60s/"];
+    genderPath = ["Male/","Female/"];
+    
+     for sP = 1 : size(subFolderPath,2)
+         for gP = 1 : size(genderPath,2)
+            path = folderPath + subFolderPath(sP) + genderPath(gP);
+            fprintf("%s\n",path)
+         end
+     end
+   
 end
+
 

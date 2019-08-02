@@ -3,6 +3,8 @@
 %% Include smartglove function library
 addpath('smartglove_library');
 
+%readFolders()
+
 %% Initialization
 codeInitialize;
 

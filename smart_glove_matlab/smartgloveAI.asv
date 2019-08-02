@@ -3,6 +3,8 @@
 %% Include smartglove function library
 addpath('smartglove_library');
 
+readFolders()
+
 %% Initialization
 codeInitialize;
 
@@ -487,7 +489,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG1Data, labelsMG1Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG1, nM20, maleID, iter, gesture1ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG1, nM20, maleID, iter, gesture1ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG1Cell = {featuresMG1Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -495,7 +497,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG1Data, labelsMG1Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG1, nM20, maleID, iter, gesture1ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG1, nM20, maleID, iter, gesture1ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG1Cell = [featuresMG1Cell; {featuresMG1Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -504,11 +506,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5
+    for nF20 = 1 : 5
+        for iter = 1 : 3
             if nF20 == 1 && iter == 1
                 [featuresFG1Data, labelsFG1Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG1, nF20, femaleID, iter, gesture1ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG1, nF20, femaleID, iter, gesture1ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG1Cell = {featuresFG1Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -516,7 +518,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG1Data, labelsFG1Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG1, nF20, femaleID, iter, gesture1ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG1, nF20, femaleID, iter, gesture1ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG1Cell = [featuresFG1Cell; {featuresFG1Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -529,7 +531,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG2Data, labelsMG2Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG2, nM20, maleID, iter, gesture2ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG2, nM20, maleID, iter, gesture2ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG2Cell = {featuresMG2Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -537,7 +539,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG2Data, labelsMG2Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG2, nM20, maleID, iter, gesture2ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG2, nM20, maleID, iter, gesture2ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG2Cell = [featuresMG2Cell; {featuresMG2Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -546,11 +548,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5
+    for nF20 = 1 : 5
+        for iter = 1 : 3
             if nF20 == 1 && iter == 1
                 [featuresFG2Data, labelsFG2Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG2, nF20, femaleID, iter, gesture2ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG2, nF20, femaleID, iter, gesture2ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG2Cell = {featuresFG2Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -558,7 +560,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG2Data, labelsFG2Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG2, nF20, femaleID, iter, gesture2ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG2, nF20, femaleID, iter, gesture2ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG2Cell = [featuresFG2Cell; {featuresFG2Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -571,7 +573,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG3Data, labelsMG3Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG3, nM20, maleID, iter, gesture3ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG3, nM20, maleID, iter, gesture3ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG3Cell = {featuresMG3Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -579,7 +581,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG3Data, labelsMG3Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG3, nM20, maleID, iter, gesture3ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG3, nM20, maleID, iter, gesture3ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG3Cell = [featuresMG3Cell; {featuresMG3Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -588,11 +590,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5
+    for nF20 = 1 : 5
+        for iter = 1 : 3
             if nF20 == 1 && iter == 1
                 [featuresFG3Data, labelsFG3Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG3, nF20, femaleID, iter, gesture3ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG3, nF20, femaleID, iter, gesture3ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG3Cell = {featuresFG3Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -600,7 +602,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG3Data, labelsFG3Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG3, nF20, femaleID, iter, gesture3ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG3, nF20, femaleID, iter, gesture3ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG3Cell = [featuresFG3Cell; {featuresFG3Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -613,7 +615,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG4Data, labelsMG4Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG4, nM20, maleID, iter, gesture4ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG4, nM20, maleID, iter, gesture4ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG4Cell = {featuresMG4Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -621,7 +623,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG4Data, labelsMG4Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG4, nM20, maleID, iter, gesture4ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG4, nM20, maleID, iter, gesture4ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG4Cell = [featuresMG4Cell; {featuresMG4Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -630,11 +632,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5
+    for nF20 = 1 : 5
+        for iter = 1 : 3
             if nF20 == 1 && iter == 1
                 [featuresFG4Data, labelsFG4Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG4, nF20, femaleID, iter, gesture4ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG4, nF20, femaleID, iter, gesture4ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG4Cell = {featuresFG4Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -642,7 +644,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG4Data, labelsFG4Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG4, nF20, femaleID, iter, gesture4ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG4, nF20, femaleID, iter, gesture4ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG4Cell = [featuresFG4Cell; {featuresFG4Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -655,7 +657,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG5Data, labelsMG5Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG5, nM20, maleID, iter, gesture5ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG5, nM20, maleID, iter, gesture5ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG5Cell = {featuresMG5Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -663,7 +665,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG5Data, labelsMG5Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG5, nM20, maleID, iter, gesture5ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG5, nM20, maleID, iter, gesture5ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG5Cell = [featuresMG5Cell; {featuresMG5Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -672,11 +674,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5
+    for nF20 = 1 : 5
+        for iter = 1 : 3
             if nF20 == 1 && iter == 1
                 [featuresFG5Data, labelsFG5Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG5, nF20, femaleID, iter, gesture5ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG5, nF20, femaleID, iter, gesture5ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG5Cell = {featuresFG5Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -684,7 +686,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG5Data, labelsFG5Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG5, nF20, femaleID, iter, gesture5ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG5, nF20, femaleID, iter, gesture5ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG5Cell = [featuresFG5Cell; {featuresFG5Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -697,7 +699,7 @@ if(NETSELECT == 3)
         for iter = 1 : 5
             if nM20 == 1 && iter == 1
                 [featuresMG6Data, labelsMG6Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG6, nM20, maleID, iter, gesture6ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG6, nM20, maleID, iter, gesture6ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG6Cell = {featuresMG6Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -705,7 +707,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresMG6Data, labelsMG6Data] = ...
-                    featureExtractionToCell(B1, A1, ageMG6, nM20, maleID, iter, gesture6ID); ...
+                    featureExtractionToCell2(B1, A1, ageMG6, nM20, maleID, iter, gesture6ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresMG6Cell = [featuresMG6Cell; {featuresMG6Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -714,11 +716,11 @@ if(NETSELECT == 3)
         end
     end
 
-    for nF20 = 1 : 3
-        for iter = 1 : 5 
+    for nF20 = 1 : 5
+        for iter = 1 : 3 
             if nF20 == 1 && iter == 1
                 [featuresFG6Data, labelsFG6Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG6, nF20, femaleID, iter, gesture6ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG6, nF20, femaleID, iter, gesture6ID); ...
                     %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG6Cell = {featuresFG6Data};
                 %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -726,7 +728,7 @@ if(NETSELECT == 3)
                 continue;
             else
                 [featuresFG6Data, labelsFG6Data] = ...
-                    featureExtractionToCell(B1, A1, ageFG6, nF20, femaleID, iter, gesture6ID); ...
+                    featureExtractionToCell2(B1, A1, ageFG6, nF20, femaleID, iter, gesture6ID); ...
                      %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
                 featuresFG6Cell = [featuresFG6Cell; {featuresFG6Data}];
                 %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -746,8 +748,11 @@ if(NETSELECT == 3)
     %    reducedFeatures40Cell; ...
     %    reducedFeatures60Cell];
     labelsTotalCell = [labelsMG1Cell; labelsFG1Cell;... 
-        
-        labelsM60Cell; labelsF60Cell];
+        labelsMG2Cell; labelsFG2Cell;...
+        labelsMG3Cell; labelsFG3Cell;...
+        labelsMG4Cell; labelsFG4Cell;...
+        labelsMG5Cell; labelsFG5Cell;...
+        labelsMG6Cell; labelsFG6Cell];
 
 
 

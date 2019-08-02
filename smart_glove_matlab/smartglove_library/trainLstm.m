@@ -86,7 +86,7 @@ if codeContinue == true
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 15; % The number of input nodes
+    numFeatures = 12; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
