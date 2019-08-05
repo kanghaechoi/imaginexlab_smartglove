@@ -22,7 +22,7 @@ end
 % featureMat = featureMat(idx);
 % labelCategories = labelCategories(idx);
 
-ii = randperm(size(featureMat,1), 21);
+ii = randperm(size(featureMat,1), 26);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -69,7 +69,7 @@ end
 %% LSTM network options
 if codeContinue == true
     maxEpochs = 100;
-    miniBatchSize = 10; % Total iteration count = maxEpochs * miniBatchSize
+    miniBatchSize = 1; % Total iteration count = maxEpochs * miniBatchSize
 
     options = trainingOptions('adam', ...
         'ExecutionEnvironment','auto', ...
@@ -80,13 +80,13 @@ if codeContinue == true
         'Shuffle','every-epoch', ...
         'Verbose',1, ...
         'ValidationData',{xValidation, yValidation}, ...
-        'ValidationFrequency', 50, ...
+        'ValidationFrequency', 35, ...
         'InitialLearnRate', 1e-3, ...
         'LearnRateSchedule', 'piecewise', ...
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 5; % The number of input nodes
+    numFeatures = 1; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes

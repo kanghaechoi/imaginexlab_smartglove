@@ -1,9 +1,9 @@
-function [features, labels] = featureExtractionToCell2(B1, A1, AGE, fileCount, GENDER, subjectNum, gestureID)
+function [features, labels] = featureExtractionToCell(B1, A1, AGE, fileCount, GENDER)
 %% Feature extraction
 
 %Read .txt file
-handData = dlmread(sprintf('Hand_IMU_%d_%d_%d_0%d_0%d.txt', AGE, GENDER, subjectNum, gestureID, fileCount)); %Read hand data
-wristData = dlmread(sprintf('Wrist_IMU_%d_%d_%d_0%d_0%d.txt', AGE, GENDER, subjectNum, gestureID, fileCount)); %Read wrist
+handData = dlmread(sprintf('Hand_IMU_%d_%d_%d.txt', AGE, GENDER, fileCount)); %Read hand data
+wristData = dlmread(sprintf('Wrist_IMU_%d_%d_%d.txt', AGE, GENDER, fileCount)); %Read wrist
     
 %Feature matrix length definition
 if length(handData) >= length(wristData), featureLength = length(wristData);
@@ -167,12 +167,10 @@ ageFeatures14 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedTh
             resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ]; 
 ageFeatures15 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
             resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX];    
-        
-ageFeatures26 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
             resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX];
-        
+ageFeatures25 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
+            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
+            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX];    
 ageFeaturesFull = [thumbFin indexFin hand wrist];
 
 
@@ -191,12 +189,13 @@ ageGenderFeatures15 = ageFeatures15;
 ageGenderFeatures20 = ageFeatures15;
 ageGenderFeaturesFull = ageFeaturesFull;
 
-features = ageFeatures15';
+features = ageFeatures3';
+
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
 %Labels for age classification
-% labels = ones(1, 1);
-% labels = (AGE * labels) / 10;
+labels = ones(1, 1);
+labels = (AGE * labels) / 10;
 
 %Labels for gender classification
 % labels = ones(1, 1);
@@ -205,9 +204,5 @@ features = ageFeatures15';
 %Labels for age & gender classification
 % labels = ones(1, 1);
 % labels = (((GENDER*10) + (AGE/10)) * labels);
-
-labels = ones(1, 1);
-labels = (gestureID * labels);
-
 
 end

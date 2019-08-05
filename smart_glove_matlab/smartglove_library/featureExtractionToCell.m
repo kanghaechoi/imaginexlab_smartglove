@@ -138,68 +138,41 @@ wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
     resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
 
 %% Create feature columns (feature_length x 11)
-ageFeatures1 = [resizedWristAngleZ];
-ageFeatures2 = [resizedWristAngleZ resizedHandAngleZ];
-ageFeatures3 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX];
-ageFeatures4 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX];
-ageFeatures5 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY];
-ageFeatures6 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX  ];
-ageFeatures7 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX ];
-ageFeatures8 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ];
-ageFeatures9 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ];
-ageFeatures10 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ];
-ageFeatures11 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
+ageFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
             resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX]; 
-ageFeatures12 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ]; 
-ageFeatures13 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ resizedHandAngleX]; 
-ageFeatures14 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ]; 
-ageFeatures15 = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
-            resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX];    
-ageFeaturesFull = [thumbFin indexFin hand wrist];
+            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX, ...
+            resizedWristAccY, resizedThumbAngleX, resizedWristAngleY, resizedHandAngleY, resizedIndexAccY, ...
+            resizedThumbVelY, resizedThumbAccY, resizedWristAccZ, resizedWristVelY, resizedWristVelX, resizedWristAngleX];    
 
+% genderFeatures2 = ageFeatures2;
+% genderFeatures3 = ageFeatures3;
+% genderFeatures5 = ageFeatures5;
+% genderFeatures10 = ageFeatures10;
+% genderFeatures15 = ageFeatures15;   
+% genderFeaturesFull = ageFeaturesFull;
+%    
+% ageGenderFeatures2 = ageFeatures2;
+% ageGenderFeatures3 = ageFeatures3;
+% ageGenderFeatures5 = ageFeatures5;
+% ageGenderFeatures10 = ageFeatures10;
+% ageGenderFeatures15 = ageFeatures15;
+% ageGenderFeatures20 = ageFeatures15;
+% ageGenderFeaturesFull = ageFeaturesFull;
 
-genderFeatures2 = ageFeatures2;
-genderFeatures3 = ageFeatures3;
-genderFeatures5 = ageFeatures5;
-genderFeatures10 = ageFeatures10;
-genderFeatures15 = ageFeatures15;   
-genderFeaturesFull = ageFeaturesFull;
-   
-ageGenderFeatures2 = ageFeatures2;
-ageGenderFeatures3 = ageFeatures3;
-ageGenderFeatures5 = ageFeatures5;
-ageGenderFeatures10 = ageFeatures10;
-ageGenderFeatures15 = ageFeatures15;
-ageGenderFeatures20 = ageFeatures15;
-ageGenderFeaturesFull = ageFeaturesFull;
-
-features = ageFeatures1';
+features = ageFeatures(:,1:5)';
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
 %Labels for age classification
-% labels = ones(1, 1);
-% labels = (AGE * labels) / 10;
+labels = ones(1, 1);
+labels = (AGE * labels) / 10;
 
 %Labels for gender classification
 % labels = ones(1, 1);
 % labels = (GENDER * labels);
 
 %Labels for age & gender classification
-labels = ones(1, 1);
-labels = (((GENDER*10) + (AGE/10)) * labels);
+% labels = ones(1, 1);
+% labels = (((GENDER*10) + (AGE/10)) * labels);
 
 end
