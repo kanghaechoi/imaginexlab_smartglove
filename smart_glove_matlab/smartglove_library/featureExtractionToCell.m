@@ -184,7 +184,7 @@ ageGenderFeatures5 = ageFeatures5;
 ageGenderFeatures10 = ageFeatures10;
 ageGenderFeatures15 = ageFeatures15;
 ageGenderFeatures20 = ageFeatures15;
-ageGenderFeaturesFull = ageFeaturesFull
+ageGenderFeaturesFull = ageFeaturesFull;
 
 features = ageFeatures1';
 

@@ -26,25 +26,29 @@ gesture4ID = 04;
 gesture5ID = 05;
 gesture6ID = 06;
 
-% [fileCountM20, ageM20] = inputCount(20, maleID); %[fileCount, AGE] = inputCount(AGE)
-% [fileCountF20, ageF20] = inputCount(20, femaleID); %[fileCount, AGE] = inputCount(AGE)
-% [fileCountM40, ageM40] = inputCount(40, maleID); %[fileCount, AGE] = inputCount(AGE)
-% [fileCountF40, ageF40] = inputCount(40, femaleID); %[fileCount, AGE] = inputCount(AGE)
-% [fileCountM60, ageM60] = inputCount(60, maleID); %[fileCount, AGE] = inputCount(AGE)
-% [fileCountF60, ageF60] = inputCount(60, femaleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountM20, ageM20] = inputCount(20, maleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountF20, ageF20] = inputCount(20, femaleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountM40, ageM40] = inputCount(40, maleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountF40, ageF40] = inputCount(40, femaleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountM60, ageM60] = inputCount(60, maleID); %[fileCount, AGE] = inputCount(AGE)
+[fileCountF60, ageF60] = inputCount(60, femaleID); %[fileCount, AGE] = inputCount(AGE)
 
-[fileCountMG1, ageMG1] = inputCount2(20, maleID, gesture1ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG1, ageFG1] = inputCount2(20, femaleID, gesture1ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountMG2, ageMG2] = inputCount2(20, maleID, gesture2ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG2, ageFG2] = inputCount2(20, femaleID, gesture2ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountMG3, ageMG3] = inputCount2(20, maleID, gesture3ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG3, ageFG3] = inputCount2(20, femaleID, gesture3ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountMG4, ageMG4] = inputCount2(20, maleID, gesture4ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG4, ageFG4] = inputCount2(20, femaleID, gesture4ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountMG5, ageMG5] = inputCount2(20, maleID, gesture5ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG5, ageFG5] = inputCount2(20, femaleID, gesture5ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountMG6, ageMG6] = inputCount2(20, maleID, gesture6ID); %[fileCount, AGE] = inputCount(AGE)
-[fileCountFG6, ageFG6] = inputCount2(20, femaleID, gesture6ID); %[fileCount, AGE] = inputCount(AGE)
+ages = [ageM20 ageF20 ageM40 ageF40 ageM60 ageF60];
+fileCounts = [fileCountM20 fileCountF20 fileCountM40 fileCountF40 ... 
+    fileCountM60 fileCountF60];
+
+% [fileCountMG1, ageMG1] = inputCount2(20, maleID, gesture1ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG1, ageFG1] = inputCount2(20, femaleID, gesture1ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountMG2, ageMG2] = inputCount2(20, maleID, gesture2ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG2, ageFG2] = inputCount2(20, femaleID, gesture2ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountMG3, ageMG3] = inputCount2(20, maleID, gesture3ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG3, ageFG3] = inputCount2(20, femaleID, gesture3ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountMG4, ageMG4] = inputCount2(20, maleID, gesture4ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG4, ageFG4] = inputCount2(20, femaleID, gesture4ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountMG5, ageMG5] = inputCount2(20, maleID, gesture5ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG5, ageFG5] = inputCount2(20, femaleID, gesture5ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountMG6, ageMG6] = inputCount2(20, maleID, gesture6ID); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountFG6, ageFG6] = inputCount2(20, femaleID, gesture6ID); %[fileCount, AGE] = inputCount(AGE)
 
 
 %% Network selection
@@ -66,80 +70,24 @@ switch netSelectAns
 end
 
 if(NETSELECT == 0)
-%% Smart glove data read & feature extraction
-    %Subjects in 20s
-    for n20 = 1 : fileCount20
-        if n20 == 1
-            [features20Data] = featureExtractionPca(age20, n20); ...
-                %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features20 = features20Data;
-            continue;
-        else
-            [features20Data] = ...
-                featureExtractionPca(age20, n20); ...
-                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features20 = [features20; features20Data];
-        end
-    end
-    
-    %Subjects in 40s
-    for n40 = 1 : fileCount40
-        if n40 == 1
-            [features40Data] = featureExtractionPca2(age40, n40); ...
-                %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features40 = features40Data;
-            continue;
-        else
-            [features40Data] = ...
-                featureExtractionPca(age40, n40); ...
-                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features40 = [features40; features40Data];
-        end
-    end
-        
-    %Subjects in 60s
-    for n60 = 1 : fileCount60
-        if n60 == 1
-            [features60Data] = featureExtractionPca2(age60, n60); ...
-                %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features60 = features60Data;
-            continue;
-        else
-            [features60Data] = ...
-                featureExtractionPca(age60, n60); ...
-                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-            features60 = [features60; features60Data];
-        end
-    end
-    
-    %Subjects in total
-    featuresTotal = [features20; features40; features60]; %Features from 20s + Features from 60s
-    scaledFeaturesTotal = featureScale(featuresTotal);
-    
 %% Principle Component Analysis
-    [pcaMat, numOfK, varRetain] = featureReduction(featuresTotal);
-
-    fprintf("The ideal number of K = %d\n\n", numOfK);
-    
-    save pcaResult.mat pcaMat numOfK varRetain ...
-        fileCount20 age20 fileCount40 age40 fileCount60 age60 ...
-        A1 B1;
-    
-%% Network training selection after PCA   
-    prompt1 = 'Will you continue? (Y/N): ';
+    [pcaMat, numOfK, varRetain] = pcaResult(ages, fileCounts);
+      
+    fprintf("\n");
+    prompt1 = 'Will you continue? (y/n): ';
     continueAns = input(prompt1, 's');
     if ~isempty(continueAns)
-        if continueAns == 'Y'
+        if continueAns == 'y'
             codeInitialize;
             fprintf("Okay!\n\n");
             prompt2 = "Will you continue to train neural network?\n" + ...
-               "If so, choose '1'(CNN) or '2'(LSTM): ";
+               "If so, choose '2'(CNN) or '3'(LSTM): ";
             NETSELECT = input(prompt2);
             if NETSELECT ~= 1 && NETSELECT ~= 2
                 fprintf("You inserted a wrong number.\n");
             end
             fprintf("\n");
-        elseif continueAns == 'N'
+        elseif continueAns == 'n'
             fprintf("See ya!\n");
         else
             fprintf("You inserted a wrong letter.\n");
@@ -149,98 +97,29 @@ if(NETSELECT == 0)
 end
 
 if(NETSELECT == 1)
-%% Smart glove data read & feature extraction & rms
-
-    %Subjects in 20s
-    featuresM20 = [];
-    labelsM20 = [];
-    rmsM20 = [];
+%% reliefF for feature reduction
+    [ranks, weights] = relieffResult(A1, B1, maleID, femaleID, ...
+    ages, fileCounts);
     
-    for nM20 = 1 : fileCountM20
-        [featuresM20Data, labelsM20Data, rmsM20Data] ... 
-            = featureExtraction(B1, A1, ageM20, nM20, maleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresM20 = [featuresM20; featuresM20Data];
-        labelsM20 = [labelsM20; labelsM20Data];
-        rmsM20 = [rmsM20; rmsM20Data];
+    fprintf("\n");
+    prompt1 = 'Will you continue? (y/n): ';
+    continueAns = input(prompt1, 's');
+    if ~isempty(continueAns)
+        if continueAns == 'y'
+            fprintf("Okay!\n\n");
+            prompt2 = "Will you continue to train neural network?\n" + ...
+               "If so, choose '2'(CNN) or '3'(LSTM): ";
+            NETSELECT = input(prompt2);
+            if NETSELECT ~= 1 && NETSELECT ~= 2
+                fprintf("You inserted a wrong number.\n");
+            end
+            fprintf("\n");
+        elseif continueAns == 'n'
+            fprintf("See ya!\n");
+        else
+            fprintf("You inserted a wrong letter.\n");
+        end
     end
-
-    featuresF20 = [];
-    labelsF20 = [];
-    rmsF20 = [];
-    
-    for nF20 = 1 : fileCountF20
-        [featuresF20Data, labelsF20Data, rmsF20Data] ... 
-            = featureExtraction(B1, A1, ageF20, nF20, femaleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresF20 = [featuresF20; featuresF20Data];
-        labelsF20 = [labelsF20; labelsF20Data];
-        rmsF20 = [rmsF20; rmsF20Data];
-    end    
-
-    %Subjects in 40s
-    featuresM40 = [];
-    labelsM40 = [];
-    rmsM40 = [];    
-
-    for nM40 = 1 : fileCountM40
-        [featuresM40Data, labelsM40Data, rmsM40Data] ...
-            = featureExtraction(B1, A1, ageM40, nM40, maleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresM40 = [featuresM40; featuresM40Data];
-        labelsM40 = [labelsM40; labelsM40Data];
-        rmsM40 = [rmsM40; rmsM40Data];
-    end
-
-    featuresF40 = [];
-    labelsF40 = [];
-    rmsF40 = [];  
-    
-    for nF40 = 1 : fileCountF40
-        [featuresF40Data, labelsF40Data, rmsF40Data] ...
-            = featureExtraction(B1, A1, ageF40, nF40, femaleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresF40 = [featuresF40; featuresF40Data];
-        labelsF40 = [labelsF40; labelsF40Data];
-        rmsF40 = [rmsF40; rmsF40Data];
-    end    
-    
-    %Subjects in 60s
-    featuresM60 = [];
-    labelsM60 = [];
-    rmsM60 = [];    
-    
-    for nM60 = 1 : fileCountM60
-        [featuresM60Data, labelsM60Data, rmsM60Data] ...
-            = featureExtraction(B1, A1, ageM60, nM60, maleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresM60 = [featuresM60; featuresM60Data];
-        labelsM60 = [labelsM60; labelsM60Data];
-        rmsM60 = [rmsM60; rmsM60Data];
-    end
-
-    featuresF60 = [];
-    labelsF60 = [];
-    rmsF60 = [];    
-    
-    for nF60 = 1 : fileCountF60
-        [featuresF60Data, labelsF60Data, rmsF60Data] ...
-            = featureExtraction(B1, A1, ageF60, nF60, femaleID); ...
-            %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
-        featuresF60 = [featuresF60; featuresF60Data];
-        labelsF60 = [labelsF60; labelsF60Data];
-        rmsF60 = [rmsF60; rmsF60Data];
-    end
-    
-    rmsTotal = [rmsM20; rmsF20; rmsM40; rmsF40; rmsM60; rmsF60];
-    labelsTotal = [labelsM20; labelsF20; labelsM40; labelsF40; labelsM60; labelsF60];
-    
-    [ranks, weights] = relieff(rmsTotal, labelsTotal, 6, ...
-        'method', 'classification');
-    
-    bar(weights(ranks))
-    xlabel('Predictor rank');
-    ylabel('Predictor important weight');
     
 end
 
