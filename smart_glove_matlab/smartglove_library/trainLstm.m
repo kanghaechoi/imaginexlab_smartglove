@@ -86,11 +86,11 @@ if codeContinue == true
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 5; % The number of input nodes
+    numFeatures = 17; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
-    numClasses = 3; % The number of output nodes
+    numClasses = 6; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
         bilstmLayer(numHiddenUnits1,'OutputMode','last')
@@ -103,7 +103,7 @@ if codeContinue == true
         softmaxLayer
         classificationLayer]; % Layer configuration
 
-    net = trainNetwork(featureMat, labelCategories, layers, options);
+    [ net] = trainNetwork(featureMat, labelCategories, layers, options);
 end
     
 end

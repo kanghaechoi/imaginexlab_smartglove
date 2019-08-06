@@ -183,7 +183,7 @@ if(NETSELECT == 2)
 
 %% Signal analyzing
 
-%     signalAnalyzer;
+     %signalAnalyzer;
 
 %% Convolutional neural network training
 
@@ -197,24 +197,18 @@ if(NETSELECT == 3)
     %Results from experiment 1
     [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fileCounts, genderID); 
     
-    for i = 1 : 26
-        
-        [net] = trainLstm(featuresTotalCell, ...
-        labelsTotalCell); %LSTM network
-    end
-    
     %Results from experiment 2
     %[featuresTotalCell, labelsTotalCell] = exp2LstmResult(A1, B1, ages, fileCounts, genderID); 
 
 
 
 %% Signal analyzing
-
-    %signalAnalyzer;
+    Features = cell2mat(C) featuresTotalCell; 
+    signalAnalyzer;
     
 %% Long short-term memory network training
 
-    [net] = trainLstm(featuresTotalCell, ...
+   [ net] = trainLstm(featuresTotalCell, ...
         labelsTotalCell); %LSTM network
     
 end

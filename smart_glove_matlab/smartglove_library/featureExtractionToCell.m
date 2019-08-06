@@ -127,12 +127,15 @@ resizedHandAngleZ = scaledHandAngleZ(1:featureLength,1);
 resizedWristAngleX = scaledWristAngleX(1:featureLength,1);
 resizedWristAngleY = scaledWristAngleY(1:featureLength,1);
 resizedWristAngleZ = scaledWristAngleZ(1:featureLength,1);
-
+%1-7
 thumbFin = [resizedThumbAccX, resizedThumbAccY, resizedThumbAccZ, ...
     resizedThumbVelX, resizedThumbVelY, resizedThumbVelZ, resizedThumbAngleX];
+%8-14
 indexFin = [resizedIndexAccX, resizedIndexAccY, resizedIndexAccZ, ...
     resizedIndexVelX, resizedIndexVelY, resizedIndexVelZ, resizedIndexAngleX];
+%15-17
 hand = [resizedHandAngleX, resizedHandAngleY, resizedHandAngleZ];
+%18-26
 wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
     resizedWristVelX, resizedWristVelY, resizedWristVelZ, ...
     resizedWristAngleX, resizedWristAngleY, resizedWristAngleZ];
@@ -140,10 +143,20 @@ wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
 %% Create feature columns (feature_length x 11)
 ageFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThumbVelX resizedIndexVelY ...
             resizedIndexAccX resizedIndexAngleX resizedIndexAccZ resizedWristVelZ resizedIndexVelZ ...
-            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX, ...
-            resizedWristAccY, resizedThumbAngleX, resizedWristAngleY, resizedHandAngleY, resizedIndexAccY, ...
-            resizedThumbVelY, resizedThumbAccY, resizedWristAccZ, resizedWristVelY, resizedWristVelX, resizedWristAngleX];    
-
+            resizedWristAccX resizedThumbVelZ resizedHandAngleX resizedThumbAccZ resizedIndexVelX ...
+            resizedWristAccY resizedThumbAngleX resizedWristAngleY resizedHandAngleY resizedIndexAccY ...
+            resizedThumbVelY resizedThumbAccY resizedWristAccZ resizedWristVelY resizedWristVelX resizedWristAngleX];    
+genderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccZ resizedHandAngleX resizedThumbAccX ...
+            resizedThumbAngleX resizedHandAngleY resizedThumbVelZ resizedWristAccX resizedIndexAngleX ...
+            resizedIndexAccZ resizedIndexAccX resizedWristAccZ resizedWristAngleY resizedWristAccY ...
+            resizedIndexVelX resizedWristAngleX resizedIndexVelZ resizedWristVelX resizedWristVelY ...
+            resizedIndexAccY resizedThumbAccY resizedThumbVelX resizedThumbVelY resizedWristVelZ resizedIndexVelY];
+        
+ageGenderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbVelX resizedIndexAccZ resizedThumbAccX ...
+                     resizedIndexVelY resizedWristVelZ resizedThumbAccZ resizedIndexAccY resizedIndexVelZ ...
+                     resizedIndexAccX resizedIndexAngleX resizedThumbAccY resizedHandAngleX resizedWristAccZ...
+                     resizedThumbVelY resizedThumbAngleX resizedIndexVelX resizedThumbVelZ resizedWristAccX ...
+                     resizedWristAngleY resizedWristAccY resizedWristVelX resizedHandAngleY resizedWristVelY resizedWristAngleX];
 % genderFeatures2 = ageFeatures2;
 % genderFeatures3 = ageFeatures3;
 % genderFeatures5 = ageFeatures5;
@@ -159,20 +172,20 @@ ageFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccX resizedThum
 % ageGenderFeatures20 = ageFeatures15;
 % ageGenderFeaturesFull = ageFeaturesFull;
 
-features = ageFeatures(:,1:5)';
+features = ageGenderFeatures(:,1:17)';
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
 %Labels for age classification
-labels = ones(1, 1);
-labels = (AGE * labels) / 10;
+% labels = ones(1, 1);
+% labels = (AGE * labels) / 10;
 
 %Labels for gender classification
-% labels = ones(1, 1);
-% labels = (GENDER * labels);
+%labels = ones(1, 1);
+%labels = (GENDER * labels);
 
 %Labels for age & gender classification
-% labels = ones(1, 1);
-% labels = (((GENDER*10) + (AGE/10)) * labels);
+labels = ones(1, 1);
+labels = (((GENDER*10) + (AGE/10)) * labels);
 
 end

@@ -183,7 +183,7 @@ if(NETSELECT == 2)
 
 %% Signal analyzing
 
-%     signalAnalyzer;
+     %signalAnalyzer;
 
 %% Convolutional neural network training
 
@@ -203,12 +203,12 @@ if(NETSELECT == 3)
 
 
 %% Signal analyzing
-
+    %Features = cell2mat(featuresTotalCell) ; 
     %signalAnalyzer;
     
 %% Long short-term memory network training
 
-    [net] = trainLstm(featuresTotalCell, ...
+   [ net] = trainLstm(featuresTotalCell, ...
         labelsTotalCell); %LSTM network
     
 end
