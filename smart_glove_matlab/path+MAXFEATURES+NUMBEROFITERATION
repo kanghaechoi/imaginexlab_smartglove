@@ -1,0 +1,22 @@
+Training on single GPU.
+|======================================================================================================================|
+|  Epoch  |  Iteration  |  Time Elapsed  |  Mini-batch  |  Validation  |  Mini-batch  |  Validation  |  Base Learning  |
+|         |             |   (hh:mm:ss)   |   Accuracy   |   Accuracy   |     Loss     |     Loss     |      Rate       |
+|======================================================================================================================|
+|       1 |           1 |       00:00:01 |       20.00% |       23.81% |       1.8116 |       1.7725 |          0.0010 |
+|       1 |           8 |       00:00:05 |       40.00% |              |       1.6441 |              |          0.0010 |
+|======================================================================================================================|
+Training on single GPU.
+|======================================================================================================================|
+|  Epoch  |  Iteration  |  Time Elapsed  |  Mini-batch  |  Validation  |  Mini-batch  |  Validation  |  Base Learning  |
+|         |             |   (hh:mm:ss)   |   Accuracy   |   Accuracy   |     Loss     |     Loss     |      Rate       |
+|======================================================================================================================|
+|       1 |           1 |       00:00:01 |       20.00% |       14.29% |       1.8293 |       1.8349 |          0.0010 |
+<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019a\toolbox\nnet\cnn\+nnet\+internal\+cnn\+layer\+util\BiLSTMGPUReturnLastStrategy.m',16,1)">16  </a>            Y = cat(1, HY(:, :, 1), HY(:, :, 2));
+if system_dependent('IsDebugMode')==1, dbquit; end
+Runtime
+
+path = 
+
+    "/dairy/"
+

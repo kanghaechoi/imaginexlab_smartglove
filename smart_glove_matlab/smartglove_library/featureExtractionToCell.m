@@ -154,7 +154,7 @@ genderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbAccZ resizedH
         
 ageGenderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbVelX resizedIndexAccZ resizedThumbAccX ...
                      resizedIndexVelY resizedWristVelZ resizedThumbAccZ resizedIndexAccY resizedIndexVelZ ...
-                     resizedIndexAccX resizedIndexAngleX resizedThumbAccY resizedHandAngleX resizedWristAccZ...
+                    resizedIndexAccX resizedIndexAngleX resizedThumbAccY resizedHandAngleX resizedWristAccZ...
                      resizedThumbVelY resizedThumbAngleX resizedIndexVelX resizedThumbVelZ resizedWristAccX ...
                      resizedWristAngleY resizedWristAccY resizedWristVelX resizedHandAngleY resizedWristVelY resizedWristAngleX];
 % genderFeatures2 = ageFeatures2;
@@ -172,7 +172,7 @@ ageGenderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbVelX resiz
 % ageGenderFeatures20 = ageFeatures15;
 % ageGenderFeaturesFull = ageFeaturesFull;
 
-features = ageGenderFeatures(:,1:17)';
+features = ageGenderFeatures(:,1:12)';
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 

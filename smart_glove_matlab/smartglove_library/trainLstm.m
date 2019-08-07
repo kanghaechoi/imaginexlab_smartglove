@@ -1,4 +1,4 @@
-    function [net] = trainLstm(features, labels)
+    function [net] = trainLstm(features, labels ,NumberFeatures)
 %% Long short-term memory network training sequence
 
 %reducedFeatureMat = reducedFeatures;
@@ -52,19 +52,19 @@ labelCategories(ii) =[];
 % title("Sorted Data")
 
 %% Check if to continue training neural network 
-
-trainingPrompt = 'Will you continue to train network? (y/n): ';
-Ans = input(trainingPrompt, 's');
-if ~isempty(Ans)
-    if Ans == 'y'
-        codeContinue = true;
-        fprintf("\n");
-    elseif Ans == 'n'
-        fprintf("See ya!\n\n");
-    else
-        fprintf("You inserted a wrong letter\n\n");
-    end
-end
+codeContinue = true;
+% trainingPrompt = 'Will you continue to train network? (y/n): ';
+% Ans = input(trainingPrompt, 's');
+% if ~isempty(Ans)
+%     if Ans == 'y'
+%         codeContinue = true;
+%         fprintf("\n");
+%     elseif Ans == 'n'
+%         fprintf("See ya!\n\n");
+%     else
+%         fprintf("You inserted a wrong letter\n\n");
+%     end
+% end
 
 %% LSTM network options
 if codeContinue == true
@@ -86,7 +86,7 @@ if codeContinue == true
         'Plots','training-progress'); % LSTM network training options
 
 
-    numFeatures = 17; % The number of input nodes
+    numFeatures = NumberFeatures; % The number of input nodes
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
