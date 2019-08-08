@@ -172,7 +172,7 @@ ageGenderFeatures = [resizedWristAngleZ resizedHandAngleZ resizedThumbVelX resiz
 % ageGenderFeatures20 = ageFeatures15;
 % ageGenderFeaturesFull = ageFeaturesFull;
 
-features = ageGenderFeatures(:,1:NumberFeatures)';
+features = genderFeatures(:,1:NumberFeatures)';
 
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
@@ -181,11 +181,11 @@ features = ageGenderFeatures(:,1:NumberFeatures)';
 % labels = (AGE * labels) / 10;
 
 %Labels for gender classification
-%labels = ones(1, 1);
-%labels = (GENDER * labels);
+labels = ones(1, 1);
+labels = (GENDER * labels);
 
 %Labels for age & gender classification
-labels = ones(1, 1);
-labels = (((GENDER*10) + (AGE/10)) * labels);
+%labels = ones(1, 1);
+%labels = (((GENDER*10) + (AGE/10)) * labels);
 
 end
