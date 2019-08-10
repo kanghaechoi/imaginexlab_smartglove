@@ -3,7 +3,7 @@ import csv
 
 indexStart = 4
 
-path = 'Results Gender Exp1/'
+path = 'Results Age Exp1/'
 listFile = glob.glob(path + "*.log");
 print(listFile)
 stringSplit = [];
