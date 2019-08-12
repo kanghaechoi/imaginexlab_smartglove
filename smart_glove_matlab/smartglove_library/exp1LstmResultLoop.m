@@ -1,24 +1,18 @@
-function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fileCounts, genderID)
+function [featuresTotalCell, labelsTotalCell] = exp1LstmResultLoop(A1, B1, ages, fileCounts, genderID, numberOfFeatures)
 %% Smart glove data read & feature extraction
 
     featuresM20Cell = {};
-    reducedFeaturesM20Cell = {};
     featuresF20Cell = {};
-    reducedFeaturesF20Cell = {};
     featuresM40Cell = {};
-    reducedFeaturesM40Cell = {};
     featuresF40Cell = {};
-    reducedFeaturesF40Cell = {};
     featuresM60Cell = {};
-    reducedFeaturesM60Cell = {};
     featuresF60Cell = {};
-    reducedFeaturesF60Cell = {};
 
     %Subjects in 20s
     for nM20 = 1 : fileCounts(:,1)
         if nM20 == 1
             [featuresM20Data, labelsM20Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,1), nM20, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,1), nM20, genderID(1,1), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM20Cell = {featuresM20Data};
             %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -26,7 +20,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresM20Data, labelsM20Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,1), nM20, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,1), nM20, genderID(1,1), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM20Cell = [featuresM20Cell; {featuresM20Data}];
             %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -37,7 +31,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
     for nF20 = 1 : fileCounts(:,2)
         if nF20 == 1
             [featuresF20Data, labelsF20Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,1), nF20, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,1), nF20, genderID(1,2), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF20Cell = {featuresF20Data};
             %reducedFeatures20Cell = {reducedFeatures20Data};
@@ -45,7 +39,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresF20Data, labelsF20Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,1), nF20, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,1), nF20, genderID(1,2), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF20Cell = [featuresF20Cell; {featuresF20Data}];
             %reducedFeatures20Cell = [reducedFeatures20Cell; {reducedFeatures20Data}];
@@ -57,7 +51,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
     for nM40 = 1 : fileCounts(:,3)
         if nM40 == 1
             [featuresM40Data, labelsM40Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,3), nM40, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,3), nM40, genderID(1,1), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM40Cell = {featuresM40Data};
             %reducedFeatures40Cell = {reducedFeatures40Data};
@@ -65,7 +59,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresM40Data, labelsM40Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,3), nM40, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,3), nM40, genderID(1,1), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM40Cell = [featuresM40Cell; {featuresM40Data}];
             %reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
@@ -76,7 +70,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
     for nF40 = 1 : fileCounts(:,4)
         if nF40 == 1
             [featuresF40Data, labelsF40Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,4), nF40, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,4), nF40, genderID(1,2), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF40Cell = {featuresF40Data};
             %reducedFeatures40Cell = {reducedFeatures40Data};
@@ -84,7 +78,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresF40Data, labelsF40Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,4), nF40, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,4), nF40, genderID(1,2), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF40Cell = [featuresF40Cell; {featuresF40Data}];
             %reducedFeatures40Cell = [reducedFeatures40Cell; {reducedFeatures40Data}];
@@ -96,7 +90,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
     for nM60 = 1 : fileCounts(:,5)
         if nM60 == 1
             [featuresM60Data, labelsM60Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,5), nM60, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,5), nM60, genderID(1,1), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM60Cell = {featuresM60Data};
             %reducedFeatures60Cell = {reducedFeatures60Data};
@@ -104,7 +98,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresM60Data, labelsM60Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,5), nM60, genderID(1,1)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,5), nM60, genderID(1,1), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresM60Cell = [featuresM60Cell; {featuresM60Data}];
             %reducedFeatures60Cell = [reducedFeatures60Cell; {reducedFeatures60Data}];
@@ -115,7 +109,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
     for nF60 = 1 : fileCounts(:,6)
         if nF60 == 1
             [featuresF60Data, labelsF60Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,6), nF60, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,6), nF60, genderID(1,2), numberOfFeatures); ...
                 %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF60Cell = {featuresF60Data};
             %reducedFeatures60Cell = {reducedFeatures60Data};
@@ -123,7 +117,7 @@ function [featuresTotalCell, labelsTotalCell] = exp1LstmResult(A1, B1, ages, fil
             continue;
         else
             [featuresF60Data, labelsF60Data] = ...
-                exp1FeatureExtractCell(B1, A1, ages(:,6), nF60, genderID(1,2)); ...
+                exp1FeatureExtractLoop(B1, A1, ages(:,6), nF60, genderID(1,2), numberOfFeatures); ...
                  %[features] = feature_extraction(b1, a1, age, file_count): Feature extraction
             featuresF60Cell = [featuresF60Cell; {featuresF60Data}];
             %reducedFeatures60Cell = [reducedFeatures60Cell; {reducedFeatures60Data}];
