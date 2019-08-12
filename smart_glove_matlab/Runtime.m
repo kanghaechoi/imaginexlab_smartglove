@@ -1,22 +1,31 @@
+%% Smartglove LSTM network training automation process
+
+%% Include smartglove function library
+addpath('smartglove_library');
+
+%% Initialization
 codeInitialize;
-path = "\dairy\";
-MAXFEATURES = 26;
-NUMBEROFITERATION = 5;
-for NumberFeature = 1:MAXFEATURES
-    for loop = 1:NUMBEROFITERATION
-        DairyName = strcat('LSTM_', int2str(NumberFeature),"_", int2str(loop), '.log');
-        f = fullfile('dairy',DairyName);
-        fid =  fopen( f, 'w' );
+
+%% Directory path modification
+path = "\training_log\";
+
+%% Network training iteration
+MAXFEATURES = 26; %The number of features
+NUMBEROFITERATION = 5; %The number of training iteration per feature
+
+for NumberFeature = 1 : MAXFEATURES
+    for loop = 1 : NUMBEROFITERATION
+        logFileName = strcat('LSTM_', int2str(NumberFeature),"_", int2str(loop), '.log');
+        f = fullfile('training_log',logFileName);
+        fid =  fopen(f, 'w');
         fclose(fid);
         diary(f);
-        smartgloveRuntime(3,NumberFeature)
+        smartgloveRuntime(NumberFeature)
     end
 end
 
-
-
-DairyName = strcat('LSTMFINISH_','.log');
-        f = fullfile('dairy',DairyName);
-        fid =  fopen( f, 'w' );
-        fclose(fid);
-        diary(f);
+logFileName = strcat('LSTMFINISH_','.log');
+f = fullfile('training_log',logFileName);
+fid = fopen(f, 'w');
+fclose(fid);
+diary(f);
