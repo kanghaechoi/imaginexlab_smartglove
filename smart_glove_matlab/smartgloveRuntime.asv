@@ -54,8 +54,7 @@ gesture6ID = 06;
 [fileCountFG6, ageFG6] = inputCount2(20, femaleID, gesture6ID); %[fileCount, AGE] = inputCount(AGE)
 
 ages = [ageMG1 ageFG1 ageMG2 ageFG2 ageMG3 ageFG3 ageMG4 ageFG4 ageMG5 ageFG5 ageMG6 ageFG6];
-fileCounts = [fileCountMG1 fileCountFG1 fileCountMG2 fileCountFG2 fileCountMG3 fileCountFG3 ...
-              fileCountMG4 fileCountFG4 fileCountMG5 fileCountFG5 fileCountMG6 fileCountFG6];
+fileCounts = [fileCountMG1 fileCountFG1 fileCountMG2 fileCountFG2 fileCountMG3 v];
 
 %% Network selection
 
@@ -66,10 +65,10 @@ fileCounts = [fileCountMG1 fileCountFG1 fileCountMG2 fileCountFG2 fileCountMG3 f
 %% Smart glove data read & feature extraction
 
     %Results from experiment 1
-    %[featuresTotalCell, labelsTotalCell] = exp1LstmResultRuntime(A1, B1, ages, fileCounts, genderID, Value); 
+[featuresTotalCell, labelsTotalCell] = exp1LstmResultRuntime(A1, B1, ages, fileCounts, genderID, Value); 
     
     %Results from experiment 2
-    [featuresTotalCell, labelsTotalCell] = exp2LstmResultRuntime(A1, B1, ages, fileCounts, genderID,Value); 
+    %[featuresTotalCell, labelsTotalCell] = exp2LstmResult(A1, B1, ages, fileCounts, genderID); 
 
 
 
