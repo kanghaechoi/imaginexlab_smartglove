@@ -15,7 +15,7 @@ for i = 1:numObservations
     sequenceLengths(i) = m;
 end
 
-ii = randperm(size(featureMat,1), 4);
+ii = randperm(size(featureMat,1), 20);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -60,5 +60,7 @@ if codeContinue == true
 
     [net] = trainNetwork(featureMat, labelCategories, layers, options);
 end
-    
+    %[XTest,YTest] = digitTest4DArrayData;
+    YPredicted = classify(net,xValidation);
+    plotconfusion(yValidation,YPredicted)
 end

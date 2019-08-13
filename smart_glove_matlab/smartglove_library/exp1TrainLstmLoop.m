@@ -44,7 +44,7 @@ if codeContinue == true
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
-    numClasses = 8; % The number of output nodes
+    numClasses = 6; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
         bilstmLayer(numHiddenUnits1,'OutputMode','last')
@@ -59,5 +59,7 @@ if codeContinue == true
 
     [net] = trainNetwork(featureMat, labelCategories, layers, options);
 end
-    
+    %[XTest,YTest] = digitTest4DArrayData;
+    YPredicted = classify(net,xValidation);
+    plotconfusion(yValidation,YPredicted)
 end

@@ -7,7 +7,7 @@ addpath('smartglove_library', 'exp1_data', 'exp2_data');
 codeInitialize;
 
 %% Directory path modification
-path = "\training_log\";
+path = "\exp1_data\";
 
 %% Network training iteration
 MAXFEATURES = 26; %The number of features
