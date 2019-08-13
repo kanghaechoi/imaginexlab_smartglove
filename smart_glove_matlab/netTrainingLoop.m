@@ -1,13 +1,20 @@
 %% Smartglove LSTM network training automation process
 
-%% Include smartglove function library
-addpath('smartglove_library', 'exp1_data', 'exp2_data');
+%% Include smartglove function library + Experiment data
+% Experiment 1, Question 1
+%addpath('smartglove_library', 'exp1_q1_data');
+
+% Experiment 1, Question 2
+addpath('smartglove_library', 'exp1_q2_data');
+
+% Experiment 2, Question 3
+%addpath('smartglove_library', 'exp2_data');
 
 %% Initialization
 codeInitialize;
 
 %% Directory path modification
-path = "\exp1_data\";
+path = "\training_log\";
 
 %% Network training iteration
 MAXFEATURES = 26; %The number of features

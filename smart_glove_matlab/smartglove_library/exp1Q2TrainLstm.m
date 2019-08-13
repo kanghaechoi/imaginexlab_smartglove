@@ -1,4 +1,4 @@
-function [net] = exp2TrainLstm(features, labels)
+function [net] = exp1Q2TrainLstm(features, labels)
 %% Long short-term memory network training sequence
 
 labelMat = labels;
@@ -19,7 +19,7 @@ end
 % featureMat = featureMat(idx);
 % labelCategories = labelCategories(idx);
 
-ii = randperm(size(featureMat,1), 2);
+ii = randperm(size(featureMat,1), 10);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -66,7 +66,7 @@ end
 %% LSTM network options
 if codeContinue == true
     maxEpochs = 100;
-    miniBatchSize = 7; % Total iteration count = maxEpochs * miniBatchSize
+    miniBatchSize = 11; % Total iteration count = maxEpochs * miniBatchSize
 
     options = trainingOptions('adam', ...
         'ExecutionEnvironment','auto', ...
@@ -77,7 +77,7 @@ if codeContinue == true
         'Shuffle','every-epoch', ...
         'Verbose',1, ...
         'ValidationData',{xValidation, yValidation}, ...
-        'ValidationFrequency', 14, ...
+        'ValidationFrequency', 22, ...
         'InitialLearnRate', 1e-3, ...
         'LearnRateSchedule', 'piecewise', ...
         'Plots','training-progress'); % LSTM network training options
@@ -87,7 +87,7 @@ if codeContinue == true
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
-    numClasses = 8; % The number of output nodes
+    numClasses = 18; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
         bilstmLayer(numHiddenUnits1,'OutputMode','last')
@@ -106,4 +106,5 @@ end
     %[XTest,YTest] = digitTest4DArrayData;
     YPredicted = classify(net,xValidation);
     plotconfusion(yValidation,YPredicted)
+    
 end

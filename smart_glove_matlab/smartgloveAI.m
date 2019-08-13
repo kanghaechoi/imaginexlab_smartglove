@@ -1,7 +1,14 @@
 %% Code for Imagine x Lab artificial intelligence system for smart glove: MANOVIVO
 
-%% Include smartglove function library
-addpath('smartglove_library', 'exp1_data', 'exp2_data');
+%% Include smartglove function library + Experiment data
+% Experiment 1, Question 1
+%addpath('smartglove_library', 'exp1_q1_data');
+
+% Experiment 1, Question 2
+addpath('smartglove_library', 'exp1_q2_data');
+
+% Experiment 2, Question 3
+%addpath('smartglove_library', 'exp2_data');
 
 %readFolders()
 
@@ -42,7 +49,7 @@ fileCounts = [fileCountM fileCountF];
 %% Network selection
 
 promptNetSelect = ... 
-    'Which process do you want to continue?\n(1:reliefF, 2:LSTM_Exp1, 3:LSTM_Exp2): ';
+    'Which process do you want to continue?\n(1:reliefF, 2:LSTM_Exp1_Q1, 3:LSTM_Exp1_Q2, 4:LSTM_Exp2): ';
 netSelectAns = input(promptNetSelect);
     
 switch netSelectAns 
@@ -89,13 +96,17 @@ end
 
 if(NETSELECT == 1)
 %% reliefF for feature reduction
-    %Experiment 1
-%     [ranks, weights] = relieffResult(A1, B1, maleID, femaleID, ...
-%     ages, fileCounts);
-    
+    %Experiment 1, Question 1
+%     [ranks, weights] = ... 
+%         exp1Q1RelieffResult(A1, B1, maleID, femaleID, ages, fileCounts);
+
+    %Experiment 1, Question 2
+     [ranks, weights] = ... 
+         exp1Q2RelieffResult(A1, B1, maleID, femaleID, ages);
+
     %Experiment 2
-    [ranks, weights] = relieffResultExp2(A1, B1, maleID, femaleID, ...
-    ages, gestureID);
+%    [ranks, weights] = ... 
+%        exp2RelieffResult(A1, B1, maleID, femaleID, ages, gestureID);
     
     fprintf("\n");
     prompt1 = 'Will you continue? (y/n): ';
@@ -124,33 +135,39 @@ if(NETSELECT == 2)
 
     %Results from experiment 1
     [featuresTotalCell, labelsTotalCell] = ... 
-        exp1LstmResult(A1, B1, ages, fileCounts, genderID); 
-
-%% Signal analyzing
-    %Features = cell2mat(featuresTotalCell) ; 
-    %signalAnalyzer;
+        exp1Q1LstmResult(A1, B1, ages, fileCounts, genderID); 
     
 %% Long short-term memory network training
 
-   [exp1Net] = exp1TrainLstm(featuresTotalCell, ...
-        labelsTotalCell); %LSTM network
+   [exp1Q1Net] = ... 
+       exp1Q1TrainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
 
 end
 
 if(NETSELECT == 3)
 %% Smart glove data read & feature extraction
 
+    %Results from experiment 1
+    [featuresTotalCell, labelsTotalCell] = ... 
+        exp1Q2LstmResult(A1, B1, ages, genderID); 
+
+%% Long short-term memory network training
+
+   [exp1Q2Net] = ...
+       exp1Q2TrainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
+
+end
+
+if(NETSELECT == 4)
+%% Smart glove data read & feature extraction
+
     %Results from experiment 2
     [featuresTotalCell, labelsTotalCell] = ... 
         exp2LstmResult(A1, B1, ages, genderID, gestureID); 
-
-%% Signal analyzing
-    %Features = cell2mat(featuresTotalCell) ; 
-    %signalAnalyzer;
     
 %% Long short-term memory network training
 
-   [exp2Net] = exp2TrainLstm(featuresTotalCell, ...
-        labelsTotalCell); %LSTM network
+   [exp2Net] = ... 
+       exp2TrainLstm(featuresTotalCell, labelsTotalCell); %LSTM network
     
 end

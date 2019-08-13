@@ -60,6 +60,7 @@ if codeContinue == true
 
     [net] = trainNetwork(featureMat, labelCategories, layers, options);
 end
+
     %[XTest,YTest] = digitTest4DArrayData;
     YPredicted = classify(net,xValidation);
     plotconfusion(yValidation,YPredicted)
