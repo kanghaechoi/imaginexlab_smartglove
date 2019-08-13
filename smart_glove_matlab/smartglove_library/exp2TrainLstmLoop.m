@@ -15,7 +15,7 @@ for i = 1:numObservations
     sequenceLengths(i) = m;
 end
 
-ii = randperm(size(featureMat,1), 20);
+ii = randperm(size(featureMat,1), 4);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);

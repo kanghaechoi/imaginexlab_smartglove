@@ -3,7 +3,7 @@ import csv
 
 indexStart = 4
 
-path = 'Results Individual Exp2/'
+path = 'Results Individual Carkey Exp2/'
 listFile = glob.glob(path + "*.log");
 print(listFile)
 stringSplit = [];

@@ -5,10 +5,10 @@
 %addpath('smartglove_library', 'exp1_q1_data');
 
 % Experiment 1, Question 2
-addpath('smartglove_library', 'exp1_q2_data');
+%addpath('smartglove_library', 'exp1_q2_data');
 
 % Experiment 2, Question 3
-%addpath('smartglove_library', 'exp2_data');
+addpath('smartglove_library', 'exp2_data');
 
 %readFolders()
 
@@ -101,12 +101,12 @@ if(NETSELECT == 1)
 %         exp1Q1RelieffResult(A1, B1, maleID, femaleID, ages, fileCounts);
 
     %Experiment 1, Question 2
-     [ranks, weights] = ... 
-         exp1Q2RelieffResult(A1, B1, maleID, femaleID, ages);
+%     [ranks, weights] = ... 
+%         exp1Q2RelieffResult(A1, B1, maleID, femaleID, ages);
 
     %Experiment 2
-%    [ranks, weights] = ... 
-%        exp2RelieffResult(A1, B1, maleID, femaleID, ages, gestureID);
+    [ranks, weights] = ... 
+        exp2RelieffResult(A1, B1, maleID, femaleID, ages, gestureID);
     
     fprintf("\n");
     prompt1 = 'Will you continue? (y/n): ';
