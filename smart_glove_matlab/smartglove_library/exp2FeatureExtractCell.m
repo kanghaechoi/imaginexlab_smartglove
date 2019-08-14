@@ -159,7 +159,7 @@ carkeyFeatures = [resizedWristAngleZ, resizedWristAngleX, resizedWristAccY, ...
     resizedThumbVelX, resizedHandAngleY, resizedThumbAccX, ... 
     resizedIndexAccX, resizedIndexAccZ];
 
-features = carkeyFeatures(:, 1:26)';
+features = carkeyFeatures(:, 1:19)';
 %% Create a label column (number of files, so each roz of the cell array x 1) 
 
 labels = ones(1, 1);

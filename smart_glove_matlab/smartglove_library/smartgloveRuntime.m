@@ -28,8 +28,8 @@ gestureID = [01 02 03 04 05 06];
 %fileCounts = [fileCountM20 fileCountF20 fileCountM40 fileCountF40 ... 
 %    fileCountM60 fileCountF60];
 
-[fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,4)); %[fileCount, AGE] = inputCount(AGE)
-[fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,4)); %[fileCount, AGE] = inputCount(AGE)
+[fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
+[fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
 
 ages = 20;
 fileCounts = [fileCountM fileCountF];

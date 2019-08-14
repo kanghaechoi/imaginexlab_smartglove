@@ -1,0 +1,50 @@
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dlmread', 'C:\Program Files\MATLAB\R2019a\toolbox\matlab\iofun\dlmread.m', 62)" style="font-weight:bold">dlmread</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019a\toolbox\matlab\iofun\dlmread.m',62,0)">line 62</a>)
+The file 'Hand_IMU_20_1_1.txt' could not be opened because: No such file or directory
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('exp1Q2FeatureExtractLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp1Q2FeatureExtractLoop.m', 5)" style="font-weight:bold">exp1Q2FeatureExtractLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp1Q2FeatureExtractLoop.m',5,0)">line 5</a>)
+handData = dlmread(sprintf('Hand_IMU_%d_%d_%d.txt', AGE, GENDER, fileCount)); %Read hand data
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('exp1Q2LstmResultLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp1Q2LstmResultLoop.m', 12)" style="font-weight:bold">exp1Q2LstmResultLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp1Q2LstmResultLoop.m',12,0)">line 12</a>)
+                    exp1Q2FeatureExtractLoop(B1, A1, ages, mIterationNum, genderID(1,1), mSubjectNum,
+                    numberOfFeatures); ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('smartgloveRuntime', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\smartgloveRuntime.m', 48)" style="font-weight:bold">smartgloveRuntime</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\smartgloveRuntime.m',48,0)">line 48</a>)
+        exp1Q2LstmResultLoop(A1, B1, ages,genderID, numberOfFeature);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('netTrainingLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\netTrainingLoop.m', 30)" style="font-weight:bold">netTrainingLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\netTrainingLoop.m',30,0)">line 30</a>)
+        smartgloveRuntime(numberOfFeature)
+} 
+netTrainingLoop
+Training on single GPU.
+|======================================================================================================================|
+|  Epoch  |  Iteration  |  Time Elapsed  |  Mini-batch  |  Validation  |  Mini-batch  |  Validation  |  Base Learning  |
+|         |             |   (hh:mm:ss)   |   Accuracy   |   Accuracy   |     Loss     |     Loss     |      Rate       |
+|======================================================================================================================|
+|       1 |           1 |       00:00:01 |        9.09% |        0.00% |       2.8875 |       2.9260 |          0.0010 |
+|       6 |          22 |       00:00:07 |        9.09% |       20.00% |       2.4989 |       2.5023 |          0.0010 |
+|      11 |          44 |       00:00:14 |        9.09% |       20.00% |       2.5258 |       2.4259 |          0.0001 |
+|      13 |          50 |       00:00:16 |       36.36% |              |       2.0062 |              |          0.0001 |
+|      17 |          66 |       00:00:22 |        9.09% |       10.00% |       2.4023 |       2.4449 |          0.0001 |
+|      22 |          88 |       00:00:29 |        0.00% |       10.00% |       2.4695 |       2.4314 |      1.0000e-05 |
+|      25 |         100 |       00:00:33 |       27.27% |              |       2.1958 |              |      1.0000e-05 |
+|      28 |         110 |       00:00:36 |       27.27% |       10.00% |       2.2109 |       2.4173 |      1.0000e-05 |
+|      33 |         132 |       00:00:43 |        9.09% |       10.00% |       2.3941 |       2.4099 |      1.0000e-06 |
+|      38 |         150 |       00:00:49 |       18.18% |              |       2.4001 |              |      1.0000e-06 |
+|      39 |         154 |       00:00:50 |       36.36% |       10.00% |       2.0335 |       2.4087 |      1.0000e-06 |
+|      44 |         176 |       00:00:57 |       18.18% |       10.00% |       2.2592 |       2.4086 |      1.0000e-07 |
+|      50 |         198 |       00:01:05 |       36.36% |       10.00% |       2.2083 |       2.4085 |      1.0000e-07 |
+|      50 |         200 |       00:01:05 |        9.09% |              |       2.3256 |              |      1.0000e-07 |
+|      55 |         220 |       00:01:12 |       27.27% |       10.00% |       2.2486 |       2.4085 |      1.0000e-08 |
+|      61 |         242 |       00:01:19 |       18.18% |       10.00% |       2.2363 |       2.4085 |      1.0000e-09 |
+|      63 |         250 |       00:01:22 |       18.18% |              |       2.1866 |              |      1.0000e-09 |
+|      66 |         264 |       00:01:26 |       27.27% |       10.00% |       2.2157 |       2.4085 |      1.0000e-09 |
+|      72 |         286 |       00:01:33 |        9.09% |       10.00% |       2.4199 |       2.4085 |      1.0000e-10 |
+|      75 |         300 |       00:01:38 |       18.18% |              |       2.2468 |              |      1.0000e-10 |
+|      77 |         308 |       00:01:41 |       27.27% |       10.00% |       2.2704 |       2.4085 |      1.0000e-10 |
+|      83 |         330 |       00:01:48 |       27.27% |       10.00% |       2.2524 |       2.4085 |      1.0000e-11 |
+|      88 |         350 |       00:01:54 |       18.18% |              |       2.3971 |              |      1.0000e-11 |
+|      88 |         352 |       00:01:55 |        9.09% |       10.00% |       2.4660 |       2.4085 |      1.0000e-11 |
+|      94 |         374 |       00:02:02 |       18.18% |       10.00% |       2.3351 |       2.4085 |      1.0000e-12 |
+|      99 |         396 |       00:02:10 |       27.27% |       10.00% |       2.3053 |       2.4085 |      1.0000e-12 |
+|     100 |         400 |       00:02:11 |       18.18% |       10.00% |       2.2555 |       2.4085 |      1.0000e-12 |
+|======================================================================================================================|

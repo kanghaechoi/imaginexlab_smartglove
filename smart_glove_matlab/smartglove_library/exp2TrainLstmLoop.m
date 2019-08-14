@@ -15,7 +15,7 @@ for i = 1:numObservations
     sequenceLengths(i) = m;
 end
 
-ii = randperm(size(featureMat,1), 4);
+ii = randperm(size(featureMat,1), 8);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -24,7 +24,7 @@ labelCategories(ii) =[];
 %% LSTM network options
 if codeContinue == true
     maxEpochs = 100;
-    miniBatchSize = 9; % Total iteration count = maxEpochs * miniBatchSize
+    miniBatchSize = 8; % Total iteration count = maxEpochs * miniBatchSize
 
     options = trainingOptions('adam', ...
         'ExecutionEnvironment','auto', ...
@@ -35,7 +35,7 @@ if codeContinue == true
         'Shuffle','every-epoch', ...
         'Verbose',1, ...
         'ValidationData',{xValidation, yValidation}, ...
-        'ValidationFrequency', 18, ...
+        'ValidationFrequency', 16, ...
         'InitialLearnRate', 1e-3, ...
         'LearnRateSchedule', 'piecewise', ...
         'Plots','training-progress'); % LSTM network training options
@@ -62,6 +62,6 @@ if codeContinue == true
 end
 
     %[XTest,YTest] = digitTest4DArrayData;
-    YPredicted = classify(net,xValidation);
-    plotconfusion(yValidation,YPredicted)
+   % YPredicted = classify(net,xValidation);
+    %confusionchart(yValidation,YPredicted)
 end
