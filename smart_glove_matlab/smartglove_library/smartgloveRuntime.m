@@ -44,18 +44,18 @@ fileCounts = [fileCountM fileCountF];
     %    labelsTotalCell, numberOfFeature);
     
     %Results from experiment 1, Question 2
-    %[featuresTotalCell, labelsTotalCell] = ... 
-    %    exp1Q2LstmResultLoop(A1, B1, ages,genderID, numberOfFeature); 
+    [featuresTotalCell, labelsTotalCell] = ... 
+        exp1Q2LstmResultLoop(A1, B1, ages,genderID, numberOfFeature); 
     %Experiment 1, Question 2 LSTM network
-    %[exp1Q2Net] = exp1Q2TrainLstmLoop(featuresTotalCell, ...
-    %    labelsTotalCell, numberOfFeature);    
+    [exp1Q2Net] = exp1Q2TrainLstmLoop(featuresTotalCell, ...
+        labelsTotalCell, numberOfFeature);    
     
     %Results from experiment 2
-    [featuresTotalCell, labelsTotalCell] = ... 
-        exp2LstmResultLoop(A1, B1, ages, genderID, gestureID, numberOfFeature);
+    %[featuresTotalCell, labelsTotalCell] = ... 
+    %    exp2LstmResultLoop(A1, B1, ages, genderID, gestureID, numberOfFeature);
     %Experiment 2 LSTM network
-    [exp2Net] = exp2TrainLstmLoop(featuresTotalCell, ...
-        labelsTotalCell, numberOfFeature);
+    %[exp2Net] = exp2TrainLstmLoop(featuresTotalCell, ...
+    %    labelsTotalCell, numberOfFeature);
 
 end
 

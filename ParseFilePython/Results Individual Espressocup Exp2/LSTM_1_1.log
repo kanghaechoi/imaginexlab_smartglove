@@ -1,0 +1,52 @@
+{Undefined function or variable 'carkeyFeatures'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('exp2FeatureExtractLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp2FeatureExtractLoop.m', 172)" style="font-weight:bold">exp2FeatureExtractLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp2FeatureExtractLoop.m',172,0)">line 172</a>)
+features = carkeyFeatures(:, 1:numberOfFeatures)';
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('exp2LstmResultLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp2LstmResultLoop.m', 11)" style="font-weight:bold">exp2LstmResultLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\exp2LstmResultLoop.m',11,0)">line 11</a>)
+                    exp2FeatureExtractLoop(B1, A1, ages, mIterationNum, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('smartgloveRuntime', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\smartgloveRuntime.m', 55)" style="font-weight:bold">smartgloveRuntime</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\smartglove_library\smartgloveRuntime.m',55,0)">line 55</a>)
+        exp2LstmResultLoop(A1, B1, ages, genderID, gestureID, numberOfFeature);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('netTrainingLoop', 'D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\netTrainingLoop.m', 30)" style="font-weight:bold">netTrainingLoop</a> (<a href="matlab: opentoline('D:\0_GitHub\imaginexlab_smartglove\smart_glove_matlab\netTrainingLoop.m',30,0)">line 30</a>)
+        smartgloveRuntime(numberOfFeature)
+} 
+netTrainingLoop
+Training on single GPU.
+|======================================================================================================================|
+|  Epoch  |  Iteration  |  Time Elapsed  |  Mini-batch  |  Validation  |  Mini-batch  |  Validation  |  Base Learning  |
+|         |             |   (hh:mm:ss)   |   Accuracy   |   Accuracy   |     Loss     |     Loss     |      Rate       |
+|======================================================================================================================|
+|       1 |           1 |       00:00:00 |       11.11% |        0.00% |       2.0937 |       2.0939 |          0.0010 |
+|       5 |          18 |       00:00:02 |       11.11% |       25.00% |       1.9196 |       1.9690 |          0.0010 |
+|       9 |          36 |       00:00:03 |       11.11% |        0.00% |       1.9106 |       1.7099 |          0.0010 |
+|      13 |          50 |       00:00:05 |       33.33% |              |       1.4830 |              |          0.0001 |
+|      14 |          54 |       00:00:05 |       11.11% |        0.00% |       1.8391 |       1.7281 |          0.0001 |
+|      18 |          72 |       00:00:07 |       11.11% |        0.00% |       1.8562 |       1.8482 |          0.0001 |
+|      23 |          90 |       00:00:08 |       66.67% |        0.00% |       1.2717 |       1.7368 |      1.0000e-05 |
+|      25 |         100 |       00:00:09 |       55.56% |              |       1.3132 |              |      1.0000e-05 |
+|      27 |         108 |       00:00:10 |       33.33% |        0.00% |       1.5833 |       1.7394 |      1.0000e-05 |
+|      32 |         126 |       00:00:11 |       33.33% |        0.00% |       1.4351 |       1.7375 |      1.0000e-06 |
+|      36 |         144 |       00:00:13 |       22.22% |        0.00% |       1.7626 |       1.7370 |      1.0000e-06 |
+|      38 |         150 |       00:00:14 |       11.11% |              |       1.7682 |              |      1.0000e-06 |
+|      41 |         162 |       00:00:15 |       55.56% |        0.00% |       1.6587 |       1.7374 |      1.0000e-07 |
+|      45 |         180 |       00:00:16 |       11.11% |        0.00% |       1.9144 |       1.7375 |      1.0000e-07 |
+|      50 |         198 |       00:00:18 |       33.33% |        0.00% |       1.7073 |       1.7374 |      1.0000e-07 |
+|      50 |         200 |       00:00:18 |       11.11% |              |       1.7045 |              |      1.0000e-07 |
+|      54 |         216 |       00:00:19 |       22.22% |        0.00% |       1.6938 |       1.7374 |      1.0000e-08 |
+|      59 |         234 |       00:00:21 |       55.56% |        0.00% |       1.5368 |       1.7374 |      1.0000e-08 |
+|      63 |         250 |       00:00:22 |       44.44% |              |       1.4543 |              |      1.0000e-09 |
+|      63 |         252 |       00:00:22 |       33.33% |        0.00% |       1.5726 |       1.7374 |      1.0000e-09 |
+|      68 |         270 |       00:00:24 |       33.33% |        0.00% |       1.4878 |       1.7374 |      1.0000e-09 |
+|      72 |         288 |       00:00:25 |       33.33% |        0.00% |       1.6688 |       1.7374 |      1.0000e-10 |
+|      75 |         300 |       00:00:27 |       33.33% |              |       1.5610 |              |      1.0000e-10 |
+|      77 |         306 |       00:00:27 |       33.33% |        0.00% |       1.4573 |       1.7374 |      1.0000e-10 |
+|      81 |         324 |       00:00:29 |       44.44% |        0.00% |       1.3795 |       1.7374 |      1.0000e-11 |
+|      86 |         342 |       00:00:30 |       55.56% |        0.00% |       1.6210 |       1.7374 |      1.0000e-11 |
+|      88 |         350 |       00:00:31 |       55.56% |              |       1.4373 |              |      1.0000e-11 |
+|      90 |         360 |       00:00:32 |       44.44% |        0.00% |       1.3854 |       1.7374 |      1.0000e-11 |
+|      95 |         378 |       00:00:33 |       44.44% |        0.00% |       1.4975 |       1.7374 |      1.0000e-12 |
+|      99 |         396 |       00:00:35 |       55.56% |        0.00% |       1.4267 |       1.7374 |      1.0000e-12 |
+|     100 |         400 |       00:00:35 |       33.33% |        0.00% |       1.7834 |       1.7374 |      1.0000e-12 |
+|======================================================================================================================|

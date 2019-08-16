@@ -183,10 +183,10 @@ rffWristAngleY = deg2rad(wristAngleY(1:featureLength,1));
 rffWristAngleZ = deg2rad(wristAngleZ(1:featureLength,1));
 
 rffThumbFin = [rffThumbAccX, rffThumbAccY, rffThumbAccZ, ...
-    rffThumbVelX, rffThumbVelY, rffThumbVelZ, rffThumbAngleX];
+    rffThumbVelX, rffThumbVelY, rffThumbVelZ, rffThumbAngleX];%7
 rffIndexFin = [rffIndexAccX, rffIndexAccY, rffIndexAccZ, ...
-    rffIndexVelX, rffIndexVelY, rffIndexVelZ, rffIndexAngleX];
-rffHand = [rffHandAngleX, rffHandAngleY, rffHandAngleZ];
+    rffIndexVelX, rffIndexVelY, rffIndexVelZ, rffIndexAngleX];%14
+rffHand = [rffHandAngleX, rffHandAngleY, rffHandAngleZ];%17
 rffWrist = [rffWristAccX, rffWristAccY, rffWristAccZ, ...
     rffWristVelX, rffWristVelY, rffWristVelZ, ...
     rffWristAngleX, rffWristAngleY, rffWristAngleZ];

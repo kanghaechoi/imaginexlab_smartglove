@@ -5,10 +5,10 @@
 %addpath('smartglove_library', 'exp1_q1_data');
 
 % Experiment 1, Question 2
-%addpath('smartglove_library', 'exp1_q2_data');
+addpath('smartglove_library', 'exp1_q2_data');
 
 % Experiment 2, Question 3
-addpath('smartglove_library', 'exp2_data');
+%addpath('smartglove_library', 'exp2_data');
 
 %% Initialization
 codeInitialize;

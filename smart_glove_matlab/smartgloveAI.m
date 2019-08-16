@@ -53,8 +53,6 @@ promptNetSelect = ...
 netSelectAns = input(promptNetSelect);
     
 switch netSelectAns 
-    case 0
-        NETSELECT = NETSELECT + 0;
     case 1
         NETSELECT = NETSELECT + 1;
     case 2
