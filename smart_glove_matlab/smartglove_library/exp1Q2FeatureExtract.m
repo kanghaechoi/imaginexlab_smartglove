@@ -142,7 +142,7 @@ wrist = [resizedWristAccX, resizedWristAccY, resizedWristAccZ, ...
 
 %Labels for identification
 labels = ones(1, 1);
-labels = ((GENDER * 100) + subjectNum) * labels;
+labels = ((GENDER * 1000) + (AGE * 10) + subjectNum) * labels;
 
 %% Create feature columns (feature_length x 11)
 

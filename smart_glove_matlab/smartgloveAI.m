@@ -5,10 +5,10 @@
 %addpath('smartglove_library', 'exp1_q1_data');
 
 % Experiment 1, Question 2
-%addpath('smartglove_library', 'exp1_q2_data');
+addpath('smartglove_library', 'exp1_q2_data');
 
 % Experiment 2, Question 3
-addpath('smartglove_library', 'exp2_data');
+% addpath('smartglove_library', 'exp2_data');
 
 %readFolders()
 
@@ -40,11 +40,11 @@ gestureID = [01 02 03 04 05 06];
 % fileCounts = [fileCountM20 fileCountF20 fileCountM40 fileCountF40 ... 
 %     fileCountM60 fileCountF60];
 
-[fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,6)); %[fileCount, AGE] = inputCount(AGE)
-[fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,6)); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,6)); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,6)); %[fileCount, AGE] = inputCount(AGE)
 
-ages = 20;
-fileCounts = [fileCountM fileCountF];
+ages = [20 40 60];
+% fileCounts = [fileCountM fileCountF];
 
 %% Network selection
 
@@ -99,12 +99,12 @@ if(NETSELECT == 1)
 %         exp1Q1RelieffResult(A1, B1, maleID, femaleID, ages, fileCounts);
 
     %Experiment 1, Question 2
-%     [ranks, weights] = ... 
-%         exp1Q2RelieffResult(A1, B1, maleID, femaleID, ages);
+     [ranks, weights] = ... 
+         exp1Q2RelieffResult(A1, B1, maleID, femaleID, ages);
 
     %Experiment 2
-    [ranks, weights] = ... 
-        exp2RelieffResult(A1, B1, maleID, femaleID, ages, gestureID);
+%     [ranks, weights] = ... 
+%         exp2RelieffResult(A1, B1, maleID, femaleID, ages, gestureID);
     
     fprintf("\n");
     prompt1 = 'Will you continue? (y/n): ';

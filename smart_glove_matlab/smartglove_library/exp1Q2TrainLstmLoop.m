@@ -15,7 +15,7 @@ for i = 1:numObservations
     sequenceLengths(i) = m;
 end
 
-ii = randperm(size(featureMat,1), 10);
+ii = randperm(size(featureMat,1), 26);
 xValidation = featureMat(ii);
 featureMat(ii) = [];
 yValidation = labelCategories(ii);
@@ -24,7 +24,7 @@ labelCategories(ii) =[];
 %% LSTM network options
 if codeContinue == true
     maxEpochs = 100;
-    miniBatchSize = 11; % Total iteration count = maxEpochs * miniBatchSize
+    miniBatchSize = 20; % Total iteration count = maxEpochs * miniBatchSize
 
     options = trainingOptions('adam', ...
         'ExecutionEnvironment','auto', ...
@@ -35,7 +35,7 @@ if codeContinue == true
         'Shuffle','every-epoch', ...
         'Verbose',1, ...
         'ValidationData',{xValidation, yValidation}, ...
-        'ValidationFrequency', 22, ...
+        'ValidationFrequency', 60, ...
         'InitialLearnRate', 1e-3, ...
         'LearnRateSchedule', 'piecewise', ...
         'Plots','training-progress'); % LSTM network training options
@@ -44,7 +44,7 @@ if codeContinue == true
     numHiddenUnits1 = 125; % The number of layer 1 nodes 
     %numHiddenUnits2 = 75; % The number of layer 2 nodes
     %numHiddenUnits3 = 500; % The number of layer 2 nodes
-    numClasses = 18; % The number of output nodes
+    numClasses = 42; % The number of output nodes
     layers = [ ...
         sequenceInputLayer(numFeatures)
         bilstmLayer(numHiddenUnits1,'OutputMode','last')

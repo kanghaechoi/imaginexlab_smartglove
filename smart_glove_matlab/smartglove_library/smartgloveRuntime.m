@@ -28,11 +28,11 @@ gestureID = [01 02 03 04 05 06];
 %fileCounts = [fileCountM20 fileCountF20 fileCountM40 fileCountF40 ... 
 %    fileCountM60 fileCountF60];
 
-[fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
-[fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountM, ~] = exp2InputCount(20, maleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
+% [fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,3)); %[fileCount, AGE] = inputCount(AGE)
 
-ages = 20;
-fileCounts = [fileCountM fileCountF];
+ages = [20 40 60];
+% fileCounts = [fileCountM fileCountF];
 
 %% Long short-term memory network training (Loop)
 
@@ -45,7 +45,7 @@ fileCounts = [fileCountM fileCountF];
     
     %Results from experiment 1, Question 2
     [featuresTotalCell, labelsTotalCell] = ... 
-        exp1Q2LstmResultLoop(A1, B1, ages,genderID, numberOfFeature); 
+        exp1Q2LstmResultLoop(A1, B1, ages, genderID, numberOfFeature); 
     %Experiment 1, Question 2 LSTM network
     [exp1Q2Net] = exp1Q2TrainLstmLoop(featuresTotalCell, ...
         labelsTotalCell, numberOfFeature);    
