@@ -2,13 +2,13 @@
 
 %% Include smartglove function library + Experiment data
 % Experiment 1, Question 1
-%addpath('smartglove_library', 'exp1_q1_data');
+% addpath('smartglove_library', 'exp1_q1_data');
 
 % Experiment 1, Question 2
-addpath('smartglove_library', 'exp1_q2_data');
+% addpath('smartglove_library', 'exp1_q2_data');
 
 % Experiment 2, Question 3
-% addpath('smartglove_library', 'exp2_data');
+addpath('smartglove_library', 'exp2_data');
 
 %readFolders()
 
@@ -44,6 +44,7 @@ gestureID = [01 02 03 04 05 06];
 % [fileCountF, ~] = exp2InputCount(20, femaleID, gestureID(1,6)); %[fileCount, AGE] = inputCount(AGE)
 
 ages = [20 40 60];
+% ages = 20;
 % fileCounts = [fileCountM fileCountF];
 
 %% Network selection
