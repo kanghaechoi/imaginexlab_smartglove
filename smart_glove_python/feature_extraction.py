@@ -97,6 +97,16 @@ def data_vel(input, col):
     return vel_array
 
 
+def data_time(hand, wrist):
+    time_array = np.zeros((1, 1))
+
+    max_time = max(len(hand), len(wrist))
+
+    time_array[0, 0] = int(max_time)
+
+    return time_array
+
+
 def create_features(hand_data, wrist_data):
     hand_x_angle = data_angle(hand_data, 0)
     hand_y_angle = data_angle(hand_data, 1)
@@ -130,14 +140,18 @@ def create_features(hand_data, wrist_data):
     wrist_z_acc = data_acc(wrist_data, 5)
     wrist_z_vel = data_vel(wrist_data, 5)
 
+    time = data_time(hand, wrist)
+
     feature_set = np.block([hand_x_angle, hand_y_angle, hand_z_angle, \
                             thumb_x_angle, index_x_angle, \
                             thumb_x_acc, thumb_y_acc, thumb_z_acc, \
                             thumb_x_vel, thumb_y_vel, thumb_z_vel, \
                             index_x_acc, index_y_acc, index_z_acc, \
+                            index_x_vel, index_y_vel, index_z_vel, \
                             wrist_x_angle, wrist_y_angle, wrist_z_angle, \
                             wrist_x_acc, wrist_y_acc, wrist_z_acc, \
-                            wrist_x_vel, wrist_y_vel, wrist_z_vel])
+                            wrist_x_vel, wrist_y_vel, wrist_z_vel, \
+                            time])
 
     return feature_set
 
@@ -152,8 +166,8 @@ def create_label(length, age):
 if __name__ == '__main__':
     INSERTED_AGE = input('Insert participants\' age: ')
 
-    FEATURE_PICKLE_PATH = './pickle_files/' + INSERTED_AGE + '_feature.pickle'
-    LABEL_PICKLE_PATH = './pickle_files/' + INSERTED_AGE + '_label.pickle'
+    FEATURE_PICKLE_PATH = './pickle_files/' + INSERTED_AGE + '_feature_svm.pickle'
+    LABEL_PICKLE_PATH = './pickle_files/' + INSERTED_AGE + '_label_svm.pickle'
 
     path_hand = sorted(glob.glob('./data/Hand_IMU_' + INSERTED_AGE + '_*'))
     path_wrist = sorted(glob.glob('./data/Wrist_IMU_' + INSERTED_AGE + '_*'))
@@ -174,12 +188,12 @@ if __name__ == '__main__':
         for list_idx in range(min(len(hand_lists), len(wrist_lists))):
             if (list_idx != 0):
                 feature_temp = create_features(hand_lists[list_idx], wrist_lists[list_idx])
-                feature = np.concatenate([feature, feature_temp])
+                feature = np.concatenate((feature, feature_temp))
             else:
                 feature = create_features(hand_lists[list_idx], wrist_lists[list_idx])
 
         if (subject_count != 0):
-            feature_set = np.concatenate([feature_set, feature])
+            feature_set = np.concatenate((feature_set, feature))
         else:
             feature_set = feature
 
@@ -193,5 +207,4 @@ if __name__ == '__main__':
     with open(LABEL_PICKLE_PATH, 'wb') as f:
         pickle.dump(labels, f, pickle.HIGHEST_PROTOCOL)
 
-
-
+    print('Features are extracted...')
