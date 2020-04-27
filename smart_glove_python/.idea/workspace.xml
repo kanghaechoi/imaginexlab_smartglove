@@ -3,39 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boxcompare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnn_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_normalize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/divide_dataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature_extraction.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature_extraction_seq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/join_seq_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/20_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/20_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/20_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/20_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/50_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/50_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/50_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/50_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/70_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/70_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/70_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/70_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/all_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/all_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/all_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/all_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/test_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/test_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/test_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/test_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/train_feature_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/train_feature_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/train_label_seq.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickle_files/train_label_svm.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svm_model.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +50,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lstm_model">
+  <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="smart_glove_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,132 +73,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="divide_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="smart_glove_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/divide_dataset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="feature_extraction_seq" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="smart_glove_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_extraction_seq.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="lstm_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="smart_glove_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sum_seq_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="smart_glove_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sum_seq_data.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="vgg_19_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="smart_glove_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vgg_19_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.divide_dataset" />
-      <item itemvalue="Python.feature_extraction_seq" />
-      <item itemvalue="Python.sum_seq_data" />
-      <item itemvalue="Python.vgg_19_model" />
-      <item itemvalue="Python.lstm_model" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.lstm_model" />
-        <item itemvalue="Python.vgg_19_model" />
-        <item itemvalue="Python.divide_dataset" />
-        <item itemvalue="Python.sum_seq_data" />
-        <item itemvalue="Python.feature_extraction_seq" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -271,10 +112,10 @@
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="627" y="311" width="537" height="344" key="#Vim_Emulation/0.23.1440.831@0.23.1440.831" timestamp="1587463954780" />
-    <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587654895338">
+    <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587989945144">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1587654895338" />
+    <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1587989945144" />
     <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587462270167">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
