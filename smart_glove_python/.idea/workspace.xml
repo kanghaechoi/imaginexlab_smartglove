@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/imdb.npz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,10 +117,10 @@
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1587989945144" />
-    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587462270167">
+    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588057293446">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.831@0.23.1440.831" timestamp="1587462270167" />
+    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.831@0.23.1440.831" timestamp="1588057293446" />
     <state width="1419" height="252" key="GridCell.Tab.0.bottom" timestamp="1587682061608">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
