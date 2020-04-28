@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/imdb.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnn_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnn_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/elmo_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/elmo_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lstm_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

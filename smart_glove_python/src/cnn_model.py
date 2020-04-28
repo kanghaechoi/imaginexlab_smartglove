@@ -1,7 +1,7 @@
-from keras.models import Sequential
-from keras.layers.core import Flatten, Dense, Dropout
-from keras.layers import Conv2D, MaxPooling1D, ZeroPadding1D, Conv1D, ZeroPadding2D, MaxPooling2D
-import keras.optimizers as opt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Flatten, Dense, Dropout
+from tensorflow.keras.layers import Conv2D, MaxPooling1D, ZeroPadding1D, Conv1D, ZeroPadding2D, MaxPooling2D
+import tensorflow.keras.optimizers as opt
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
 import numpy as np
@@ -194,9 +194,9 @@ if __name__ == "__main__":
     print(model.summary())
 
     model.fit(train_feature_, train_onehot,
-                batch_size=71,
+                batch_size=32,
                 # batch_size=1775,
-                epochs=3
+                epochs=30
             )
 
     predicted_label = np.argmax(model.predict(test_feature_), axis=1).reshape((-1, 1))

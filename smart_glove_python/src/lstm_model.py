@@ -1,7 +1,7 @@
-from keras.models import Sequential
-from keras.layers.core import Flatten, Dense, Dropout
-from keras.layers import Embedding, LSTM, Bidirectional
-import keras.optimizers as opt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Flatten, Dense, Dropout
+from tensorflow.keras.layers import Embedding, LSTM, Bidirectional
+import tensorflow.keras.optimizers as opt
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
 import numpy as np
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     print(model.summary())
 
     model.fit(train_feature_, train_onehot,
-                batch_size=25,
+                batch_size=32,
                 # batch_size=1775,
                 epochs=30
             )
