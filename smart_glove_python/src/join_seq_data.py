@@ -45,17 +45,31 @@ if __name__ == '__main__':
     del argument[0]
 
     RESEARCH_QUESTION = argument[0]
+    OS = argument[1]
 
-    FEATURE_20 = './pickle/' + RESEARCH_QUESTION + '/20_feature_seq.pickle'
-    FEATURE_50 = './pickle/' + RESEARCH_QUESTION + '/50_feature_seq.pickle'
-    FEATURE_70 = './pickle/' + RESEARCH_QUESTION + '/70_feature_seq.pickle'
+    if(OS == str('unix')):
+        FEATURE_20 = './pickle/' + RESEARCH_QUESTION + '/20_feature_seq.pickle'
+        FEATURE_50 = './pickle/' + RESEARCH_QUESTION + '/50_feature_seq.pickle'
+        FEATURE_70 = './pickle/' + RESEARCH_QUESTION + '/70_feature_seq.pickle'
 
-    LABEL_20 = './pickle/' + RESEARCH_QUESTION + '/20_label_seq.pickle'
-    LABEL_50 = './pickle/' + RESEARCH_QUESTION + '/50_label_seq.pickle'
-    LABEL_70 = './pickle/' + RESEARCH_QUESTION + '/70_label_seq.pickle'
+        LABEL_20 = './pickle/' + RESEARCH_QUESTION + '/20_label_seq.pickle'
+        LABEL_50 = './pickle/' + RESEARCH_QUESTION + '/50_label_seq.pickle'
+        LABEL_70 = './pickle/' + RESEARCH_QUESTION + '/70_label_seq.pickle'
 
-    FEATURE_ALL = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
-    LABEL_ALL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+        FEATURE_ALL = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+        LABEL_ALL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+
+    if (OS == str('windows')):
+        FEATURE_20 = '../pickle/' + RESEARCH_QUESTION + '/20_feature_seq.pickle'
+        FEATURE_50 = '../pickle/' + RESEARCH_QUESTION + '/50_feature_seq.pickle'
+        FEATURE_70 = '../pickle/' + RESEARCH_QUESTION + '/70_feature_seq.pickle'
+
+        LABEL_20 = '../pickle/' + RESEARCH_QUESTION + '/20_label_seq.pickle'
+        LABEL_50 = '../pickle/' + RESEARCH_QUESTION + '/50_label_seq.pickle'
+        LABEL_70 = '../pickle/' + RESEARCH_QUESTION + '/70_label_seq.pickle'
+
+        FEATURE_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+        LABEL_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
 
     all_feature = read_feature(FEATURE_20, FEATURE_50, FEATURE_70)
     # all_feature_norm = zero_to_one(all_feature)

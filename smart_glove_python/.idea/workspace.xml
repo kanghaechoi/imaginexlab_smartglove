@@ -2,9 +2,303 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125dbf92-0f79-4406-a8b9-b08036aa4ff9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_37.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_39.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_42.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_44.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_49.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_51.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_52.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_53.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_20_54.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_50_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_37.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_39.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_42.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_44.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hand_IMU_70_48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_37.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_39.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_42.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_44.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_49.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_51.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_52.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_53.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_20_54.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_50_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_37.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_39.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_42.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_44.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wrist_IMU_70_48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/20_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/20_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/50_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/50_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/70_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/70_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/all_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/all_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/test_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/test_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/test_feature_svm.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/test_feature_svm.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/test_label_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/test_label_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/test_label_svm.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/test_label_svm.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/train_feature_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/train_feature_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/train_feature_svm.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/train_feature_svm.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/train_label_seq.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/train_label_seq.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickle/q1/train_label_svm.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/pickle/q1/train_label_svm.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_glove.sh" beforeDir="false" afterPath="$PROJECT_DIR$/smart_glove.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartglove_windows.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartglove_windows.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnn_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnn_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elmo_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/elmo_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_normalize.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_normalize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/divide_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/divide_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature_extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature_extraction_seq.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature_extraction_seq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/join_seq_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/join_seq_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lstm_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/svm_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +330,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
@@ -52,7 +348,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.feature_extraction_seq">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="smart_glove_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,6 +371,56 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="cnn_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="smart_glove_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/cnn_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="feature_extraction_seq" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="smart_glove_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/feature_extraction_seq.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.feature_extraction_seq" />
+        <item itemvalue="Python.cnn_model" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -118,50 +464,50 @@
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="184" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1587989945144" />
-    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588057293446">
+    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588151645438">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.831@0.23.1440.831" timestamp="1588057293446" />
-    <state width="1419" height="252" key="GridCell.Tab.0.bottom" timestamp="1587682061608">
+    <state x="436" y="247" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.831@0.23.1440.831" timestamp="1588151645438" />
+    <state width="1419" height="252" key="GridCell.Tab.0.bottom" timestamp="1588153545091">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586850085644" />
-    <state width="1419" height="252" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1587682061608" />
-    <state width="1419" height="252" key="GridCell.Tab.0.center" timestamp="1587682061608">
+    <state width="1419" height="252" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1588153545091" />
+    <state width="1419" height="252" key="GridCell.Tab.0.center" timestamp="1588153545090">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586850085643" />
-    <state width="1419" height="252" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1587682061608" />
-    <state width="1419" height="252" key="GridCell.Tab.0.left" timestamp="1587682061607">
+    <state width="1419" height="252" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1588153545090" />
+    <state width="1419" height="252" key="GridCell.Tab.0.left" timestamp="1588153545090">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586850085643" />
-    <state width="1419" height="252" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1587682061607" />
-    <state width="1419" height="252" key="GridCell.Tab.0.right" timestamp="1587682061608">
+    <state width="1419" height="252" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1588153545090" />
+    <state width="1419" height="252" key="GridCell.Tab.0.right" timestamp="1588153545091">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586850085644" />
-    <state width="1419" height="252" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1587682061608" />
-    <state width="1419" height="252" key="GridCell.Tab.1.bottom" timestamp="1587682061609">
+    <state width="1419" height="252" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1588153545091" />
+    <state width="1419" height="252" key="GridCell.Tab.1.bottom" timestamp="1588153545092">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586850086540" />
-    <state width="1419" height="252" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1587682061609" />
-    <state width="1419" height="252" key="GridCell.Tab.1.center" timestamp="1587682061609">
+    <state width="1419" height="252" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1588153545092" />
+    <state width="1419" height="252" key="GridCell.Tab.1.center" timestamp="1588153545091">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586850086539" />
-    <state width="1419" height="252" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1587682061609" />
-    <state width="1419" height="252" key="GridCell.Tab.1.left" timestamp="1587682061608">
+    <state width="1419" height="252" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1588153545091" />
+    <state width="1419" height="252" key="GridCell.Tab.1.left" timestamp="1588153545091">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586850086538" />
-    <state width="1419" height="252" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1587682061608" />
-    <state width="1419" height="252" key="GridCell.Tab.1.right" timestamp="1587682061609">
+    <state width="1419" height="252" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1588153545091" />
+    <state width="1419" height="252" key="GridCell.Tab.1.right" timestamp="1588153545091">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state width="1419" height="346" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586850086539" />
-    <state width="1419" height="252" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1587682061609" />
+    <state width="1419" height="252" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1588153545091" />
     <state x="271" y="85" key="SettingsEditor" timestamp="1587463978332">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
@@ -178,6 +524,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/cnn_model.py</url>
+          <line>207</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/feature_extraction_seq.py</url>
+          <line>229</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -186,5 +544,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="test_feature.reshape((test_feature.shape[2], 1, test_feature.shape[0], test_feature.shape[1]))" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

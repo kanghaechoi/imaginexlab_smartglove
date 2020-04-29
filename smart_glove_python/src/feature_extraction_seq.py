@@ -170,15 +170,35 @@ if __name__ == '__main__':
 
     RESEARCH_QUESTION = argument[0]
     INSERTED_AGE = argument[1]
-    SEQ_LENGTH = 120
+    OS = argument[2]
 
-    FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                          + INSERTED_AGE + '_feature_seq.pickle'
-    LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                        + INSERTED_AGE + '_label_seq.pickle'
+    # RESEARCH_QUESTION = 'q1'
+    # INSERTED_AGE = '20'
+    # OS = 'unix'
 
-    path_hand = sorted(glob.glob('./data/Hand_IMU_' + INSERTED_AGE + '_*'))
-    path_wrist = sorted(glob.glob('./data/Wrist_IMU_' + INSERTED_AGE + '_*'))
+    SEQ_LENGTH = 200
+
+    if(OS == str('unix')):
+        FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                              + INSERTED_AGE + '_feature_seq.pickle'
+        LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                            + INSERTED_AGE + '_label_seq.pickle'
+
+        path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION
+                                     + '/Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('./data' + RESEARCH_QUESTION
+                                      + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
+
+    if (OS == str('windows')):
+        FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                              + INSERTED_AGE + '_feature_seq.pickle'
+        LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                            + INSERTED_AGE + '_label_seq.pickle'
+
+        path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION
+                                     + 'Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION
+                                      + 'Wrist_IMU_' + INSERTED_AGE + '_*'))
 
     subject_count = 0
 

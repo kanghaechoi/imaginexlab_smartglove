@@ -21,30 +21,57 @@ if __name__ == '__main__':
 
     RESEARCH_QUESTION = argument[0]
     MODE = argument[1]
+    OS = argument[2]
 
-    if(MODE == 'svm'):
-        ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_svm.pickle'
-        ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_svm.pickle'
+    if(OS == str('unix')):
+        if(MODE == 'svm'):
+            ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_svm.pickle'
+            ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_svm.pickle'
 
-        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
-        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+            TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
+            TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
 
-        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
-        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+            TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
+            TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
 
-        SHAPE_IDX = 0
+            SHAPE_IDX = 0
 
-    elif(MODE == 'seq'):
-        ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
-        ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+        if(MODE == 'seq'):
+            ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+            ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
 
-        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
-        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+            TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+            TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
 
-        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
-        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+            TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+            TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
-        SHAPE_IDX = 2
+            SHAPE_IDX = 2
+
+    if (OS == str('windows')):
+        if (MODE == 'svm'):
+            ALL_FEATURE = '../pickle/' + RESEARCH_QUESTION + '/all_feature_svm.pickle'
+            ALL_LABEL = '../pickle/' + RESEARCH_QUESTION + '/all_label_svm.pickle'
+
+            TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
+            TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+
+            TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
+            TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+
+            SHAPE_IDX = 0
+
+        if (MODE == 'seq'):
+            ALL_FEATURE = '../pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+            ALL_LABEL = '../pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+
+            TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+            TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+
+            TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+            TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+
+            SHAPE_IDX = 2
 
     with open(ALL_FEATURE, 'rb') as f:
         all_feature = pickle.load(f)

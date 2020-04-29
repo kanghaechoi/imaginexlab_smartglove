@@ -61,12 +61,21 @@ if __name__ == "__main__":
     del argument[0]
 
     RESEARCH_QUESTION = argument[0]
+    OS = argument[1]
 
-    TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
-    TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+    if(OS == str('unix')):
+        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
 
-    TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
-    TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+
+    if (OS == str('windows')):
+        TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+        TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+
+        TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+        TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
     train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1]))

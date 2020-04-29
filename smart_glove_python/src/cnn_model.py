@@ -20,52 +20,52 @@ def load_data(feature_path, label_path):
 
 def vgg_19(input_len):
     model = Sequential()
-    model.add(ZeroPadding2D(padding=(1, 1), input_shape=(1, input_len[0], input_len[1])))
-    model.add(Conv2D(64, kernel_size=(1, 3), activation='relu'))
+    model.add(ZeroPadding2D(padding=(1, 1), input_shape=(input_len[0], input_len[1], 1)))
+    model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(64, kernel_size=(1, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 1), strides=(1, 3)))
+    model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(128, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(128, kernel_size=(1, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 1), strides=(1, 3)))
+    model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(256, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(256, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(256, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(256, kernel_size=(1, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 1), strides=(1, 3)))
+    model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 1), strides=(1, 3)))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
-    model.add(Conv2D(512, kernel_size=(1, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 1), strides=(1, 3)))
+    model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(Flatten())
-    model.add(Dense(4096, activation='relu'))
+    model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(4096, activation='relu'))
+    model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(3, activation='softmax'))
 
@@ -74,11 +74,21 @@ def vgg_19(input_len):
 def vgg_19_1d(input_len):
     model = Sequential()
     model.add(ZeroPadding1D(padding=1, input_shape=(input_len[0], input_len[1])))
+    model.add(Conv1D(32, kernel_size=3, activation='relu'))
+    model.add(ZeroPadding1D(padding=1))
+    model.add(Conv1D(32, kernel_size=3, activation='relu'))
+    model.add(MaxPooling1D(1, strides=2))
+
+    model.add(ZeroPadding1D(padding=1))
     model.add(Conv1D(64, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
     model.add(Conv1D(64, kernel_size=3, activation='relu'))
     model.add(MaxPooling1D(1, strides=2))
 
+    model.add(ZeroPadding1D(padding=1))
+    model.add(Conv1D(128, kernel_size=3, activation='relu'))
+    model.add(ZeroPadding1D(padding=1))
+    model.add(Conv1D(128, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
     model.add(Conv1D(128, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
@@ -96,29 +106,19 @@ def vgg_19_1d(input_len):
     model.add(MaxPooling1D(1, strides=2))
 
     model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
+    model.add(Conv1D(256, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
+    model.add(Conv1D(256, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
+    model.add(Conv1D(256, kernel_size=3, activation='relu'))
     model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
-
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(512, kernel_size=3, activation='relu'))
+    model.add(Conv1D(256, kernel_size=3, activation='relu'))
     model.add(MaxPooling1D(1, strides=2))
 
     model.add(Flatten())
-    model.add(Dense(4096, activation='relu'))
+    model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(4096, activation='relu'))
+    model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(3, activation='softmax'))
 
@@ -157,18 +157,30 @@ if __name__ == "__main__":
     del argument[0]
 
     RESEARCH_QUESTION = argument[0]
+    OS = argument[1]
 
-    TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
-    TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+    # RESEARCH_QUESTION = str('q1')
+    # OS = 'unix'
 
-    TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
-    TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+    if(OS == str('unix')):
+        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+
+        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+
+    if (OS == str('windows')):
+        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+
+        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
-    train_feature_ = train_feature.reshape((train_feature.shape[2], 1, train_feature.shape[0], train_feature.shape[1]))
+    train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1], 1))
 
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
-    test_feature_ = test_feature.reshape((test_feature.shape[2], 1, test_feature.shape[0], train_feature.shape[1]))
+    test_feature_ = test_feature.reshape((test_feature.shape[2], test_feature.shape[0], train_feature.shape[1], 1))
 
     train_len = train_label.shape[0]
     test_len = test_label.shape[0]
@@ -193,7 +205,7 @@ if __name__ == "__main__":
 
     print(model.summary())
 
-    model.fit(train_feature_, train_onehot,
+    model.fit(train_feature_, train_onehot.toarray(),
                 batch_size=32,
                 # batch_size=1775,
                 epochs=30
