@@ -13,9 +13,12 @@ Towards a non-intrusive behavioral authentication using hand movements and deep 
 
 **Programming language**   
 - MATLAB   
-	- 2019a version   
+	1. MATLAB version
+		- 2019b   
 - Python   
-	- Python 3.6   
-	- Keras 2.3    
-	- Tensorflow 2.1    
+	1. Library version
+		- Python: 3.6   
+		- Keras: 2.3    
+		- Tensorflow: 2.1
+		- Scikit-Learn: 0.22    
 
