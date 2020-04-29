@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 import numpy as np
 import pickle
 import sys
+import random
 
 def load_data(feature_path, label_path):
     with open(feature_path, 'rb') as f:
@@ -62,58 +63,15 @@ def vgg_19(input_len):
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
-    model.add(Flatten())
-    model.add(Dense(1024, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(1024, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(3, activation='softmax'))
-
-    return model
-
-def vgg_19_1d(input_len):
-    model = Sequential()
-    model.add(ZeroPadding1D(padding=1, input_shape=(input_len[0], input_len[1])))
-    model.add(Conv1D(32, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(32, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
-
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(64, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(64, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
-
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(128, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(128, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(128, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(128, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
-
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
-
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(ZeroPadding1D(padding=1))
-    model.add(Conv1D(256, kernel_size=3, activation='relu'))
-    model.add(MaxPooling1D(1, strides=2))
+    # model.add(ZeroPadding2D(padding=(1, 1)))
+    # model.add(Conv2D(512, kernel_size=(3, 3), activation='relu'))
+    # model.add(ZeroPadding2D(padding=(1, 1)))
+    # model.add(Conv2D(512, kernel_size=(3, 3), activation='relu'))
+    # model.add(ZeroPadding2D(padding=(1, 1)))
+    # model.add(Conv2D(512, kernel_size=(3, 3), activation='relu'))
+    # model.add(ZeroPadding2D(padding=(1, 1)))
+    # model.add(Conv2D(512, kernel_size=(3, 3), activation='relu'))
+    # model.add(MaxPooling2D((1, 2), strides=(2, 2)))
 
     model.add(Flatten())
     model.add(Dense(1024, activation='relu'))
@@ -177,6 +135,13 @@ if __name__ == "__main__":
         TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
+
+    all_idx = np.linspace(0, (train_feature.shape[2] - 1), num=train_feature.shape[2], dtype=int)
+    random.shuffle(all_idx)
+
+    train_feature = train_feature[:, :, all_idx]
+    train_label = train_label[all_idx, :]
+
     train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1], 1))
 
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
@@ -193,25 +158,26 @@ if __name__ == "__main__":
     model = vgg_19(train_feature.shape)
 
     # Optimizers
-    sgd = opt.SGD(lr=0.006, momentum=0.5, nesterov=False)
-    adam = opt.Adam(lr=0.03, beta_1=0.9, beta_2=0.999, amsgrad=False)
+    sgd = opt.SGD(lr=0.01, momentum=0.5, nesterov=False)
+    adam = opt.Adam(lr=0.01, beta_1=0.9, beta_2=0.999, amsgrad=False)
     rms_prop = opt.RMSprop(lr=0.01, rho=0.9)
     adagrad = opt.Adagrad(lr=0.01)
     adadelta = opt.Adadelta(lr=1.0, rho=0.95)
     adamax = opt.Adamax(lr=0.002, beta_1=0.9, beta_2=0.999)
     nadam = opt.Nadam(lr=0.002, beta_1=0.9, beta_2=0.999)
 
-    model.compile(optimizer=adam, loss='categorical_crossentropy')
+    model.compile(optimizer=sgd, loss='categorical_crossentropy')
 
     print(model.summary())
 
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=32,
+                batch_size=64,
                 # batch_size=1775,
                 epochs=30
             )
 
-    predicted_label = np.argmax(model.predict(test_feature_), axis=1).reshape((-1, 1))
+    prediction = model.predict(test_feature_)
+    predicted_label = np.argmax(prediction, axis=1).reshape((-1, 1))
 
     err_array = np.subtract(predicted_label, test_labels)
     err_idx = np.where(err_array != 0)[1]

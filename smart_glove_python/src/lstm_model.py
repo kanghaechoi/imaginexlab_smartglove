@@ -21,9 +21,13 @@ def load_data(feature_path, label_path):
 
 def lstm(input_len):
     model = Sequential()
-    model.add(Dense(128, input_shape=(input_len[0], input_len[1])))
+    model.add(Dense(32, input_shape=(input_len[0], input_len[1])))
     model.add(Bidirectional(LSTM(64)))
     model.add(Dropout(0.5))
+    # model.add(Bidirectional(LSTM(128)))
+    # model.add(Dropout(0.5))
+    # model.add(Bidirectional(LSTM(64)))
+    # model.add(Dropout(0.5))
     model.add(Dense(3, activation='softmax'))
 
     return model
@@ -106,10 +110,10 @@ if __name__ == "__main__":
 
     print(model.summary())
 
-    model.fit(train_feature_, train_onehot,
+    model.fit(train_feature_, train_onehot.toarray(),
                 batch_size=32,
                 # batch_size=1775,
-                epochs=30
+                epochs=100
             )
 
     predicted_label = np.argmax(model.predict(test_feature_), axis=1).reshape((-1, 1))

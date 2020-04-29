@@ -178,8 +178,8 @@ if __name__ == '__main__':
         LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
                             + INSERTED_AGE + '_label_svm.pickle'
 
-        path_hand = sorted(glob.glob('./data/Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('./data/Wrist_IMU_' + INSERTED_AGE + '_*'))
+        path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
     if (OS == str('windows')):
         FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
@@ -187,8 +187,8 @@ if __name__ == '__main__':
         LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
                             + INSERTED_AGE + '_label_svm.pickle'
 
-        path_hand = sorted(glob.glob('../data/Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('../data/Wrist_IMU_' + INSERTED_AGE + '_*'))
+        path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
     subject_count = 0
 

@@ -47,6 +47,9 @@ if __name__ == '__main__':
     RESEARCH_QUESTION = argument[0]
     OS = argument[1]
 
+    # RESEARCH_QUESTION = 'q1'
+    # OS = 'unix'
+
     if(OS == str('unix')):
         FEATURE_20 = './pickle/' + RESEARCH_QUESTION + '/20_feature_seq.pickle'
         FEATURE_50 = './pickle/' + RESEARCH_QUESTION + '/50_feature_seq.pickle'

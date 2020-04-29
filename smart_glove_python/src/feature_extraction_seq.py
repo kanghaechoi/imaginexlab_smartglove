@@ -176,7 +176,7 @@ if __name__ == '__main__':
     # INSERTED_AGE = '20'
     # OS = 'unix'
 
-    SEQ_LENGTH = 200
+    SEQ_LENGTH = 3000
 
     if(OS == str('unix')):
         FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
@@ -184,10 +184,8 @@ if __name__ == '__main__':
         LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
                             + INSERTED_AGE + '_label_seq.pickle'
 
-        path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION
-                                     + '/Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('./data' + RESEARCH_QUESTION
-                                      + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
+        path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
     if (OS == str('windows')):
         FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
@@ -195,10 +193,8 @@ if __name__ == '__main__':
         LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
                             + INSERTED_AGE + '_label_seq.pickle'
 
-        path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION
-                                     + 'Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION
-                                      + 'Wrist_IMU_' + INSERTED_AGE + '_*'))
+        path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
+        path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
     subject_count = 0
 
@@ -228,7 +224,7 @@ if __name__ == '__main__':
         subject_count += 1
 
     with open(FEATURE_PICKLE_PATH, 'wb') as f:
-        pickle.dump(feature_set, f, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(feature_set[:20, :, :], f, pickle.HIGHEST_PROTOCOL)
 
     labels = create_label(feature_set.shape[2], int(INSERTED_AGE))
 
