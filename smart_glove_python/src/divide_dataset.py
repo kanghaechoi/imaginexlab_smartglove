@@ -4,7 +4,7 @@ import math
 import random
 import sys
 from ReliefF import ReliefF
-import sklearn_relief as relief
+# import sklearn_relief as relief
 
 
 def write_train_test(train_path, train_data, test_path, test_data):
@@ -29,6 +29,7 @@ if __name__ == '__main__':
     # RESEARCH_QUESTION = 'q1'
     # TARGET = 'seq'
     # IS_DEBUG = 'y'
+    # F_REDUCE = 0
 
     if(IS_DEBUG == 'n'):
         if(TARGET == 'norm'):
@@ -53,7 +54,7 @@ if __name__ == '__main__':
             TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
             TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
-            SHAPE_IDX = 2
+            SHAPE_IDX = 0
 
     if (IS_DEBUG == 'y'):
         if (TARGET == 'norm'):
@@ -78,7 +79,7 @@ if __name__ == '__main__':
             TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
             TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
-            SHAPE_IDX = 2
+            SHAPE_IDX = 0
 
     with open(ALL_FEATURE, 'rb') as f:
         all_feature = pickle.load(f)
@@ -96,8 +97,8 @@ if __name__ == '__main__':
     if(SHAPE_IDX == 0):
         all_feature = all_feature[all_idx, :]
     elif(SHAPE_IDX == 2):
-        all_feature = all_feature[:, :, all_idx]
-        all_feature = all_feature.reshape((all_feature.shape[2], all_feature.shape[0], all_feature.shape[1]))
+        all_feature = all_feature[all_idx, :, :]
+        # all_feature = all_feature.reshape((all_feature.shape[2], all_feature.shape[0], all_feature.shape[1]))
     all_label = all_label[all_idx, :]
 
     # print(all_idx)
@@ -118,7 +119,7 @@ if __name__ == '__main__':
     # print(len(train_idx))
 
     # print(test_len + len(train_idx))
-    if(TARGET == 'svm'):
+    if(TARGET == 'norm'):
         train_feature = all_feature[train_idx, :]
         test_feature = all_feature[test_idx, :]
     elif(TARGET == 'seq'):

@@ -21,17 +21,17 @@ def load_data(feature_path, label_path):
 
 def vgg_19(input_len):
     model = Sequential()
-    model.add(ZeroPadding2D(padding=(1, 1), input_shape=(input_len[0], input_len[1], 1)))
+    model.add(ZeroPadding2D(padding=(1, 1), input_shape=(input_len[1], input_len[2], 1)))
     model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
+    model.add(MaxPooling2D((2, 1), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
+    model.add(MaxPooling2D((2, 1), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
@@ -41,7 +41,7 @@ def vgg_19(input_len):
     model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
+    model.add(MaxPooling2D((2, 1), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
@@ -51,7 +51,7 @@ def vgg_19(input_len):
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
+    model.add(MaxPooling2D((2, 1), strides=(2, 2)))
 
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
@@ -61,7 +61,7 @@ def vgg_19(input_len):
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
     model.add(ZeroPadding2D(padding=(1, 1)))
     model.add(Conv2D(256, kernel_size=(3, 3), activation='relu'))
-    model.add(MaxPooling2D((1, 2), strides=(2, 2)))
+    model.add(MaxPooling2D((2, 1), strides=(2, 2)))
 
     # model.add(ZeroPadding2D(padding=(1, 1)))
     # model.add(Conv2D(512, kernel_size=(3, 3), activation='relu'))
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     IS_DEBUG = argument[1]
 
     # RESEARCH_QUESTION = str('q1')
-    # OS = 'unix'
+    # IS_DEBUG = 'y'
 
     if(IS_DEBUG == 'n'):
         TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
@@ -136,16 +136,16 @@ if __name__ == "__main__":
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
 
-    all_idx = np.linspace(0, (train_feature.shape[2] - 1), num=train_feature.shape[2], dtype=int)
-    random.shuffle(all_idx)
+    # all_idx = np.linspace(0, (train_feature.shape[2] - 1), num=train_feature.shape[2], dtype=int)
+    # random.shuffle(all_idx)
+    #
+    # train_feature = train_feature[:, :, all_idx]
+    # train_label = train_label[all_idx, :]
 
-    train_feature = train_feature[:, :, all_idx]
-    train_label = train_label[all_idx, :]
-
-    train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1], 1))
+    train_feature_ = train_feature.reshape((train_feature.shape[0], train_feature.shape[1], train_feature.shape[2], 1))
 
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
-    test_feature_ = test_feature.reshape((test_feature.shape[2], test_feature.shape[0], train_feature.shape[1], 1))
+    test_feature_ = test_feature.reshape((test_feature.shape[0], test_feature.shape[1], train_feature.shape[2], 1))
 
     train_len = train_label.shape[0]
     test_len = test_label.shape[0]
@@ -155,7 +155,7 @@ if __name__ == "__main__":
     train_onehot, test_labels = encode_onehot(all_label, train_len)
 
     # Test pretrained model
-    model = vgg_19(train_feature.shape)
+    model = vgg_19(train_feature_.shape)
 
     # Optimizers
     sgd = opt.SGD(lr=0.01, momentum=0.5, nesterov=False)

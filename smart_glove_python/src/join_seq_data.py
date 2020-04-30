@@ -44,11 +44,11 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    # RESEARCH_QUESTION = argument[0]
-    # IS_DEBUG = argument[1]
+    RESEARCH_QUESTION = argument[0]
+    IS_DEBUG = argument[1]
 
-    RESEARCH_QUESTION = 'q1'
-    IS_DEBUG = 'y'
+    # RESEARCH_QUESTION = 'q1'
+    # IS_DEBUG = 'y'
 
     if(IS_DEBUG == 'n'):
         FEATURE_20 = './pickle/' + RESEARCH_QUESTION + '/20_feature_seq.pickle'

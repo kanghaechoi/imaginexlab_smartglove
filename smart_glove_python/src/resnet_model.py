@@ -209,7 +209,7 @@ def conv5_layer(x):
 
 def resnet(input_len):
     num_class = 3
-    input_tensor = Input(shape=(input_len[0], input_len[1], 1), dtype='float32', name='input')
+    input_tensor = Input(shape=(1, input_len[2], input_len[3]), dtype='float32', name='input')
 
     x = conv1_layer(input_tensor)
     x = conv2_layer(x)
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     IS_DEBUG = argument[1]
 
     # RESEARCH_QUESTION = str('q1')
-    # OS = 'unix'
+    # IS_DEBUG = 'y'
 
     if(IS_DEBUG == 'n'):
         TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
@@ -278,16 +278,16 @@ if __name__ == "__main__":
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
 
-    all_idx = np.linspace(0, (train_feature.shape[2] - 1), num=train_feature.shape[2], dtype=int)
-    random.shuffle(all_idx)
+    # all_idx = np.linspace(0, (train_feature.shape[2] - 1), num=train_feature.shape[2], dtype=int)
+    # random.shuffle(all_idx)
+    #
+    # train_feature = train_feature[:, :, all_idx]
+    # train_label = train_label[all_idx, :]
 
-    train_feature = train_feature[:, :, all_idx]
-    train_label = train_label[all_idx, :]
-
-    train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1], 1))
+    train_feature_ = train_feature.reshape((train_feature.shape[0], 1, train_feature.shape[1], train_feature.shape[2]))
 
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
-    test_feature_ = test_feature.reshape((test_feature.shape[2], test_feature.shape[0], train_feature.shape[1], 1))
+    test_feature_ = test_feature.reshape((test_feature.shape[0], 1, test_feature.shape[1], train_feature.shape[2]))
 
     train_len = train_label.shape[0]
     test_len = test_label.shape[0]
@@ -297,7 +297,7 @@ if __name__ == "__main__":
     train_onehot, test_labels = encode_onehot(all_label, train_len)
 
     # Test pretrained model
-    model = resnet(train_feature.shape)
+    model = resnet(train_feature_.shape)
 
     # Optimizers
     sgd = opt.SGD(lr=0.01, momentum=0.5, nesterov=False)
