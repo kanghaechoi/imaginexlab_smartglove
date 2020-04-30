@@ -38,6 +38,19 @@ def get_data(path):
     return raw_data
 
 
+def get_data_full(path):
+    raw_data = []
+
+    with open(path, 'r') as f:
+        for line in f:
+            raw_data_buffer = line.split()
+            raw_data.append(raw_data_buffer)
+
+    raw_data = [raw_data]
+
+    return raw_data
+
+
 def zero_to_one(array):
     min_max_scaler = preprocessing.MinMaxScaler()
     array_transformed = min_max_scaler.fit_transform(array)
@@ -168,26 +181,50 @@ if __name__ == '__main__':
     del argument[0]
 
     RESEARCH_QUESTION = argument[0]
-    INSERTED_AGE = argument[1]
+    CLASS = argument[1]
     IS_DEBUG = argument[2]
 
-    if(IS_DEBUG == 'n'):
-        FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                              + INSERTED_AGE + '_feature_norm.pickle'
-        LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                            + INSERTED_AGE + '_label_norm.pickle'
+    # RESEARCH_QUESTION = 'q3'
+    # CLASS = '0'
+    # IS_DEBUG = 'y'
 
-        path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
+    if(IS_DEBUG == 'n'):
+        if(RESEARCH_QUESTION == 'q1'):
+            FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
+
+            path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
+
+        if(RESEARCH_QUESTION == 'q3'):
+            FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
+
+            path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
 
     if (IS_DEBUG == 'y'):
-        FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
-                              + INSERTED_AGE + '_feature_norm.pickle'
-        LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
-                            + INSERTED_AGE + '_label_norm.pickle'
+        if (RESEARCH_QUESTION == 'q1'):
+            FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
 
-        path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
-        path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
+            path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
+
+        if (RESEARCH_QUESTION == 'q3'):
+            FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
+
+            path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
 
     subject_count = 0
 
@@ -199,8 +236,13 @@ if __name__ == '__main__':
         # print(hand)
         # print(wrist)
         list_idx = 0
-        hand_lists = get_data(hand)
-        wrist_lists = get_data(wrist)
+        if(RESEARCH_QUESTION == 'q1'):
+            hand_lists = get_data(hand)
+            wrist_lists = get_data(wrist)
+
+        if(RESEARCH_QUESTION == 'q3'):
+            hand_lists = get_data_full(hand)
+            wrist_lists = get_data_full(wrist)
 
         for list_idx in range(min(len(hand_lists), len(wrist_lists))):
             if (list_idx != 0):
@@ -219,9 +261,9 @@ if __name__ == '__main__':
     with open(FEATURE_PICKLE_PATH, 'wb') as f:
         pickle.dump(feature_set, f, pickle.HIGHEST_PROTOCOL)
 
-    labels = create_label(feature_set.shape[0], int(INSERTED_AGE))
+    labels = create_label(feature_set.shape[0], int(CLASS))
 
     with open(LABEL_PICKLE_PATH, 'wb') as f:
         pickle.dump(labels, f, pickle.HIGHEST_PROTOCOL)
 
-    print(INSERTED_AGE + '\'s features are extracted...')
+    print(CLASS + '\'s features are extracted...')

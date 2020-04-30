@@ -15,9 +15,11 @@ run_svm() {
     if [ $PROCESS = '1' ]
     then
       # Extract features to train SVM model
-      python ./src/feature_extraction.py $QUESTION 20 n
-      python ./src/feature_extraction.py $QUESTION 50 n
-      python ./src/feature_extraction.py $QUESTION 70 n
+      echo "Input class name"
+      read CLASS
+
+      python ./src/feature_extraction.py $QUESTION $CLASS n
+
     elif [ $PROCESS = '2' ]
     then
       # Normalize dataset
@@ -137,9 +139,19 @@ run_cnn() {
     if [ $PROCESS = '1' ]
     then
       # Extract features to train RNN model
-      python .src/feature_extraction_seq.py $QUESTION 20 n
-      python .src/feature_extraction_seq.py $QUESTION 50 n
-      python .src/feature_extraction_seq.py $QUESTION 70 n
+      echo "Input the number of class"
+      read CLASS_COUNT
+
+      loop_count=0
+
+      while [ loop_count = CLASS_COUNT ] :
+      do
+        echo "Input class name"
+        read CLASS
+        python .src/feature_extraction_seq.py $QUESTION $CLASS n
+
+        loop_count=$((loop_count+1))
+      done
     elif [ $PROCESS = '2' ]
     then
       # Combine dataset
@@ -190,7 +202,7 @@ research_q2() {
   QUESTION=$1
   OS=$2
 
-  echo "Q2-2. Which classifier do you want to use? (Options: svm, rnn, or cnn)"
+  echo "Q2-2. Which classifier do you want to use? (Options: svm, knn, rnn, or cnn)"
   read selected_classifier
 
   if [ $selected_classifier = "svm" ]
@@ -213,7 +225,7 @@ research_q3() {
   QUESTION=$1
   OS=$2
 
-  echo "Q2-3. Which classifier do you want to use? (Options: svm, rnn, or cnn)"
+  echo "Q2-3. Which classifier do you want to use? (Options: svm, knn, rnn, or cnn)"
   read selected_classifier
 
   if [ $selected_classifier = "svm" ]
