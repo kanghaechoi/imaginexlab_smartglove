@@ -170,15 +170,15 @@ if __name__ == '__main__':
 
     RESEARCH_QUESTION = argument[0]
     INSERTED_AGE = argument[1]
-    OS = argument[2]
+    IS_DEBUG = argument[2]
 
     # RESEARCH_QUESTION = 'q1'
     # INSERTED_AGE = '20'
     # OS = 'unix'
 
-    SEQ_LENGTH = 3000
+    SEQ_LENGTH = 150
 
-    if(OS == str('unix')):
+    if(IS_DEBUG == 'n'):
         FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
                               + INSERTED_AGE + '_feature_seq.pickle'
         LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
@@ -187,7 +187,7 @@ if __name__ == '__main__':
         path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
         path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
-    if (OS == str('windows')):
+    if (IS_DEBUG == 'y'):
         FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
                               + INSERTED_AGE + '_feature_seq.pickle'
         LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \

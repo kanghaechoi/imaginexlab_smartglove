@@ -3,6 +3,8 @@ import numpy as np
 import math
 import random
 import sys
+from ReliefF import ReliefF
+import sklearn_relief as relief
 
 
 def write_train_test(train_path, train_data, test_path, test_data):
@@ -20,23 +22,28 @@ if __name__ == '__main__':
     del argument[0]
 
     RESEARCH_QUESTION = argument[0]
-    MODE = argument[1]
-    OS = argument[2]
+    TARGET = argument[1]
+    IS_DEBUG = argument[2]
+    F_REDUCE = argument[3]
 
-    if(OS == str('unix')):
-        if(MODE == 'svm'):
-            ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_svm.pickle'
-            ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_svm.pickle'
+    # RESEARCH_QUESTION = 'q1'
+    # TARGET = 'seq'
+    # IS_DEBUG = 'y'
 
-            TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
-            TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+    if(IS_DEBUG == 'n'):
+        if(TARGET == 'norm'):
+            ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_norm.pickle'
+            ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_norm.pickle'
 
-            TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
-            TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+            TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_norm.pickle'
+            TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_norm.pickle'
+
+            TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_norm.pickle'
+            TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_norm.pickle'
 
             SHAPE_IDX = 0
 
-        if(MODE == 'seq'):
+        if(TARGET == 'seq'):
             ALL_FEATURE = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
             ALL_LABEL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
 
@@ -48,20 +55,20 @@ if __name__ == '__main__':
 
             SHAPE_IDX = 2
 
-    if (OS == str('windows')):
-        if (MODE == 'svm'):
-            ALL_FEATURE = '../pickle/' + RESEARCH_QUESTION + '/all_feature_svm.pickle'
-            ALL_LABEL = '../pickle/' + RESEARCH_QUESTION + '/all_label_svm.pickle'
+    if (IS_DEBUG == 'y'):
+        if (TARGET == 'norm'):
+            ALL_FEATURE = '../pickle/' + RESEARCH_QUESTION + '/all_feature_norm.pickle'
+            ALL_LABEL = '../pickle/' + RESEARCH_QUESTION + '/all_label_norm.pickle'
 
-            TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
-            TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+            TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_norm.pickle'
+            TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_norm.pickle'
 
-            TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
-            TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+            TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_norm.pickle'
+            TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_norm.pickle'
 
             SHAPE_IDX = 0
 
-        if (MODE == 'seq'):
+        if (TARGET == 'seq'):
             ALL_FEATURE = '../pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
             ALL_LABEL = '../pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
 
@@ -84,6 +91,15 @@ if __name__ == '__main__':
 
     all_idx = np.linspace(0, (all_feature.shape[SHAPE_IDX] - 1), num=all_feature.shape[SHAPE_IDX], dtype=int)
 
+    random.shuffle(all_idx)
+
+    if(SHAPE_IDX == 0):
+        all_feature = all_feature[all_idx, :]
+    elif(SHAPE_IDX == 2):
+        all_feature = all_feature[:, :, all_idx]
+        all_feature = all_feature.reshape((all_feature.shape[2], all_feature.shape[0], all_feature.shape[1]))
+    all_label = all_label[all_idx, :]
+
     # print(all_idx)
     # print(len(all_idx))
 
@@ -102,19 +118,27 @@ if __name__ == '__main__':
     # print(len(train_idx))
 
     # print(test_len + len(train_idx))
-    if(MODE == 'svm'):
+    if(TARGET == 'svm'):
         train_feature = all_feature[train_idx, :]
         test_feature = all_feature[test_idx, :]
-    elif(MODE == 'seq'):
-        train_feature = all_feature[:, :, train_idx]
-        test_feature = all_feature[:, :, test_idx]
+    elif(TARGET == 'seq'):
+        train_feature = all_feature[train_idx, :, :]
+        test_feature = all_feature[test_idx, :, :]
+
+    train_label = all_label[train_idx, :]
+    test_label = all_label[test_idx, :]
+
+    F_REDUCE = int(F_REDUCE)
+    if(F_REDUCE != 0):
+        # if(SHAPE_IDX == 2):
+        #     refined_feature = np.sum(train_feature, axis=2)
+        fs = ReliefF(n_neighbors=all_feature.shape[1], n_features_to_keep=(all_feature.shape[1] - F_REDUCE))
+        train_feature = fs.fit_transform(train_feature, np.squeeze(train_label))
+        test_feature = fs.transform(test_feature)
 
     write_train_test(TRAIN_FEATURE_PATH, train_feature, TEST_FEATURE_PATH, test_feature)
 
     # print(train_feature.shape[0] + test_feature.shape[0])
-
-    train_label = all_label[train_idx, :]
-    test_label = all_label[test_idx, :]
 
     write_train_test(TRAIN_LABEL_PATH, train_label, TEST_LABEL_PATH, test_label)
 

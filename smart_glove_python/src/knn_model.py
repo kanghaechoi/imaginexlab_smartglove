@@ -1,4 +1,4 @@
-from sklearn.svm import LinearSVC
+from sklearn.neighbors import KNeighborsClassifier
 import pickle
 import numpy as np
 import sys
@@ -18,6 +18,7 @@ if __name__ == '__main__':
 
     RESEARCH_QUESTION = argument[0]
     IS_DEBUG = argument[1]
+    N_NEIGH = argument[2]
 
     if(IS_DEBUG == 'n'):
         TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
@@ -36,10 +37,10 @@ if __name__ == '__main__':
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
 
-    svm_model = LinearSVC(tol=1e-5)
-    svm_model.fit(train_feature, np.squeeze(train_label))
+    knn_model = KNeighborsClassifier(n_neighbors=int(N_NEIGH))
+    knn_model.fit(train_feature, np.squeeze(train_label))
 
-    predicted_label = svm_model.predict(test_feature).reshape((-1, 1))
+    predicted_label = knn_model.predict(test_feature).reshape((-1, 1))
     test_len = len(predicted_label)
 
     err_array = np.subtract(predicted_label, test_label)
@@ -48,4 +49,4 @@ if __name__ == '__main__':
     err = round(((len(err_idx)/ test_len) * 100), 2)
     acc = 100 - err
 
-    print('SVM model\'s accuracy is ', acc, '%')
+    print('KNN model\'s accuracy is ', acc, '%')

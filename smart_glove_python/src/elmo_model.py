@@ -95,20 +95,20 @@ if __name__ == '__main__':
     # argument = sys.argv
     # del argument[0]
 
-    # RESEARCH_QUESTION = argument[0]
-    # OS = argument[1]
+    RESEARCH_QUESTION = argument[0]
+    IS_DEBUG = argument[1]
 
-    RESEARCH_QUESTION = 'q1'
-    OS = 'unix'
+    # RESEARCH_QUESTION = 'q1'
+    # IS_DEBUG = 'unix'
 
-    if (OS == str('unix')):
-        TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
-        TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
+    if (IS_DEBUG == 'n'):
+        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
+        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
 
-        TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
-        TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
+        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_seq.pickle'
+        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
-    if (OS == str('windows')):
+    if (IS_DEBUG == 'y'):
         TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_seq.pickle'
         TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_seq.pickle'
 

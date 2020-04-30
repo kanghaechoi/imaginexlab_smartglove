@@ -7,21 +7,79 @@ run_svm() {
 
   echo "Initiating $QUESTION SVM classification process on $OS..."
 
-  # Extract features to train SVM model
-  python ./src/feature_extraction.py $QUESTION 20 $OS
-  python ./src/feature_extraction.py $QUESTION 50 $OS
-  python ./src/feature_extraction.py $QUESTION 70 $OS
+  while :
+  do
+    echo "Select a process? (Options: 1. feature_extraction, 2. data_normalize, 3. divide_dataset, 4. model training)"
+    read PROCESS
 
-  # Normalize dataset
-  python ./src/data_normalize.py $QUESTION $OS
-
-  # Divide training and test dataset
-  python ./src/divide_dataset.py $QUESTION svm $OS
-
-  # Train SVM model and validate it
-  python ./src/svm_model.py $QUESTION $OS
+    if [ $PROCESS = '1' ]
+    then
+      # Extract features to train SVM model
+      python ./src/feature_extraction.py $QUESTION 20 n
+      python ./src/feature_extraction.py $QUESTION 50 n
+      python ./src/feature_extraction.py $QUESTION 70 n
+    elif [ $PROCESS = '2' ]
+    then
+      # Normalize dataset
+      python ./src/data_normalize.py $QUESTION n
+    elif [ $PROCESS = '3' ]
+    then
+      # Divide training and test dataset
+      echo "How many features do you want to reduce?"
+      read F_REDUCE
+      python ./src/divide_dataset.py $QUESTION norm n $F_REDUCE
+    elif [ $PROCESS = '4' ]
+    then
+      # Train SVM model and validate it
+      python ./src/svm_model.py $QUESTION n
+    else
+      break
+    fi
+  done
 
   echo "Completed $QUESTION SVM classification process on $OS..."
+}
+
+
+run_knn() {
+  QUESTION=$1
+  OS=$2
+
+  echo "Initiating $QUESTION KNN classification process on $OS..."
+
+  while :
+  do
+    echo "Select a process? (Options: 1. feature_extraction, 2. data_normalize, 3. divide_dataset, 4. model training)"
+    read PROCESS
+
+    if [ $PROCESS = '1' ]
+    then
+      # Extract features to train SVM model
+      python ./src/feature_extraction.py $QUESTION 20 n
+      python ./src/feature_extraction.py $QUESTION 50 n
+      python ./src/feature_extraction.py $QUESTION 70 n
+    elif [ $PROCESS = '2' ]
+    then
+      # Normalize dataset
+      python ./src/data_normalize.py $QUESTION n
+    elif [ $PROCESS = '3' ]
+    then
+      # Divide training and test dataset
+      echo "How many features do you want to reduce?"
+      read F_REDUCE
+      python ./src/divide_dataset.py $QUESTION norm n $F_REDUCE
+    elif [ $PROCESS = '4' ]
+    then
+      # Train KNN model and validate it
+      echo "How many neighbors do you want to compare?"
+      read N_NEIGH
+      python ./src/knn_model.py $QUESTION n $N_NEIGH
+    else
+      break
+    fi
+  done
+
+  echo "Completed $QUESTION KNN classification process on $OS..."
 }
 
 
@@ -31,19 +89,35 @@ run_rnn() {
 
   echo "Initiating $QUESTION RNN classification process on $OS..."
 
-  # Extract features to train RNN model
-  python ./src/feature_extraction_seq.py $QUESTION 20 $OS
-  python ./src/feature_extraction_seq.py $QUESTION 50 $OS
-  python ./src/feature_extraction_seq.py $QUESTION 70 $OS
+  while :
+  do
+    echo "Select a process? (Options: 1. feature_extraction, 2. data_normalize, 3. divide_dataset, 4. model training)"
+    read PROCESS
 
-  # Combine dataset
-  python ./src/join_seq_data.py $QUESTION $OS
-
-  # Divide training and test dataset
-  python ./src/divide_dataset.py $QUESTION seq $OS
-
-  # Train RNN model and validate it
-  python ./src/lstm_model.py $QUESTION $OS
+    if [ $PROCESS = '1' ]
+    then
+      # Extract features to train RNN model
+      python ./src/feature_extraction_seq.py $QUESTION 20 n
+      python ./src/feature_extraction_seq.py $QUESTION 50 n
+      python ./src/feature_extraction_seq.py $QUESTION 70 n
+    elif [ $PROCESS = '2' ]
+    then
+      # Combine dataset
+      python ./src/join_seq_data.py $QUESTION n
+    elif [ $PROCESS = '3' ]
+    then
+      # Divide training and test dataset
+      echo "How many features do you want to reduce?"
+      read F_REDUCE
+      python ./src/divide_dataset.py $QUESTION seq n $F_F_REDUCE
+    elif [ $PROCESS = '4' ]
+    then
+      # Train RNN model and validate it
+      python ./src/lstm_model.py $QUESTION n
+    else
+      break
+    fi
+  done
 
   echo "Completed $QUESTION RNN classification process on $OS..."
 }
@@ -55,19 +129,35 @@ run_cnn() {
 
   echo "Initiating $QUESTION CNN classification process on $OS..."
 
-  # Extract features to train RNN model
-  python .src/feature_extraction_seq.py $QUESTION 20 $OS
-  python .src/feature_extraction_seq.py $QUESTION 50 $OS
-  python .src/feature_extraction_seq.py $QUESTION 70 $OS
+  while :
+  do
+    echo "Select a process? (Options: 1. feature_extraction, 2. data_normalize, 3. divide_dataset, 4. model training)"
+    read PROCESS
 
-  # Combine dataset
-  python .src/join_seq_data.py $QUESTION $OS
-
-  # Divide training and test dataset
-  python .src/divide_dataset.py $QUESTION seq $OS
-
-  # Train CNN model and validate it
-  python .src/cnn_model.py $QUESTION $OS
+    if [ $PROCESS = '1' ]
+    then
+      # Extract features to train RNN model
+      python .src/feature_extraction_seq.py $QUESTION 20 n
+      python .src/feature_extraction_seq.py $QUESTION 50 n
+      python .src/feature_extraction_seq.py $QUESTION 70 n
+    elif [ $PROCESS = '2' ]
+    then
+      # Combine dataset
+      python .src/join_seq_data.py $QUESTION n
+    elif [ $PROCESS = '3' ]
+    then
+      # Divide training and test dataset
+      echo "How many features do you want to reduce?"
+      read F_REDUCE
+      python .src/divide_dataset.py $QUESTION seq n $F_REDUCE
+    elif [ $PROCESS = '4' ]
+    then
+      # Train CNN model and validate it
+      python .src/cnn_model.py $QUESTION n
+    else
+      break
+    fi
+  done
 
   echo "Completed $QUESTION CNN classification process on $OS..."
 }
@@ -77,12 +167,15 @@ research_q1() {
   QUESTION=$1
   OS=$2
 
-  echo "Q2-1. Which classifier do you want to use? (Options: svm, rnn, or cnn)"
+  echo "Q2-1. Which classifier do you want to use? (Options: svm, knn, rnn, or cnn)"
   read selected_classifier
 
   if [ $selected_classifier = "svm" ]
   then
     run_svm $QUESTION $OS
+  elif [ $selected_classifier = "knn" ]
+  then
+    run_knn $QUESTION $OS
   elif [ $selected_classifier = "rnn" ]
   then
     run_rnn $QUESTION $OS
@@ -103,6 +196,9 @@ research_q2() {
   if [ $selected_classifier = "svm" ]
   then
     run_svm $QUESTION $OS
+  elif [ $selected_classifier = "knn" ]
+  then
+    run_knn $QUESTION $OS
   elif [ $selected_classifier = "rnn" ]
   then
     run_rnn $QUESTION $OS
@@ -123,6 +219,9 @@ research_q3() {
   if [ $selected_classifier = "svm" ]
   then
     run_svm $QUESTION $OS
+  elif [ $selected_classifier = "knn" ]
+  then
+    run_knn $QUESTION $OS
   elif [ $selected_classifier = "rnn" ]
   then
     run_rnn $QUESTION $OS

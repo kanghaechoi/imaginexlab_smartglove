@@ -151,8 +151,7 @@ def create_features(hand_data, wrist_data):
                             index_x_vel, index_y_vel, index_z_vel, \
                             wrist_x_angle, wrist_y_angle, wrist_z_angle, \
                             wrist_x_acc, wrist_y_acc, wrist_z_acc, \
-                            wrist_x_vel, wrist_y_vel, wrist_z_vel, \
-                            time])
+                            wrist_x_vel, wrist_y_vel, wrist_z_vel])
 
     return feature_set
 
@@ -170,22 +169,22 @@ if __name__ == '__main__':
 
     RESEARCH_QUESTION = argument[0]
     INSERTED_AGE = argument[1]
-    OS = argument[2]
+    IS_DEBUG = argument[2]
 
-    if(OS == str('unix')):
+    if(IS_DEBUG == 'n'):
         FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                              + INSERTED_AGE + '_feature_svm.pickle'
+                              + INSERTED_AGE + '_feature_norm.pickle'
         LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
-                            + INSERTED_AGE + '_label_svm.pickle'
+                            + INSERTED_AGE + '_label_norm.pickle'
 
         path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
         path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
 
-    if (OS == str('windows')):
+    if (IS_DEBUG == 'y'):
         FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
-                              + INSERTED_AGE + '_feature_svm.pickle'
+                              + INSERTED_AGE + '_feature_norm.pickle'
         LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
-                            + INSERTED_AGE + '_label_svm.pickle'
+                            + INSERTED_AGE + '_label_norm.pickle'
 
         path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + INSERTED_AGE + '_*'))
         path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + INSERTED_AGE + '_*'))
