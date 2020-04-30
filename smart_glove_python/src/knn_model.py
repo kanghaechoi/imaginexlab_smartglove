@@ -21,18 +21,18 @@ if __name__ == '__main__':
     N_NEIGH = argument[2]
 
     if(IS_DEBUG == 'n'):
-        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
-        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+        TRAIN_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/train_feature_norm.pickle'
+        TEST_FEATURE_PATH = './pickle/' + RESEARCH_QUESTION + '/test_feature_norm.pickle'
 
-        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
-        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+        TRAIN_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/train_label_norm.pickle'
+        TEST_LABEL_PATH = './pickle/' + RESEARCH_QUESTION + '/test_label_norm.pickle'
 
     if (IS_DEBUG == 'y'):
-        TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_svm.pickle'
-        TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_svm.pickle'
+        TRAIN_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_feature_norm.pickle'
+        TEST_FEATURE_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_feature_norm.pickle'
 
-        TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_svm.pickle'
-        TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_svm.pickle'
+        TRAIN_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/train_label_norm.pickle'
+        TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_norm.pickle'
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)

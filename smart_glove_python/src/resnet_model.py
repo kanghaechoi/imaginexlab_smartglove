@@ -208,7 +208,11 @@ def conv5_layer(x):
 
 
 def resnet(input_len):
-    num_class = 3
+    if (RESEARCH_QUESTION == 'q1'):
+        num_class = 3
+    if (RESEARCH_QUESTION == 'q3'):
+        num_class = 2
+
     input_tensor = Input(shape=(1, input_len[2], input_len[3]), dtype='float32', name='input')
 
     x = conv1_layer(input_tensor)
@@ -301,21 +305,21 @@ if __name__ == "__main__":
 
     # Optimizers
     sgd = opt.SGD(lr=0.01, momentum=0.5, nesterov=False)
-    adam = opt.Adam(lr=0.01, beta_1=0.9, beta_2=0.999, amsgrad=False)
+    adam = opt.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False)
     rms_prop = opt.RMSprop(lr=0.01, rho=0.9)
     adagrad = opt.Adagrad(lr=0.01)
     adadelta = opt.Adadelta(lr=1.0, rho=0.95)
     adamax = opt.Adamax(lr=0.002, beta_1=0.9, beta_2=0.999)
     nadam = opt.Nadam(lr=0.002, beta_1=0.9, beta_2=0.999)
 
-    model.compile(optimizer=rms_prop, loss='categorical_crossentropy')
+    model.compile(optimizer=adam, loss='categorical_crossentropy')
 
     print(model.summary())
 
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=32,
+                batch_size=8,
                 # batch_size=1775,
-                epochs=30
+                epochs=100
             )
 
     prediction = model.predict(test_feature_)

@@ -38,6 +38,19 @@ def load_data(path):
     return raw_data
 
 
+def load_data_full(path):
+    raw_data = []
+
+    with open(path, 'r') as f:
+        for line in f:
+            raw_data_buffer = line.split()
+            raw_data.append(raw_data_buffer)
+
+    raw_data =[raw_data]
+
+    return raw_data
+
+
 def zero_to_one(array):
     min_max_scaler = preprocessing.MinMaxScaler()
     array_transformed = min_max_scaler.fit_transform(array)
@@ -168,13 +181,13 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    RESEARCH_QUESTION = argument[0]
-    CLASS = argument[1]
-    IS_DEBUG = argument[2]
+    # RESEARCH_QUESTION = argument[0]
+    # CLASS = argument[1]
+    # IS_DEBUG = argument[2]
 
-    # RESEARCH_QUESTION = 'q1'
-    # INSERTED_AGE = '20'
-    # OS = 'unix'
+    RESEARCH_QUESTION = 'q1'
+    CLASS = '20'
+    IS_DEBUG = 'y'
 
     SEQ_LENGTH = 150
 
@@ -226,8 +239,13 @@ if __name__ == '__main__':
         # print(hand)
         # print(wrist)
         list_idx = 0
-        hand_lists = load_data(hand)
-        wrist_lists = load_data(wrist)
+        if(RESEARCH_QUESTION == 'q1'):
+            hand_lists = load_data(hand)
+            wrist_lists = load_data(wrist)
+
+        if(RESEARCH_QUESTION == 'q3'):
+            hand_lists = load_data_full(hand)
+            wrist_lists = load_data_full(wrist)
 
         for list_idx in range(min(len(hand_lists), len(wrist_lists))):
             if (list_idx != 0):

@@ -21,14 +21,17 @@ def load_data(feature_path, label_path):
 
 def lstm(input_len):
     model = Sequential()
-    model.add(Dense(32, input_shape=(input_len[0], input_len[1])))
-    model.add(Bidirectional(LSTM(64)))
+    model.add(Dense(128, input_shape=(input_len[1], input_len[2])))
+    model.add(Bidirectional(LSTM(512)))
     model.add(Dropout(0.5))
     # model.add(Bidirectional(LSTM(128)))
     # model.add(Dropout(0.5))
     # model.add(Bidirectional(LSTM(64)))
     # model.add(Dropout(0.5))
-    model.add(Dense(3, activation='softmax'))
+    if (RESEARCH_QUESTION == 'q1'):
+        model.add(Dense(3, activation='softmax'))
+    if (RESEARCH_QUESTION == 'q3'):
+        model.add(Dense(2, activation='softmax'))
 
     return model
 
@@ -82,10 +85,11 @@ if __name__ == "__main__":
         TEST_LABEL_PATH = '../pickle/' + RESEARCH_QUESTION + '/test_label_seq.pickle'
 
     train_feature, train_label = load_data(TRAIN_FEATURE_PATH, TRAIN_LABEL_PATH)
-    train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1]))
+
+    # train_feature_ = train_feature.reshape((train_feature.shape[2], train_feature.shape[0], train_feature.shape[1]))
 
     test_feature, test_label = load_data(TEST_FEATURE_PATH, TEST_LABEL_PATH)
-    test_feature_ = test_feature.reshape((test_feature.shape[2], test_feature.shape[0], train_feature.shape[1]))
+    # test_feature_ = test_feature.reshape((test_feature.shape[2], test_feature.shape[0], train_feature.shape[1]))
 
     train_len = train_label.shape[0]
     test_len = test_label.shape[0]
@@ -110,13 +114,13 @@ if __name__ == "__main__":
 
     print(model.summary())
 
-    model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=32,
+    model.fit(train_feature, train_onehot.toarray(),
+                batch_size=8,
                 # batch_size=1775,
-                epochs=100
+                epochs=200
             )
 
-    predicted_label = np.argmax(model.predict(test_feature_), axis=1).reshape((-1, 1))
+    predicted_label = np.argmax(model.predict(test_feature), axis=1).reshape((-1, 1))
 
     err_array = np.subtract(predicted_label, test_labels)
     err_idx = np.where(err_array != 0)[1]

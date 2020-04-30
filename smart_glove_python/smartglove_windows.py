@@ -10,9 +10,9 @@ def run_svm(q_num, OS):
 
         if(process == '1'):
             # Extract features to train SVM model
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 20 n')
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 50 n')
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 70 n')
+            CLASS = input('Input class name')
+
+            os.system('python ./src/feature_extraction.py ' + q_num + ' ' + CLASS + ' n')
         elif (process == '2'):
             # Normalize dataset
             os.system('python ./src/data_normalize.py ' + q_num + ' n')
@@ -40,9 +40,9 @@ def run_knn(q_num, OS):
 
         if (process == '1'):
             # Extract features to train SVM model
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 20 n')
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 50 n')
-            os.system('python ./src/feature_extraction.py ' + q_num + ' 70 n')
+            CLASS = input('Input class name')
+
+            os.system('python ./src/feature_extraction.py ' + q_num + ' ' + CLASS + ' n')
         elif (process == '2'):
             # Normalize dataset
             os.system('python ./src/data_normalize.py ' + q_num + ' n')
@@ -57,7 +57,7 @@ def run_knn(q_num, OS):
         else:
             break
 
-    print('Completed ' + q_num.upper() + ' SVM classification process on ' + OS + ' ...')
+    print('Completed ' + q_num.upper() + ' KNN classification process on ' + OS + ' ...')
 
     return 0
 
@@ -71,9 +71,9 @@ def run_rnn(q_num, OS):
 
         if (process == '1'):
             # Extract features to train RNN model
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 20 n')
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 50 n')
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 70 n')
+            CLASS = input('Input class name')
+
+            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' ' + CLASS + ' n')
         elif (process == '2'):
             # Combine dataset
             os.system('python ./src/join_seq_data.py ' + q_num + ' n')
@@ -101,9 +101,9 @@ def run_cnn(q_num, OS):
 
         if (process == '1'):
             # Extract features to train RNN model
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 20 n')
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 50 n')
-            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' 70 n')
+            CLASS = input('Input class name')
+
+            os.system('python ./src/feature_extraction_seq.py ' + q_num + ' ' + CLASS + ' n')
         elif (process == '2'):
             # Combine dataset
             os.system('python ./src/join_seq_data.py ' + q_num + ' n')
@@ -129,7 +129,7 @@ def research_q1(q_num, OS):
         run_svm(q_num, OS)
 
     if (selected_classifier == 'knn'):
-        run_svm(q_num, OS)
+        run_knn(q_num, OS)
 
     if(selected_classifier == 'rnn'):
         run_rnn(q_num, OS)
@@ -147,7 +147,7 @@ def research_q2(q_num, OS):
         run_svm(q_num, OS)
 
     if (selected_classifier == 'knn'):
-        run_svm(q_num, OS)
+        run_knn(q_num, OS)
 
     if (selected_classifier == 'rnn'):
         run_rnn(q_num, OS)
@@ -165,7 +165,7 @@ def research_q3(q_num, OS):
         run_svm(q_num, OS)
 
     if (selected_classifier == 'knn'):
-        run_svm(q_num, OS)
+        run_knn(q_num, OS)
 
     if (selected_classifier == 'rnn'):
         run_rnn(q_num, OS)

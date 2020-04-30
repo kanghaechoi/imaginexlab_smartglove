@@ -78,7 +78,10 @@ def vgg_19(input_len):
     model.add(Dropout(0.5))
     model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(3, activation='softmax'))
+    if (RESEARCH_QUESTION == 'q1'):
+        model.add(Dense(3, activation='softmax'))
+    if (RESEARCH_QUESTION == 'q3'):
+        model.add(Dense(2, activation='softmax'))
 
     return model
 

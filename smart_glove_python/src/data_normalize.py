@@ -29,11 +29,11 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    # RESEARCH_QUESTION = argument[0]
-    # IS_DEBUG = argument[1]
+    RESEARCH_QUESTION = argument[0]
+    IS_DEBUG = argument[1]
 
-    RESEARCH_QUESTION = 'q3'
-    IS_DEBUG = 'y'
+    # RESEARCH_QUESTION = 'q3'
+    # IS_DEBUG = 'y'
 
     if(IS_DEBUG == 'n'):
         if(RESEARCH_QUESTION == 'q1'):
@@ -92,7 +92,6 @@ if __name__ == '__main__':
             feature_70 = pickle.load(f)
 
         all_feature = np.concatenate((feature_20, feature_50, feature_70))
-        all_feature_norm = zero_to_one(all_feature)
 
         # print(all_feature_norm)
 
@@ -117,7 +116,7 @@ if __name__ == '__main__':
             feature_1 = pickle.load(f)
 
         all_feature = np.concatenate((feature_0, feature_1))
-        all_feature_norm = zero_to_one(all_feature)
+
 
         # print(all_feature_norm)
 
@@ -131,6 +130,7 @@ if __name__ == '__main__':
 
         all_label = np.concatenate((label_0, label_1))
 
+    all_feature_norm = zero_to_one(all_feature)
 
     with open(FEATURE_ALL, 'wb') as f:
         pickle.dump(all_feature_norm, f, pickle.HIGHEST_PROTOCOL)
