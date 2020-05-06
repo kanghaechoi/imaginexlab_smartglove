@@ -181,13 +181,13 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    # RESEARCH_QUESTION = argument[0]
-    # CLASS = argument[1]
-    # IS_DEBUG = argument[2]
+    RESEARCH_QUESTION = argument[0]
+    CLASS = argument[1]
+    IS_DEBUG = argument[2]
 
-    RESEARCH_QUESTION = 'q1'
-    CLASS = '20'
-    IS_DEBUG = 'y'
+    # RESEARCH_QUESTION = 'q1'
+    # CLASS = '20'
+    # IS_DEBUG = 'y'
 
     SEQ_LENGTH = 150
 
@@ -231,13 +231,7 @@ if __name__ == '__main__':
 
     subject_count = 0
 
-    # aa = './data/Wrist_IMU_50_21.txt'
-    #
-    # wrist_ = get_data(aa)
-
     for hand, wrist in zip(path_hand, path_wrist):
-        # print(hand)
-        # print(wrist)
         list_idx = 0
         if(RESEARCH_QUESTION == 'q1'):
             hand_lists = load_data(hand)

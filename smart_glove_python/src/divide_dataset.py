@@ -4,7 +4,6 @@ import math
 import random
 import sys
 from ReliefF import ReliefF
-# import sklearn_relief as relief
 
 
 def write_train_test(train_path, train_data, test_path, test_data):
@@ -87,9 +86,6 @@ if __name__ == '__main__':
     with open(ALL_LABEL, 'rb') as f:
         all_label = pickle.load(f)
 
-    # print(all_feature.shape[0])
-    # print(all_label.shape[0])
-
     all_idx = np.linspace(0, (all_feature.shape[SHAPE_IDX] - 1), num=all_feature.shape[SHAPE_IDX], dtype=int)
 
     random.shuffle(all_idx)
@@ -98,27 +94,15 @@ if __name__ == '__main__':
         all_feature = all_feature[all_idx, :]
     elif(TARGET == 'seq'):
         all_feature = all_feature[all_idx, :, :]
-        # all_feature = all_feature.reshape((all_feature.shape[2], all_feature.shape[0], all_feature.shape[1]))
-    all_label = all_label[all_idx, :]
 
-    # print(all_idx)
-    # print(len(all_idx))
+    all_label = all_label[all_idx, :]
 
     test_len = math.floor(all_feature.shape[SHAPE_IDX] * 0.2)
 
-    # print(test_len)
-
     test_idx = random.sample(all_idx.tolist(), test_len)
 
-    # print(max(test_idx))
-    # print(test_idx)
-
     train_idx = np.delete(all_idx.reshape((1, -1)), test_idx).tolist()
-    # print(max(train_idx))
-    #
-    # print(len(train_idx))
 
-    # print(test_len + len(train_idx))
     if(TARGET == 'norm'):
         train_feature = all_feature[train_idx, :]
         test_feature = all_feature[test_idx, :]
@@ -139,10 +123,6 @@ if __name__ == '__main__':
 
     write_train_test(TRAIN_FEATURE_PATH, train_feature, TEST_FEATURE_PATH, test_feature)
 
-    # print(train_feature.shape[0] + test_feature.shape[0])
-
     write_train_test(TRAIN_LABEL_PATH, train_label, TEST_LABEL_PATH, test_label)
-
-    # print(train_label.shape[0] + test_label.shape[0])
 
     print('Divided train dataset and test dataset...')
