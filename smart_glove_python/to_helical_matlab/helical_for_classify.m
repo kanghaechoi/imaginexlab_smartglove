@@ -110,13 +110,15 @@
         joint_psi=rad2deg(gamma);
         joint_psi=joint_psi(1,:);
 
-        helical_data = [joint_phi; joint_theta; joint_psi]';
+        helical_data = round([joint_phi; joint_theta; joint_psi]', 6);
         
         if i < 10
-            writematrix(helical_data, sprintf('../data/%s/Helical_IMU_%d_0%d.txt', QUESTION, AGE, i));
+            writematrix(helical_data, sprintf('../data/%s/Helical_IMU_%d_0%d.txt', ...
+                QUESTION, AGE, i), 'Delimiter', 'space');
             sprintf('../data/%s/Helical_IMU_%d_0%d.txt', QUESTION, AGE, i)
         else
-            writematrix(helical_data, sprintf('../data/%s/Helical_IMU_%d_%d.txt', QUESTION, AGE, i));
+            writematrix(helical_data, sprintf('../data/%s/Helical_IMU_%d_%d.txt', ...
+                QUESTION, AGE, i), 'Delimiter', 'space');
             sprintf('../data/%s/Helical_IMU_%d_%d.txt', QUESTION, AGE, i)
         end
         

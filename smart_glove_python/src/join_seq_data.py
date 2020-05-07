@@ -47,7 +47,7 @@ if __name__ == '__main__':
     RESEARCH_QUESTION = argument[0]
     IS_DEBUG = argument[1]
 
-    # RESEARCH_QUESTION = 'q3'
+    # RESEARCH_QUESTION = 'q1'
     # IS_DEBUG = 'y'
 
     if(IS_DEBUG == 'n'):

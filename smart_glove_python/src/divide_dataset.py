@@ -4,6 +4,7 @@ import math
 import random
 import sys
 from ReliefF import ReliefF
+from sklearn import preprocessing
 
 
 def write_train_test(train_path, train_data, test_path, test_data):
@@ -20,15 +21,15 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    RESEARCH_QUESTION = argument[0]
-    TARGET = argument[1]
-    IS_DEBUG = argument[2]
-    F_REDUCE = argument[3]
+    # RESEARCH_QUESTION = argument[0]
+    # TARGET = argument[1]
+    # IS_DEBUG = argument[2]
+    # F_REDUCE = argument[3]
 
-    # RESEARCH_QUESTION = 'q3'
-    # TARGET = 'norm'
-    # IS_DEBUG = 'y'
-    # F_REDUCE = 5
+    RESEARCH_QUESTION = 'q1'
+    TARGET = 'seq'
+    IS_DEBUG = 'y'
+    F_REDUCE = 5
 
     if(IS_DEBUG == 'n'):
         if(TARGET == 'norm'):
@@ -115,11 +116,17 @@ if __name__ == '__main__':
 
     F_REDUCE = int(F_REDUCE)
     if(F_REDUCE != 0):
-        # if(SHAPE_IDX == 2):
-        #     refined_feature = np.sum(train_feature, axis=2)
+
         fs = ReliefF(n_neighbors=all_feature.shape[1], n_features_to_keep=(all_feature.shape[1] - F_REDUCE))
-        train_feature = fs.fit_transform(train_feature, np.squeeze(train_label))
-        test_feature = fs.transform(test_feature)
+
+        if(TARGET == 'norm'):
+            train_feature = fs.fit_transform(train_feature, np.squeeze(train_label))
+            test_feature = fs.transform(test_feature)
+        if(TARGET == 'seq'):
+            train_feature_sum = np.sum(train_feature, axis=1)
+            fs.fit_transform(train_feature_sum, np.squeeze(train_label))
+            top_feature_idx = fs.top_features[0:(all_feature.shape[2] - F_REDUCE)]
+            test_feature = test_feature[:, :, top_feature_idx]
 
     write_train_test(TRAIN_FEATURE_PATH, train_feature, TEST_FEATURE_PATH, test_feature)
 

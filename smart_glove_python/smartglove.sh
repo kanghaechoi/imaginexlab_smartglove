@@ -144,7 +144,7 @@ run_cnn() {
 
       loop_count=0
 
-      while [ loop_count = CLASS_COUNT ] :
+      while [ $loop_count = $CLASS_COUNT ] :
       do
         echo "Input class name"
         read CLASS
@@ -193,7 +193,7 @@ research_q1() {
     run_rnn $QUESTION $OS
   elif [ $selected_classifier = "cnn" ]
   then
-    run_rnn $QUESTION $OS
+    run_cnn $QUESTION $OS
   fi
 }
 

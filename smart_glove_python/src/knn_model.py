@@ -1,4 +1,5 @@
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import f1_score
 import pickle
 import numpy as np
 import sys
@@ -49,4 +50,8 @@ if __name__ == '__main__':
     err = round(((len(err_idx)/ test_len) * 100), 2)
     acc = 100 - err
 
+    f1 = f1_score(test_label, predicted_label, average='macro')
+    f1 = round((f1 * 100), 2)
+
     print('KNN model\'s accuracy is ', acc, '%')
+    print('KNN model\'s F1 score is ', f1, '%')

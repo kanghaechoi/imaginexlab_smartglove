@@ -3,6 +3,7 @@ from tensorflow.keras.layers import Flatten, Dense, Dropout
 from tensorflow.keras.layers import Embedding, LSTM, Bidirectional
 import tensorflow.keras.optimizers as opt
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.metrics import f1_score
 
 import numpy as np
 import pickle
@@ -128,4 +129,8 @@ if __name__ == "__main__":
     err = round(((len(err_idx) / test_len) * 100), 2)
     acc = 100 - err
 
+    f1 = f1_score(test_label, predicted_label, average='macro')
+    f1 = round((f1 * 100), 2)
+
     print('RNN model\'s accuracy is ', acc, '%')
+    print('RNN model\'s F1 score is ', f1, '%')

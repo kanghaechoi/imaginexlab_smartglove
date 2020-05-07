@@ -121,7 +121,7 @@ def data_time(hand, wrist):
     return time_array
 
 
-def create_features(hand_data, wrist_data):
+def create_features(hand_data, wrist_data, helical_data):
     hand_x_angle = data_angle(hand_data, 0)
     hand_y_angle = data_angle(hand_data, 1)
     hand_z_angle = data_angle(hand_data, 2)
@@ -154,7 +154,11 @@ def create_features(hand_data, wrist_data):
     wrist_z_acc = data_acc(wrist_data, 5)
     wrist_z_vel = data_vel(wrist_data, 5)
 
-    time = data_time(hand, wrist)
+    # time = data_time(hand, wrist)
+
+    helical_x_angle = data_angle(helical_data, 0)
+    helical_y_angle = data_angle(helical_data, 1)
+    helical_z_angle = data_angle(helical_data, 2)
 
     feature_set = np.block([hand_x_angle, hand_y_angle, hand_z_angle, \
                             thumb_x_angle, index_x_angle, \
@@ -164,7 +168,8 @@ def create_features(hand_data, wrist_data):
                             index_x_vel, index_y_vel, index_z_vel, \
                             wrist_x_angle, wrist_y_angle, wrist_z_angle, \
                             wrist_x_acc, wrist_y_acc, wrist_z_acc, \
-                            wrist_x_vel, wrist_y_vel, wrist_z_vel])
+                            wrist_x_vel, wrist_y_vel, wrist_z_vel, \
+                            helical_x_angle, helical_y_angle, helical_z_angle])
 
     return feature_set
 
@@ -188,6 +193,11 @@ if __name__ == '__main__':
     # CLASS = '0'
     # IS_DEBUG = 'y'
 
+    # print(RESEARCH_QUESTION)
+    # print(CLASS)
+    # print(IS_DEBUG)
+    # exit(0)
+
     if(IS_DEBUG == 'n'):
         if(RESEARCH_QUESTION == 'q1'):
             FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
@@ -197,6 +207,7 @@ if __name__ == '__main__':
 
             path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + CLASS + '_*'))
             path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
 
         if(RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
@@ -206,6 +217,7 @@ if __name__ == '__main__':
 
             path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
             path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_20' + CLASS + '_*'))
 
     if (IS_DEBUG == 'y'):
         if (RESEARCH_QUESTION == 'q1'):
@@ -216,6 +228,7 @@ if __name__ == '__main__':
 
             path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_' + CLASS + '_*'))
             path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
 
         if (RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
@@ -225,6 +238,7 @@ if __name__ == '__main__':
 
             path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
             path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_20_' + CLASS + '_*'))
 
     subject_count = 0
 
@@ -232,31 +246,39 @@ if __name__ == '__main__':
     #
     # wrist_ = get_data(aa)
 
-    for hand, wrist in zip(path_hand, path_wrist):
+    for hand, wrist, helical in zip(path_hand, path_wrist, path_helical):
         # print(hand)
         # print(wrist)
         list_idx = 0
         if(RESEARCH_QUESTION == 'q1'):
             hand_lists = get_data(hand)
             wrist_lists = get_data(wrist)
+            helical_lists = get_data(helical)
 
         if(RESEARCH_QUESTION == 'q3'):
             hand_lists = get_data_full(hand)
             wrist_lists = get_data_full(wrist)
+            helical_lists = get_data_full(helical)
 
-        for list_idx in range(min(len(hand_lists), len(wrist_lists))):
-            if (list_idx != 0):
-                feature_temp = create_features(hand_lists[list_idx], wrist_lists[list_idx])
+        for list_idx in range(min(len(hand_lists), len(wrist_lists), len(helical_lists))):
+            if (list_idx > 0):
+                feature_temp = \
+                    create_features(hand_lists[list_idx], wrist_lists[list_idx], helical_lists[list_idx])
                 feature = np.concatenate((feature, feature_temp))
             else:
-                feature = create_features(hand_lists[list_idx], wrist_lists[list_idx])
+                feature = \
+                    create_features(hand_lists[list_idx], wrist_lists[list_idx], helical_lists[list_idx])
 
-        if (subject_count != 0):
+        if (subject_count > 0):
             feature_set = np.concatenate((feature_set, feature))
         else:
             feature_set = feature
 
         subject_count += 1
+
+    # print(feature_set.shape)
+    # print(IS_DEBUG)
+    # exit(0)
 
     with open(FEATURE_PICKLE_PATH, 'wb') as f:
         pickle.dump(feature_set, f, pickle.HIGHEST_PROTOCOL)

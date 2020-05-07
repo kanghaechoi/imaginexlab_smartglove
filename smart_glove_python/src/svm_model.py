@@ -1,4 +1,5 @@
 from sklearn.svm import LinearSVC
+from sklearn.metrics import f1_score
 import pickle
 import numpy as np
 import sys
@@ -11,6 +12,18 @@ def load_data(feature_path, label_path):
         label = pickle.load(f)
 
     return feature, label
+
+
+def get_f1(y_pred, y_true): #taken from old keras source code
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+    predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+    precision = true_positives / (predicted_positives + K.epsilon())
+    recall = true_positives / (possible_positives + K.epsilon())
+    f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
+
+    return f1_val
+
 
 if __name__ == '__main__':
     argument = sys.argv
@@ -48,4 +61,8 @@ if __name__ == '__main__':
     err = round(((len(err_idx)/ test_len) * 100), 2)
     acc = 100 - err
 
+    f1 = f1_score(test_label, predicted_label, average='macro')
+    f1 = round((f1 * 100), 2)
+
     print('SVM model\'s accuracy is ', acc, '%')
+    print('SVM model\'s F1 score is ', f1, '%')
