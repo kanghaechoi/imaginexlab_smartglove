@@ -63,6 +63,16 @@ if __name__ == '__main__':
             FEATURE_ALL = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
             LABEL_ALL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
 
+        if(RESEARCH_QUESTION == 'q2'):
+            FEATURE_0 = './pickle/' + RESEARCH_QUESTION + '/0_feature_seq.pickle'
+            FEATURE_1 = './pickle/' + RESEARCH_QUESTION + '/1_feature_seq.pickle'
+
+            LABEL_0 = './pickle/' + RESEARCH_QUESTION + '/0_label_seq.pickle'
+            LABEL_1 = './pickle/' + RESEARCH_QUESTION + '/1_label_seq.pickle'
+
+            FEATURE_ALL = './pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+            LABEL_ALL = './pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+
         if(RESEARCH_QUESTION == 'q3'):
             FEATURE_0 = './pickle/' + RESEARCH_QUESTION + '/0_feature_seq.pickle'
             FEATURE_1 = './pickle/' + RESEARCH_QUESTION + '/1_feature_seq.pickle'
@@ -82,6 +92,16 @@ if __name__ == '__main__':
             LABEL_20 = '../pickle/' + RESEARCH_QUESTION + '/20_label_seq.pickle'
             LABEL_50 = '../pickle/' + RESEARCH_QUESTION + '/50_label_seq.pickle'
             LABEL_70 = '../pickle/' + RESEARCH_QUESTION + '/70_label_seq.pickle'
+
+            FEATURE_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
+            LABEL_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
+
+        if (RESEARCH_QUESTION == 'q2'):
+            FEATURE_0 = '../pickle/' + RESEARCH_QUESTION + '/0_feature_seq.pickle'
+            FEATURE_1 = '../pickle/' + RESEARCH_QUESTION + '/1_feature_seq.pickle'
+
+            LABEL_0 = '../pickle/' + RESEARCH_QUESTION + '/0_label_seq.pickle'
+            LABEL_1 = '../pickle/' + RESEARCH_QUESTION + '/1_label_seq.pickle'
 
             FEATURE_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_feature_seq.pickle'
             LABEL_ALL = '../pickle/' + RESEARCH_QUESTION + '/all_label_seq.pickle'
@@ -118,6 +138,23 @@ if __name__ == '__main__':
             label_70 = pickle.load(f)
 
         all_label = np.concatenate((label_20, label_50, label_70))
+
+    if (RESEARCH_QUESTION == 'q2'):
+        with open(FEATURE_0, 'rb') as f:
+            feature_0 = pickle.load(f)
+
+        with open(FEATURE_1, 'rb') as f:
+            feature_1 = pickle.load(f)
+
+        all_feature = np.dstack((feature_0, feature_1))
+
+        with open(LABEL_0, 'rb') as f:
+            label_0 = pickle.load(f)
+
+        with open(LABEL_1, 'rb') as f:
+            label_1 = pickle.load(f)
+
+        all_label = np.concatenate((label_0, label_1))
 
     if (RESEARCH_QUESTION == 'q3'):
         with open(FEATURE_0, 'rb') as f:

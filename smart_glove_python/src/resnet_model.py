@@ -211,6 +211,8 @@ def conv5_layer(x):
 def resnet(input_len):
     if (RESEARCH_QUESTION == 'q1'):
         num_class = 3
+    if (RESEARCH_QUESTION == 'q2'):
+        num_class = 2
     if (RESEARCH_QUESTION == 'q3'):
         num_class = 2
 
@@ -318,9 +320,9 @@ if __name__ == "__main__":
     print(model.summary())
 
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=8,
+                batch_size=64,
                 # batch_size=1775,
-                epochs=100
+                epochs=200
             )
 
     prediction = model.predict(test_feature_)
@@ -332,7 +334,7 @@ if __name__ == "__main__":
     err = round(((len(err_idx) / test_len) * 100), 2)
     acc = 100 - err
 
-    f1 = f1_score(test_label, predicted_label, average='macro')
+    f1 = f1_score(test_labels, predicted_label, average='macro')
     f1 = round((f1 * 100), 2)
 
     print('CNN model\'s accuracy is ', acc, '%')

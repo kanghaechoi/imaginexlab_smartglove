@@ -23,7 +23,7 @@ def load_data(feature_path, label_path):
 def lstm(input_len):
     model = Sequential()
     model.add(Dense(128, input_shape=(input_len[1], input_len[2])))
-    model.add(Bidirectional(LSTM(512)))
+    model.add(Bidirectional(LSTM(256)))
     model.add(Dropout(0.5))
     # model.add(Bidirectional(LSTM(128)))
     # model.add(Dropout(0.5))
@@ -31,6 +31,8 @@ def lstm(input_len):
     # model.add(Dropout(0.5))
     if (RESEARCH_QUESTION == 'q1'):
         model.add(Dense(3, activation='softmax'))
+    if (RESEARCH_QUESTION == 'q2'):
+        model.add(Dense(2, activation='softmax'))
     if (RESEARCH_QUESTION == 'q3'):
         model.add(Dense(2, activation='softmax'))
 
@@ -116,7 +118,7 @@ if __name__ == "__main__":
     print(model.summary())
 
     model.fit(train_feature, train_onehot.toarray(),
-                batch_size=8,
+                batch_size=32,
                 # batch_size=1775,
                 epochs=200
             )
@@ -129,7 +131,7 @@ if __name__ == "__main__":
     err = round(((len(err_idx) / test_len) * 100), 2)
     acc = 100 - err
 
-    f1 = f1_score(test_label, predicted_label, average='macro')
+    f1 = f1_score(test_labels, predicted_label, average='macro')
     f1 = round((f1 * 100), 2)
 
     print('RNN model\'s accuracy is ', acc, '%')

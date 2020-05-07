@@ -207,6 +207,16 @@ if __name__ == '__main__':
             path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
             path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
 
+        if (RESEARCH_QUESTION == 'q2'):
+            FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_seq.pickle'
+            LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_seq.pickle'
+
+            path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_20_' + CLASS + '_*'))
+
         if (RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
                                   + CLASS + '_feature_seq.pickle'
@@ -228,6 +238,16 @@ if __name__ == '__main__':
             path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
             path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
 
+        if (RESEARCH_QUESTION == 'q2'):
+            FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_seq.pickle'
+            LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_seq.pickle'
+
+            path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_20_' + CLASS + '_*'))
+
         if (RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
                                   + CLASS + '_feature_seq.pickle'
@@ -243,6 +263,11 @@ if __name__ == '__main__':
     for hand, wrist, helical in zip(path_hand, path_wrist, path_helical):
         list_idx = 0
         if(RESEARCH_QUESTION == 'q1'):
+            hand_lists = load_data(hand)
+            wrist_lists = load_data(wrist)
+            helical_lists = load_data(helical)
+
+        if(RESEARCH_QUESTION == 'q2'):
             hand_lists = load_data(hand)
             wrist_lists = load_data(wrist)
             helical_lists = load_data(helical)
