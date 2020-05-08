@@ -26,7 +26,7 @@ def load_data(feature_path, label_path):
 
 def conv1_layer(x):
     x = ZeroPadding2D(padding=(3, 3))(x)
-    x = Conv2D(32, (7, 7), strides=(2, 2))(x)
+    x = Conv2D(64, (7, 7), strides=(2, 2))(x)
     x = BatchNormalization()(x)
     x = Activation('relu')(x)
     x = ZeroPadding2D(padding=(1, 1))(x)
@@ -41,50 +41,7 @@ def conv2_layer(x):
 
     for i in range(3):
         if (i == 0):
-            x = Conv2D(32, (1, 1), strides=(1, 1), padding='valid')(x)
-            x = BatchNormalization()(x)
-            x = Activation('relu')(x)
-
-            x = Conv2D(32, (3, 3), strides=(1, 1), padding='same')(x)
-            x = BatchNormalization()(x)
-            x = Activation('relu')(x)
-
-            x = Conv2D(128, (1, 1), strides=(1, 1), padding='valid')(x)
-            shortcut = Conv2D(128, (1, 1), strides=(1, 1), padding='valid')(shortcut)
-            x = BatchNormalization()(x)
-            shortcut = BatchNormalization()(shortcut)
-
-            x = Add()([x, shortcut])
-            x = Activation('relu')(x)
-
-            shortcut = x
-
-        else:
-            x = Conv2D(32, (1, 1), strides=(1, 1), padding='valid')(x)
-            x = BatchNormalization()(x)
-            x = Activation('relu')(x)
-
-            x = Conv2D(32, (3, 3), strides=(1, 1), padding='same')(x)
-            x = BatchNormalization()(x)
-            x = Activation('relu')(x)
-
-            x = Conv2D(128, (1, 1), strides=(1, 1), padding='valid')(x)
-            x = BatchNormalization()(x)
-
-            x = Add()([x, shortcut])
-            x = Activation('relu')(x)
-
-            shortcut = x
-
-    return x
-
-
-def conv3_layer(x):
-    shortcut = x
-
-    for i in range(4):
-        if (i == 0):
-            x = Conv2D(64, (1, 1), strides=(2, 2), padding='valid')(x)
+            x = Conv2D(64, (1, 1), strides=(1, 1), padding='valid')(x)
             x = BatchNormalization()(x)
             x = Activation('relu')(x)
 
@@ -93,7 +50,7 @@ def conv3_layer(x):
             x = Activation('relu')(x)
 
             x = Conv2D(256, (1, 1), strides=(1, 1), padding='valid')(x)
-            shortcut = Conv2D(256, (1, 1), strides=(2, 2), padding='valid')(shortcut)
+            shortcut = Conv2D(256, (1, 1), strides=(1, 1), padding='valid')(shortcut)
             x = BatchNormalization()(x)
             shortcut = BatchNormalization()(shortcut)
 
@@ -122,10 +79,10 @@ def conv3_layer(x):
     return x
 
 
-def conv4_layer(x):
+def conv3_layer(x):
     shortcut = x
 
-    for i in range(6):
+    for i in range(4):
         if (i == 0):
             x = Conv2D(128, (1, 1), strides=(2, 2), padding='valid')(x)
             x = BatchNormalization()(x)
@@ -165,10 +122,10 @@ def conv4_layer(x):
     return x
 
 
-def conv5_layer(x):
+def conv4_layer(x):
     shortcut = x
 
-    for i in range(3):
+    for i in range(6):
         if (i == 0):
             x = Conv2D(256, (1, 1), strides=(2, 2), padding='valid')(x)
             x = BatchNormalization()(x)
@@ -198,6 +155,49 @@ def conv5_layer(x):
             x = Activation('relu')(x)
 
             x = Conv2D(1024, (1, 1), strides=(1, 1), padding='valid')(x)
+            x = BatchNormalization()(x)
+
+            x = Add()([x, shortcut])
+            x = Activation('relu')(x)
+
+            shortcut = x
+
+    return x
+
+
+def conv5_layer(x):
+    shortcut = x
+
+    for i in range(3):
+        if (i == 0):
+            x = Conv2D(512, (1, 1), strides=(2, 2), padding='valid')(x)
+            x = BatchNormalization()(x)
+            x = Activation('relu')(x)
+
+            x = Conv2D(512, (3, 3), strides=(1, 1), padding='same')(x)
+            x = BatchNormalization()(x)
+            x = Activation('relu')(x)
+
+            x = Conv2D(2048, (1, 1), strides=(1, 1), padding='valid')(x)
+            shortcut = Conv2D(2048, (1, 1), strides=(2, 2), padding='valid')(shortcut)
+            x = BatchNormalization()(x)
+            shortcut = BatchNormalization()(shortcut)
+
+            x = Add()([x, shortcut])
+            x = Activation('relu')(x)
+
+            shortcut = x
+
+        else:
+            x = Conv2D(512, (1, 1), strides=(1, 1), padding='valid')(x)
+            x = BatchNormalization()(x)
+            x = Activation('relu')(x)
+
+            x = Conv2D(512, (3, 3), strides=(1, 1), padding='same')(x)
+            x = BatchNormalization()(x)
+            x = Activation('relu')(x)
+
+            x = Conv2D(2048, (1, 1), strides=(1, 1), padding='valid')(x)
             x = BatchNormalization()(x)
 
             x = Add()([x, shortcut])
@@ -322,7 +322,7 @@ if __name__ == "__main__":
     model.fit(train_feature_, train_onehot.toarray(),
                 batch_size=64,
                 # batch_size=1775,
-                epochs=200
+                epochs=500
             )
 
     prediction = model.predict(test_feature_)
