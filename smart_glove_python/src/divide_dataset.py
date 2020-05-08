@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # RESEARCH_QUESTION = 'q3'
     # TARGET = 'seq'
     # IS_DEBUG = 'y'
-    # F_REDUCE = 5
+    # F_REDUCE = 0
 
     if(IS_DEBUG == 'n'):
         if(TARGET == 'norm'):
