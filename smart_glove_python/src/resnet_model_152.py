@@ -7,7 +7,7 @@ from tensorflow.keras.layers import BatchNormalization, Add
 from tensorflow.keras.regularizers import l2
 import tensorflow.keras.optimizers as opt
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, confusion_matrix
 
 import numpy as np
 import pickle
@@ -317,12 +317,13 @@ if __name__ == "__main__":
 
     model.compile(optimizer=adam, loss='categorical_crossentropy')
 
-    print(model.summary())
+    # print(model.summary())
+    print('ResNet-152')
 
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=64,
+                batch_size=16,
                 # batch_size=1775,
-                epochs=300
+                epochs=500
             )
 
     prediction = model.predict(test_feature_)
@@ -337,5 +338,73 @@ if __name__ == "__main__":
     f1 = f1_score(test_labels, predicted_label, average='macro')
     f1 = round((f1 * 100), 2)
 
+    conf_mat = confusion_matrix(test_labels, predicted_label)
+
+    print(conf_mat)
+
+    if (RESEARCH_QUESTION == 'q1'):
+        conf_mat_11, conf_mat_12, conf_mat_13, \
+        conf_mat_21, conf_mat_22, conf_mat_23, \
+        conf_mat_31, conf_mat_32, conf_mat_33 = conf_mat.ravel()
+
+        len_20 = np.where(test_labels == 0)[0].size
+        len_50 = np.where(test_labels == 1)[0].size
+        len_70 = np.where(test_labels == 2)[0].size
+
+        accu = (conf_mat_11 + conf_mat_22 + conf_mat_33) / np.sum(conf_mat.ravel())
+        recall = ((len_20 * (conf_mat_11 / np.sum(conf_mat[:, 0]))) + \
+                  (len_50 * (conf_mat_22 / np.sum(conf_mat[:, 1]))) + \
+                  (len_70 * (conf_mat_33 / np.sum(conf_mat[:, 2])))) / \
+                 (len_20 + len_50 + len_70)
+        precision = ((len_20 * (conf_mat_11 / np.sum(conf_mat[0, :]))) + \
+                     (len_50 * (conf_mat_22 / np.sum(conf_mat[1, :]))) + \
+                     (len_70 * (conf_mat_33 / np.sum(conf_mat[2, :])))) / \
+                    (len_20 + len_50 + len_70)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = ((len_20 * (np.sum(conf_mat[1:3, 1:3]) / np.sum(conf_mat[:, 1:3]))) + \
+                       (len_50 * ((conf_mat_11 + conf_mat_13 + conf_mat_31 + conf_mat_33) / \
+                                  (np.sum(conf_mat[:, 0]) + np.sum(conf_mat[:, 2])))) + \
+                       (len_70 * (np.sum(conf_mat[0:2, 0:2]) / np.sum(conf_mat[:, 0:2])))) / \
+                      (len_20 + len_50 + len_70)
+
+        far = ((len_20 * (np.sum(conf_mat[0, 1:3]) / np.sum(conf_mat[:, 1:3]))) + \
+               (len_50 * ((conf_mat_21 + conf_mat_23) / \
+                          (np.sum(conf_mat[:, 0]) + np.sum(conf_mat[:, 2])))) + \
+               (len_70 * (np.sum(conf_mat[2, 0:2]) / np.sum(conf_mat[:, 0:2])))) / \
+              (len_20 + len_50 + len_70)
+        frr = ((len_20 * (np.sum(conf_mat[1:3, 0]) / np.sum(conf_mat[:, 0]))) + \
+               (len_50 * ((conf_mat_12 + conf_mat_32) / np.sum(conf_mat[:, 1]))) + \
+               (len_70 * (np.sum(conf_mat[0:2, 2]) / np.sum(conf_mat[:, 2])))) / \
+              (len_20 + len_50 + len_70)
+
+    if (RESEARCH_QUESTION == 'q2'):
+        tn, fp, fn, tp = conf_mat.ravel()
+
+        accu = (tn + tp) / np.sum(conf_mat.ravel())
+        recall = tp / (tp + fn)
+        precision = tp / (tp + fp)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = tn / (fp + tn)
+        far = fp / (fp + tn)
+        frr = fn / (fn + tp)
+
+    if (RESEARCH_QUESTION == 'q3'):
+        tn, fp, fn, tp = conf_mat.ravel()
+
+        accu = (tn + tp) / np.sum(conf_mat.ravel())
+        recall = tp / (tp + fn)
+        precision = tp / (tp + fp)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = tn / (fp + tn)
+        far = fp / (fp + tn)
+        frr = fn / (fn + tp)
+
     print('CNN model\'s accuracy is ', acc, '%')
     print('CNN model\'s F1 score is ', f1, '%')
+    print(accu)
+    print(specificity)
+    print(recall)
+    print(precision)
+    print(f1_s)
+    print(far)
+    print(frr)
