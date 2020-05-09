@@ -1,5 +1,5 @@
 from sklearn.svm import LinearSVC
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, confusion_matrix
 import pickle
 import numpy as np
 import sys
@@ -63,6 +63,15 @@ if __name__ == '__main__':
 
     f1 = f1_score(test_label, predicted_label, average='macro')
     f1 = round((f1 * 100), 2)
+
+    conf_mat = confusion_matrix(test_label, predicted_label)
+    print(conf_mat)
+
+    count_all = np.sum(np.sum(conf_mat, axis=0), axis=0)
+    print(count_all)
+    true_all = np.sum(conf_mat.diagonal(), axis=0)
+    print(true_all)
+    print(((true_all/count_all) * 100))
 
     print('SVM model\'s accuracy is ', acc, '%')
     print('SVM model\'s F1 score is ', f1, '%')
