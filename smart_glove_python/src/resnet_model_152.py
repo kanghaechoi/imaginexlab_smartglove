@@ -321,7 +321,7 @@ if __name__ == "__main__":
     print('ResNet-152')
 
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=16,
+                batch_size=256,
                 # batch_size=1775,
                 epochs=500
             )
