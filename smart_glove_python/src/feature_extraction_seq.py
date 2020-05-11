@@ -40,13 +40,22 @@ def load_data(path):
 
 def load_data_full(path):
     raw_data = []
+    raw_data_buffer = []
 
     with open(path, 'r') as f:
-        for line in f:
-            raw_data_buffer = line.split()
-            raw_data.append(raw_data_buffer)
+        seq_count = 0
 
-    raw_data =[raw_data]
+        for line in f:
+            line_list = line.split()
+            raw_data_buffer.append(line_list)
+            seq_count += 1
+
+            if (seq_count == 150):
+                raw_data.append(raw_data_buffer)
+                raw_data_buffer = []
+                seq_count = 0
+
+        raw_data.append(raw_data_buffer)
 
     return raw_data
 
@@ -186,13 +195,13 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    RESEARCH_QUESTION = argument[0]
-    CLASS = argument[1]
-    IS_DEBUG = argument[2]
+    # RESEARCH_QUESTION = argument[0]
+    # CLASS = argument[1]
+    # IS_DEBUG = argument[2]
 
-    # RESEARCH_QUESTION = 'q1'
-    # CLASS = '20'
-    # IS_DEBUG = 'y'
+    RESEARCH_QUESTION = 'q2'
+    CLASS = '0'
+    IS_DEBUG = 'y'
 
     SEQ_LENGTH = 150
 
