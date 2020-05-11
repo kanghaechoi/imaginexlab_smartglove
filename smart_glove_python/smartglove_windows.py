@@ -113,7 +113,7 @@ def run_cnn(q_num, OS):
             os.system('python ./src/divide_dataset.py ' + q_num + ' seq n ' + f_reduce)
         elif (process == '4'):
             # Train CNN model and validate it
-            os.system('python ./src/resnet_model_152.py ' + q_num + ' n')
+            os.system('python ./src/resnet_model_50.py ' + q_num + ' n')
         else:
             break
 

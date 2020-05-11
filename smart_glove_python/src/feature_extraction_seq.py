@@ -195,13 +195,13 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    # RESEARCH_QUESTION = argument[0]
-    # CLASS = argument[1]
-    # IS_DEBUG = argument[2]
+    RESEARCH_QUESTION = argument[0]
+    CLASS = argument[1]
+    IS_DEBUG = argument[2]
 
-    RESEARCH_QUESTION = 'q2'
-    CLASS = '0'
-    IS_DEBUG = 'y'
+    # RESEARCH_QUESTION = 'q2'
+    # CLASS = '0'
+    # IS_DEBUG = 'y'
 
     SEQ_LENGTH = 150
 

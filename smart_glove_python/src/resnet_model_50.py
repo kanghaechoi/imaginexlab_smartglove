@@ -323,7 +323,7 @@ if __name__ == "__main__":
 
     train_start = time.time()
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=256,
+                batch_size=32,
                 # batch_size=1775,
                 epochs=500
             )

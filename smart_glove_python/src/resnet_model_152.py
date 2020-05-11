@@ -12,6 +12,7 @@ from sklearn.metrics import f1_score, confusion_matrix
 import numpy as np
 import pickle
 import sys
+import time
 import random
 
 def load_data(feature_path, label_path):
@@ -320,14 +321,24 @@ if __name__ == "__main__":
     # print(model.summary())
     print('ResNet-152')
 
+    train_start = time.time()
     model.fit(train_feature_, train_onehot.toarray(),
-                batch_size=256,
+                batch_size=32,
                 # batch_size=1775,
                 epochs=500
             )
+    train_end = time.time()
 
+    pred_start = time.time()
     prediction = model.predict(test_feature_)
+    pred_end = time.time()
+
     predicted_label = np.argmax(prediction, axis=1).reshape((-1, 1))
+
+    train_time = train_end - train_start
+    pred_time = (pred_end - pred_start) / predicted_label.shape[0]
+    print(train_time)
+    print(pred_time)
 
     err_array = np.subtract(predicted_label, test_labels)
     err_idx = np.where(err_array != 0)[1]
