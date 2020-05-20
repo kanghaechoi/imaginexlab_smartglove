@@ -21,15 +21,15 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    RESEARCH_QUESTION = argument[0]
-    TARGET = argument[1]
-    IS_DEBUG = argument[2]
-    F_REDUCE = argument[3]
+    # RESEARCH_QUESTION = argument[0]
+    # TARGET = argument[1]
+    # IS_DEBUG = argument[2]
+    # F_REDUCE = argument[3]
 
-    # RESEARCH_QUESTION = 'q3'
-    # TARGET = 'seq'
-    # IS_DEBUG = 'y'
-    # F_REDUCE = 0
+    RESEARCH_QUESTION = 'q1'
+    TARGET = 'seq'
+    IS_DEBUG = 'y'
+    F_REDUCE = 0
 
     if(IS_DEBUG == 'n'):
         if(TARGET == 'norm'):
