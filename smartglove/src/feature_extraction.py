@@ -185,13 +185,13 @@ if __name__ == '__main__':
     argument = sys.argv
     del argument[0]
 
-    RESEARCH_QUESTION = argument[0]
-    CLASS = argument[1]
-    IS_DEBUG = argument[2]
+    # RESEARCH_QUESTION = argument[0]
+    # CLASS = argument[1]
+    # IS_DEBUG = argument[2]
 
-    # RESEARCH_QUESTION = 'q3'
-    # CLASS = '0'
-    # IS_DEBUG = 'y'
+    RESEARCH_QUESTION = 'q3'
+    CLASS = '0'
+    IS_DEBUG = 'y'
 
     # print(RESEARCH_QUESTION)
     # print(CLASS)
@@ -208,6 +208,16 @@ if __name__ == '__main__':
             path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_' + CLASS + '_*'))
             path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
             path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
+
+        if (RESEARCH_QUESTION == 'q2'):
+            FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
+
+            path_hand = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('./data/' + RESEARCH_QUESTION + '/Helical_IMU_20' + CLASS + '_*'))
 
         if(RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = './pickle/' + RESEARCH_QUESTION + '/' \
@@ -230,6 +240,16 @@ if __name__ == '__main__':
             path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_' + CLASS + '_*'))
             path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_' + CLASS + '_*'))
 
+        if (RESEARCH_QUESTION == 'q2'):
+            FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                  + CLASS + '_feature_norm.pickle'
+            LABEL_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
+                                + CLASS + '_label_norm.pickle'
+
+            path_hand = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Hand_IMU_20_' + CLASS + '_*'))
+            path_wrist = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Wrist_IMU_20_' + CLASS + '_*'))
+            path_helical = sorted(glob.glob('../data/' + RESEARCH_QUESTION + '/Helical_IMU_20_' + CLASS + '_*'))
+
         if (RESEARCH_QUESTION == 'q3'):
             FEATURE_PICKLE_PATH = '../pickle/' + RESEARCH_QUESTION + '/' \
                                   + CLASS + '_feature_norm.pickle'
@@ -251,6 +271,11 @@ if __name__ == '__main__':
         # print(wrist)
         list_idx = 0
         if(RESEARCH_QUESTION == 'q1'):
+            hand_lists = get_data(hand)
+            wrist_lists = get_data(wrist)
+            helical_lists = get_data(helical)
+
+        if(RESEARCH_QUESTION == 'q2'):
             hand_lists = get_data(hand)
             wrist_lists = get_data(wrist)
             helical_lists = get_data(helical)

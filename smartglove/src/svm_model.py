@@ -65,13 +65,72 @@ if __name__ == '__main__':
     f1 = round((f1 * 100), 2)
 
     conf_mat = confusion_matrix(test_label, predicted_label)
+
     print(conf_mat)
 
-    count_all = np.sum(np.sum(conf_mat, axis=0), axis=0)
-    print(count_all)
-    true_all = np.sum(conf_mat.diagonal(), axis=0)
-    print(true_all)
-    print(((true_all/count_all) * 100))
+    if (RESEARCH_QUESTION == 'q1'):
+        conf_mat_11, conf_mat_12, conf_mat_13, \
+        conf_mat_21, conf_mat_22, conf_mat_23, \
+        conf_mat_31, conf_mat_32, conf_mat_33 = conf_mat.ravel()
+
+        len_20 = np.where(test_label == 20)[0].size
+        len_50 = np.where(test_label == 50)[0].size
+        len_70 = np.where(test_label == 70)[0].size
+
+        accu = (conf_mat_11 + conf_mat_22 + conf_mat_33) / np.sum(conf_mat.ravel())
+        recall = ((len_20 * (conf_mat_11 / np.sum(conf_mat[:, 0]))) + \
+                  (len_50 * (conf_mat_22 / np.sum(conf_mat[:, 1]))) + \
+                  (len_70 * (conf_mat_33 / np.sum(conf_mat[:, 2])))) / \
+                 (len_20 + len_50 + len_70)
+        precision = ((len_20 * (conf_mat_11 / np.sum(conf_mat[0, :]))) + \
+                     (len_50 * (conf_mat_22 / np.sum(conf_mat[1, :]))) + \
+                     (len_70 * (conf_mat_33 / np.sum(conf_mat[2, :])))) / \
+                    (len_20 + len_50 + len_70)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = ((len_20 * (np.sum(conf_mat[1:3, 1:3]) / np.sum(conf_mat[:, 1:3]))) + \
+                       (len_50 * ((conf_mat_11 + conf_mat_13 + conf_mat_31 + conf_mat_33) / \
+                                  (np.sum(conf_mat[:, 0]) + np.sum(conf_mat[:, 2])))) + \
+                       (len_70 * (np.sum(conf_mat[0:2, 0:2]) / np.sum(conf_mat[:, 0:2])))) / \
+                      (len_20 + len_50 + len_70)
+
+        far = ((len_20 * (np.sum(conf_mat[0, 1:3]) / np.sum(conf_mat[:, 1:3]))) + \
+               (len_50 * ((conf_mat_21 + conf_mat_23) / \
+                          (np.sum(conf_mat[:, 0]) + np.sum(conf_mat[:, 2])))) + \
+               (len_70 * (np.sum(conf_mat[2, 0:2]) / np.sum(conf_mat[:, 0:2])))) / \
+              (len_20 + len_50 + len_70)
+        frr = ((len_20 * (np.sum(conf_mat[1:3, 0]) / np.sum(conf_mat[:, 0]))) + \
+               (len_50 * ((conf_mat_12 + conf_mat_32) / np.sum(conf_mat[:, 1]))) + \
+               (len_70 * (np.sum(conf_mat[0:2, 2]) / np.sum(conf_mat[:, 2])))) / \
+              (len_20 + len_50 + len_70)
+
+    if (RESEARCH_QUESTION == 'q2'):
+        tn, fp, fn, tp = conf_mat.ravel()
+
+        accu = (tn + tp) / np.sum(conf_mat.ravel())
+        recall = tp / (tp + fn)
+        precision = tp / (tp + fp)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = tn / (fp + tn)
+        far = fp / (fp + tn)
+        frr = fn / (fn + tp)
+
+    if (RESEARCH_QUESTION == 'q3'):
+        tn, fp, fn, tp = conf_mat.ravel()
+
+        accu = (tn + tp) / np.sum(conf_mat.ravel())
+        recall = tp / (tp + fn)
+        precision = tp / (tp + fp)
+        f1_s = (2 * precision * recall) / (precision + recall)
+        specificity = tn / (fp + tn)
+        far = fp / (fp + tn)
+        frr = fn / (fn + tp)
 
     print('SVM model\'s accuracy is ', acc, '%')
     print('SVM model\'s F1 score is ', f1, '%')
+    print(accu)
+    print(specificity)
+    print(recall)
+    print(precision)
+    print(f1_s)
+    print(far)
+    print(frr)
